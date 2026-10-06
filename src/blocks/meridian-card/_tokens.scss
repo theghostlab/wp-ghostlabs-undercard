@@ -1,0 +1,34 @@
+@use "@styles/abstracts/tokens" as tokens;
+
+$dark: (
+	"surface": oklch(22.1% 0.0394 258.3),
+	"raised": oklch(26% 0.046 259.1),
+	"accent": oklch(73.6% 0.1002 83.4),
+	"text": oklch(95.3% 0.0099 87.5),
+	"muted": oklch(67.8% 0.0324 256.1),
+);
+
+$light: (
+	"surface": oklch(97.6% 0.007 88.6),
+	"raised": oklch(95% 0.0156 86.4),
+	"accent": oklch(61.2% 0.0948 82.3),
+	"text": oklch(28.1% 0.024 253.7),
+	"muted": oklch(54.8% 0.0236 255),
+);
+
+@mixin schemes() {
+	@include tokens.bases($dark);
+	@include tokens.ladder();
+
+	&:where([data-uc-scheme="light"]) {
+		@include tokens.bases($light);
+		@include tokens.ladder();
+	}
+
+	@media (prefers-color-scheme: light) {
+		&:where([data-uc-scheme="system"]) {
+			@include tokens.bases($light);
+			@include tokens.ladder();
+		}
+	}
+}

@@ -1,0 +1,15 @@
+@use "../../abstracts/typography" as t;
+@use "../faces/inter";
+
+@include t.fallback(
+	"Undercard Inter Fallback",
+	(local("Arial"), local("Helvetica Neue")),
+	106.5%,
+	91%,
+	22.6%
+);
+
+@include t.family("nfc") {
+	--ghostlabs-u-font-display: "Undercard Inter", "Undercard Inter Fallback", system-ui, sans-serif;
+	--ghostlabs-u-font-text: "Undercard Inter", "Undercard Inter Fallback", system-ui, sans-serif;
+}

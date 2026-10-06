@@ -1,0 +1,27 @@
+@use "../../abstracts/typography" as t;
+@use "../faces/league-spartan";
+@use "../faces/ibm-plex-sans";
+
+@include t.fallback(
+	"Undercard League Spartan Fallback",
+	(local("Impact"), local("Arial Narrow Bold"), local("Haettenschweiler")),
+	109.1%,
+	64.1%,
+	20.2%
+);
+@include t.fallback(
+	"Undercard IBM Plex Sans Fallback",
+	(local("Arial"), local("Helvetica Neue")),
+	100.5%,
+	102%,
+	27.4%
+);
+
+@include t.family("cobalt") {
+	--ghostlabs-u-font-display:
+		"Undercard League Spartan", "Undercard League Spartan Fallback", Impact,
+		sans-serif;
+	--ghostlabs-u-font-text:
+		"Undercard IBM Plex Sans", "Undercard IBM Plex Sans Fallback", system-ui,
+		sans-serif;
+}

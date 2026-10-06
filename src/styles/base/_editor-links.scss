@@ -1,0 +1,10 @@
+@mixin dead-links {
+	:is(a[href], button) {
+		cursor: default;
+		pointer-events: none;
+	}
+}
+
+.ghostlabs-u-card {
+	@include dead-links;
+}

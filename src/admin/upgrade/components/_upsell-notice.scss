@@ -1,0 +1,32 @@
+// The convention's notice treatment, on the profile screen.
+
+// Penpot → WordPress > Plugins → *Upsell surfaces — the convention*: "the claim
+// and the offer sit in the same box the upsell select uses", and the library's
+// `Upsell / Notice` is that box. In the block editor it is core's `Notice` with
+// a purple border (see `shared/src/editor/byline.scss`); on wp-admin's
+// `profile.php` there is no such component, so this draws the same box from
+// the same tokens.
+
+// ⚠️ The link carries no color of its own. Inheriting gives WordPress's own
+// blue *and* follows the site's admin color scheme, which a hex cannot.
+
+.ghostlabs-u-upsell-notice {
+	display: flex;
+	flex-direction: column;
+	gap: var(--ghostlabs-u-space-2);
+	max-inline-size: 48rem;
+	margin-block: var(--ghostlabs-u-space-4) 0;
+	padding: var(--ghostlabs-u-space-3);
+	border: 1px solid var(--ghostlabs-u-primary-400);
+	border-radius: var(--ghostlabs-u-radius-notice);
+	background: var(--ghostlabs-u-notice-ground);
+	color: var(--ghostlabs-u-notice-ink);
+
+	p {
+		margin: 0;
+	}
+}
+
+.ghostlabs-u-upsell-notice__claim {
+	font-weight: 600;
+}

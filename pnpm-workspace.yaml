@@ -1,0 +1,125 @@
+# Security pins and build-script approvals for the free edition.
+#
+# **Kept deliberately identical to pro-only/pnpm-workspace.yaml.** Both editions
+# install the same dev toolchain — @wordpress/scripts, wp-env, playwright — so
+# they inherit the same advisories, and a pin that exists in one tree and not
+# the other means `pnpm audit` passes in one tier and fails in the other for
+# reasons that have nothing to do with either tier's code.
+#
+# When you change one, change both. The alternative considered was a workspace
+# spanning both tiers; it was rejected because the monorepo spec puts all
+# tooling inside {tier}-only/ and a root workspace would put a lockfile above
+# them both.
+#
+#
+# Here rather than in package.json's `pnpm.overrides`: pnpm 11 stopped reading
+# that key and ignores it *with a warning rather than an error*, so an override
+# left there looks applied and does nothing.
+overrides:
+  # GHSA-2v37-7h3g-55p8 (high). Reaches us only through postcss, under both
+  # tailwindcss and @wordpress/scripts; nothing here depends on nanoid directly
+  # and neither parent has published a bump, so a pin is the only lever.
+  #
+  # Build-time only — postcss runs during Tailwind and webpack compilation, and
+  # nanoid never reaches a browser or a server — so this clears the audit rather
+  # than closing an exposure. Drop it once postcss's own floor passes 3.3.17.
+  nanoid@<3.3.17: ^3.3.17
+
+  # The rest of the dev toolchain, after bumping @wordpress/scripts 32 -> 34,
+  # @wordpress/env, @wordpress/icons, @wordpress/server-side-render and
+  # @wordpress/e2e-test-utils-playwright to current cleared 10 of 29 on its own.
+  # These are what upstream has not yet pulled through.
+  #
+  # Every selector is version-scoped, so only the vulnerable instances are
+  # replaced and a package that ships several majors in this tree keeps the ones
+  # that were never affected. Each lands inside its own major, so none of them is
+  # a breaking change — verified by the full build, 734 unit tests and 81
+  # Playwright specs, not assumed.
+  #
+  # None of these ship: they are webpack, eslint, stylelint, playwright and
+  # wp-env. The exposure they represent is a build machine processing a hostile
+  # input, not a site. Drop each override as its parent's floor moves past it.
+  minimatch@<3.1.3: ^3.1.3
+  # brace-expansion and js-yaml each ship several majors here, and each major
+  # has its own advisory — fixing only the first range left the others behind.
+  # One selector per affected major, so a major that was never vulnerable is
+  # not dragged forward. Raised 2026-10-06 for the advisories published since.
+  brace-expansion@<1.1.21: ^1.1.21
+  brace-expansion@>=2.0.0 <2.1.7: ^2.1.7
+  brace-expansion@>=4.0.0 <5.0.12: ^5.0.12
+  js-yaml@>=3.0.0 <3.15.2: ^3.15.2
+  js-yaml@>=4.0.0 <4.3.2: ^4.3.2
+  fast-uri@>=3.0.0 <3.1.8: ^3.1.8
+  linkify-it@<=5.0.0: ^5.0.1
+  markdown-it@<14.3.1: ^14.3.1
+  serialize-javascript@<=7.0.2: ^7.0.3
+  adm-zip@<0.6.1: ^0.6.1
+  '@opentelemetry/core@<2.8.0': ^2.8.0
+
+  # 2026-10-06: the full-tree audit had grown to 4 critical, 27 high and 25
+  # moderate in both tiers, all dev toolchain; these and the four below take it
+  # to 1 critical, 5 high and 1 moderate, every one without a usable fix (see
+  # the end of this list). Each of these lands inside the major already
+  # installed.
+  colord@<2.9.4: ^2.9.4
+  compression@<1.8.2: ^1.8.2
+  http-cache-semantics@<4.3.0: ^4.3.0
+  ip-address@>=10.0.0 <10.7.1: ^10.7.1
+  moment@>=2.29.2 <2.31.0: ^2.31.0
+  proxy-addr@<2.0.8: ^2.0.8
+  qs@>=6.0.0 <6.16.0: ^6.16.0
+  shell-quote@>=1.8.4 <1.11.0: ^1.11.0
+  source-map-js@>=1.0.0 <1.2.2: ^1.2.2
+  svgo@>=3.0.0 <3.3.5: ^3.3.5
+
+  # Majors. ⚠️ A major resolves cleanly and then fails when it is called, so
+  # each was proven by running the code that loads it, not by the install:
+  #
+  # - argv-parser 2 under simple-git 3: a real clone and fetch succeed, and the
+  #   unsafe-option guard still refuses `--upload-pack` (what it exists for).
+  '@simple-git/argv-parser@<2.0.1': ^2.0.1
+  # - basic-ftp 6 under get-uri (lighthouse > puppeteer > proxy-agent): every
+  #   Client method get-uri calls is still there, and get-uri loads.
+  basic-ftp@<6.2.1: ^6.2.1
+  # - postcss-selector-parser 7 under cssnano and the stylistic stylelint
+  #   plugin: the webpack build is byte-identical, and stylelint reports the
+  #   same findings as before.
+  postcss-selector-parser@<7.1.6: ^7.1.6
+  # - Sentry 10 under lighthouse, which closes the six
+  #   @opentelemetry/instrumentation-* advisories Sentry 9 pins exactly.
+  #   Lighthouse imports Sentry only with `--enable-error-reporting`, which no
+  #   test passes. ⚠️ The `@opentelemetry/core` pin above had already left
+  #   Sentry 9 unloadable (sdk-trace-base 1.x reading core 2.x), and nothing
+  #   noticed because nothing loads it; Sentry 10 loads, and every call
+  #   lighthouse makes runs. `~10.75.3`, not the newest: 10.76.x was hours old,
+  #   and pnpm's release-age gate refuses it without an exclusion.
+  '@sentry/node@>=9.0.0 <10.0.0': ~10.75.3
+
+  # The one major-version jump here, and the only one that needed checking
+  # beyond the normal gates. uuid 8.3.2 arrives under
+  # webpack-dev-server > sockjs, which nothing but `pnpm run start` loads — the
+  # production build, CI and the test suites never touch it. uuid dropped its
+  # default export in v9, so this is exactly the kind of pin that resolves
+  # cleanly and then fails at require() time. Smoke-tested by starting the dev
+  # server and watching it compile; keep that check if this ever moves.
+  uuid@<11.1.1: ^11.1.1
+
+  # Not pinned, on purpose. Each of these leaves the audit, and a pin would
+  # resolve to the vulnerable version while looking fixed:
+  #
+  # - extract-zip <=2.0.1 and braces <=3.0.3: the latest published versions are
+  #   the vulnerable ones.
+  # - sprintf-js <=1.1.3: the same.
+  # - simple-git <4.0.1 (1 critical, 2 high): the fix is v4, whose CommonJS
+  #   export is no longer callable, and wp-env calls `SimpleGit(path)`, so
+  #   `wp-env start` would crash. @wordpress/env 11.16 still requires ^3.
+  #   wp-env hands it only git URLs from this repo's own .wp-env.json.
+  # Drop each note when its upstream moves.
+
+allowBuilds:
+  '@parcel/watcher': false
+  core-js: false
+  core-js-pure: false
+  esbuild: true
+  fs-ext-extra-prebuilt: false
+  unrs-resolver: false

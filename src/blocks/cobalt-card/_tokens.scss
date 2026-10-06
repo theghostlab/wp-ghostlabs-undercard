@@ -1,0 +1,47 @@
+@use "@styles/abstracts/tokens" as tokens;
+
+$ii: (
+	"surface": oklch(18.1% 0.0052 248.1),
+	"panel": oklch(18.1% 0.0052 248.1),
+	"text": oklch(96.7% 0.0026 106.4),
+	"muted": oklch(66.1% 0.015 258.4),
+	"on-photo": oklch(100% 0 0),
+);
+
+$v: (
+	"surface": oklch(18.1% 0.0052 248.1),
+	"panel": oklch(97% 0.0054 95.1),
+	"text": oklch(23.3% 0.0157 189.2),
+	"muted": oklch(54.3% 0.0138 177.7),
+	"on-photo": oklch(100% 0 0),
+);
+
+@mixin rules() {
+	--ghostlabs-u-rule: oklch(from var(--ghostlabs-u-text) l c h / 0.18);
+}
+
+@mixin accent-on-panel($floor, $ceiling) {
+	--ghostlabs-u-accent-on-panel: oklch(
+		from var(--ghostlabs-u-accent) clamp(#{$floor}, l, #{$ceiling}) c h
+	);
+}
+
+@mixin sets() {
+	@include tokens.bases($ii);
+	@include tokens.ladder();
+	@include rules();
+
+	@include accent-on-panel(0.62, 1);
+
+	--ghostlabs-u-ring: var(--ghostlabs-u-on-photo);
+
+	&:where([data-uc-variation="v"]) {
+		@include tokens.bases($v);
+		@include tokens.ladder();
+		@include rules();
+
+		@include accent-on-panel(0, 0.46);
+
+		--ghostlabs-u-ring: var(--ghostlabs-u-accent-on-panel);
+	}
+}

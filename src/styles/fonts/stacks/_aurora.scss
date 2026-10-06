@@ -1,0 +1,15 @@
+@use "../../abstracts/typography" as t;
+@use "../faces/sora";
+
+@include t.fallback(
+	"Undercard Sora Fallback",
+	(local("Arial"), local("Helvetica Neue")),
+	113%,
+	85.9%,
+	25.7%
+);
+
+@include t.family("aurora") {
+	--ghostlabs-u-font-display: "Undercard Sora", "Undercard Sora Fallback", system-ui, sans-serif;
+	--ghostlabs-u-font-text: "Undercard Sora", "Undercard Sora Fallback", system-ui, sans-serif;
+}

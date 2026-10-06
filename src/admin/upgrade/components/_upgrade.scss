@@ -1,0 +1,44 @@
+// The upgrade tab's column and its two quiet cards: what stays free, and the
+// way in for somebody who already bought.
+
+.ghostlabs-u-upgrade {
+	display: flex;
+	flex-direction: column;
+	gap: var(--ghostlabs-u-space-2);
+	max-inline-size: var(--ghostlabs-u-content-max);
+	margin-block: var(--ghostlabs-u-space-6) var(--ghostlabs-u-space-12);
+	color: var(--ghostlabs-u-muted);
+	font-size: var(--ghostlabs-u-text-sm);
+
+	// ⚠️ Core sets `p { font-size: 13px; margin: 1em 0 }` on every admin
+	// paragraph; inside this column every paragraph's rhythm is the card's.
+	p {
+		margin: 0;
+		font-size: inherit;
+		line-height: 1.45;
+	}
+}
+
+.ghostlabs-u-upgrade__card,
+.ghostlabs-u-upgrade__strip {
+	padding: var(--ghostlabs-u-space-6) var(--ghostlabs-u-space-7);
+	border: 1px solid var(--ghostlabs-u-border);
+	border-radius: var(--ghostlabs-u-radius-card);
+	background: var(--ghostlabs-u-surface);
+}
+
+.ghostlabs-u-upgrade__strip {
+	padding-block: 1.125rem;
+}
+
+.ghostlabs-u-upgrade .ghostlabs-u-upgrade__card-title {
+	margin: 0 0 var(--ghostlabs-u-space-2);
+	font-size: var(--ghostlabs-u-text-base);
+	font-weight: 600;
+	line-height: 1.25;
+	color: var(--ghostlabs-u-ink);
+}
+
+.ghostlabs-u-upgrade__card p + p {
+	margin-block-start: 1.125rem;
+}

@@ -1,0 +1,90 @@
+// The screen: a white header band naming the plugin and its edition, then
+// core's own tab bar. Both tabs share it.
+
+.ghostlabs-u-screen__header {
+	display: flex;
+	align-items: center;
+	gap: var(--ghostlabs-u-space-3);
+	// Full-bleed across the content column: reach past `.wrap`'s margin and
+	// `#wpcontent`'s padding, then give the same distance back as padding.
+	margin-block: calc(var(--ghostlabs-u-wp-wrap-top) * -1) 0;
+	margin-inline: calc(var(--ghostlabs-u-wp-wrap-left) * -1) calc(var(--ghostlabs-u-wp-wrap-right) * -1);
+	padding-block: var(--ghostlabs-u-space-5) var(--ghostlabs-u-space-4);
+	padding-inline: var(--ghostlabs-u-wp-wrap-left) var(--ghostlabs-u-wp-wrap-right);
+	background: var(--ghostlabs-u-surface);
+}
+
+// ⚠️ Two classes on purpose: core's `.wrap h1` is (0,1,1), and a single class
+// loses to it silently — the rule applies and is overruled.
+.ghostlabs-u-screen .ghostlabs-u-screen__title {
+	margin: 0;
+	padding: 0;
+	font-size: var(--ghostlabs-u-text-title);
+	font-weight: 700;
+	line-height: 1.2;
+	color: var(--ghostlabs-u-wp-ink);
+}
+
+.ghostlabs-u-screen__badge {
+	padding: var(--ghostlabs-u-space-1) var(--ghostlabs-u-space-2);
+	border-radius: var(--ghostlabs-u-radius-card);
+	background: var(--ghostlabs-u-rule);
+	font-size: var(--ghostlabs-u-text-2xs);
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	line-height: 1.2;
+	text-transform: uppercase;
+	color: var(--ghostlabs-u-muted-strong);
+}
+
+// The tab strip: the settings UI's `Navigation` — an underline per tab on the
+// page's own gray, a hairline under the whole row. Full-bleed like the band
+// above it, and inset by the same distance, so the first underline starts
+// under the title.
+.ghostlabs-u-tabs {
+	margin-inline: calc(var(--ghostlabs-u-wp-wrap-left) * -1) calc(var(--ghostlabs-u-wp-wrap-right) * -1);
+	padding-inline: var(--ghostlabs-u-wp-wrap-left) var(--ghostlabs-u-wp-wrap-right);
+	border-block-end: 1px solid var(--ghostlabs-u-rule-strong);
+	overflow-x: auto;
+}
+
+.ghostlabs-u-tabs__list {
+	display: flex;
+	gap: var(--ghostlabs-u-space-4);
+	// Over the strip's hairline, so the active underline replaces it.
+	margin-block-end: -1px;
+}
+
+// ⚠️ Two classes on purpose: core's `.wrap a` and `a:focus` rules would
+// otherwise restyle the links — color, underline, the focus box-shadow.
+.ghostlabs-u-screen .ghostlabs-u-tabs__item {
+	padding: var(--ghostlabs-u-space-4);
+	border-block-end: 2px solid transparent;
+	font-size: var(--ghostlabs-u-text-sm);
+	line-height: 1.43;
+	white-space: nowrap;
+	text-decoration: none;
+	color: var(--ghostlabs-u-muted-strong);
+	box-shadow: none;
+
+	&:hover {
+		border-block-end-color: var(--ghostlabs-u-accent);
+		color: var(--ghostlabs-u-accent);
+	}
+
+	// Never removed, only moved: core's focus box-shadow is dropped above, so
+	// the ring has to be restored here or keyboard focus is invisible.
+	&:focus-visible {
+		outline: 2px solid var(--ghostlabs-u-accent);
+		outline-offset: -2px;
+	}
+
+	&.is-active {
+		border-block-end-color: var(--ghostlabs-u-accent);
+		color: var(--ghostlabs-u-accent);
+	}
+
+	@media (min-width: 48rem) {
+		padding-inline: var(--ghostlabs-u-space-6);
+	}
+}

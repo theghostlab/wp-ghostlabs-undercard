@@ -1,0 +1,19 @@
+@use "../../abstracts/typography" as t;
+@use "../faces/fira-mono";
+
+@include t.fallback(
+	"Undercard Fira Mono Fallback",
+	(
+		local("Menlo-Regular"), local("Consolas"), local("DejaVu Sans Mono"),
+		local("Courier New")
+	),
+	99.7%,
+	93.8%,
+	26.6%
+);
+
+:root {
+	--ghostlabs-u-font-mono:
+		"Undercard Fira Mono", "Undercard Fira Mono Fallback", ui-monospace,
+		SFMono-Regular, Menlo, Consolas, monospace;
+}

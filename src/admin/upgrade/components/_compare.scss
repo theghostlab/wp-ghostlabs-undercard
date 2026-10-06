@@ -1,0 +1,143 @@
+// The comparison card — Cycle Block's `ComparisonTable` and its foot.
+
+.ghostlabs-u-compare {
+	position: relative;
+	overflow: hidden;
+	// A size container, so the table can give up its fixed columns where the
+	// card is narrow (see the query below the edition columns).
+	container-type: inline-size;
+	border: 1px solid var(--ghostlabs-u-border);
+	border-radius: var(--ghostlabs-u-radius-card);
+	background: var(--ghostlabs-u-surface);
+	box-shadow: var(--ghostlabs-u-shadow-card);
+}
+
+.ghostlabs-u-compare__table {
+	inline-size: 100%;
+	border-collapse: collapse;
+	text-align: start;
+
+	thead tr {
+		background: var(--ghostlabs-u-subtle);
+	}
+
+	tbody tr {
+		border-block-start: 1px solid var(--ghostlabs-u-rule);
+	}
+
+	th,
+	td {
+		padding: var(--ghostlabs-u-space-4);
+		vertical-align: middle;
+	}
+
+	tbody th {
+		padding-inline-start: var(--ghostlabs-u-space-8);
+		font-size: var(--ghostlabs-u-text-sm);
+		font-weight: 400;
+		text-align: start;
+		color: var(--ghostlabs-u-text);
+	}
+}
+
+.ghostlabs-u-compare__feature {
+	padding-inline-start: var(--ghostlabs-u-space-8);
+}
+
+// The edition columns. `inline-size` on the header sets the column.
+.ghostlabs-u-compare__free,
+.ghostlabs-u-compare__paid {
+	inline-size: 13rem;
+	text-align: center;
+	font-size: var(--ghostlabs-u-text-sm);
+}
+
+.ghostlabs-u-compare__free {
+	color: var(--ghostlabs-u-muted);
+}
+
+.ghostlabs-u-compare__paid {
+	font-weight: 600;
+	color: var(--ghostlabs-u-primary-500);
+}
+
+thead .ghostlabs-u-compare__free,
+thead .ghostlabs-u-compare__paid {
+	font-size: var(--ghostlabs-u-text-lg);
+	font-weight: 600;
+}
+
+// ⚠️ WCAG 1.4.10. Two 13rem columns plus padding need about 30rem, and the
+// card is `overflow: hidden`, so at 320 CSS pixels the paid column was cut off
+// rather than reflowed. Below 40rem the columns size to their content and the
+// padding tightens; the table then fits the card down to 320.
+@container (max-width: 40rem) {
+
+	.ghostlabs-u-compare__table {
+
+		th,
+		td {
+			padding: var(--ghostlabs-u-space-2);
+		}
+
+		tbody th {
+			padding-inline-start: var(--ghostlabs-u-space-4);
+		}
+	}
+
+	.ghostlabs-u-compare__feature {
+		padding-inline-start: var(--ghostlabs-u-space-4);
+	}
+
+	.ghostlabs-u-compare__free,
+	.ghostlabs-u-compare__paid {
+		inline-size: auto;
+	}
+
+	thead .ghostlabs-u-compare__free,
+	thead .ghostlabs-u-compare__paid {
+		font-size: var(--ghostlabs-u-text-sm);
+	}
+}
+
+// D2: a quantity both editions share, said once, under the label.
+.ghostlabs-u-compare__quantity {
+	display: block;
+	margin-block-start: var(--ghostlabs-u-space-1);
+	font-size: var(--ghostlabs-u-text-xs);
+	color: var(--ghostlabs-u-muted);
+}
+
+// The marks inherit their cell's color, so the free column's are
+// `--ghostlabs-u-muted` (4.83:1) and the paid column's are purple. ⚠️ Never
+// lighter: they are graphical objects that need 3:1, and axe cannot measure
+// an SVG fill.
+.ghostlabs-u-compare__mark {
+	display: block;
+	inline-size: 1.25rem;
+	block-size: 1.25rem;
+	margin-inline: auto;
+}
+
+.ghostlabs-u-compare__mark--muted {
+	color: var(--ghostlabs-u-muted);
+}
+
+.ghostlabs-u-compare__foot {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--ghostlabs-u-space-6);
+	padding: var(--ghostlabs-u-space-5) var(--ghostlabs-u-space-8);
+	border-block-start: 1px solid var(--ghostlabs-u-rule);
+	background: var(--ghostlabs-u-subtle);
+}
+
+.ghostlabs-u-upgrade .ghostlabs-u-compare__note-title {
+	font-weight: 600;
+	color: var(--ghostlabs-u-ink);
+}
+
+.ghostlabs-u-compare__note-title + p {
+	margin-block-start: var(--ghostlabs-u-space-1);
+}

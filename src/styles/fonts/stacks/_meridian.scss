@@ -1,0 +1,28 @@
+@use "../../abstracts/typography" as t;
+@use "../faces/cormorant";
+@use "../faces/cormorant-italic";
+@use "../faces/karla";
+
+@include t.fallback(
+	"Undercard Cormorant Fallback",
+	(local("Times New Roman"), local("Times")),
+	97.7%,
+	94.6%,
+	29.4%
+);
+@include t.fallback(
+	"Undercard Karla Fallback",
+	(local("Arial"), local("Helvetica Neue")),
+	101.9%,
+	90%,
+	24.7%
+);
+
+@include t.family("meridian") {
+	--ghostlabs-u-font-display:
+		"Undercard Cormorant", "Undercard Cormorant Fallback", Garamond,
+		"Palatino Linotype", "Times New Roman", serif;
+	--ghostlabs-u-font-text:
+		"Undercard Karla", "Undercard Karla Fallback", "Helvetica Neue", Helvetica,
+		Arial, system-ui, sans-serif;
+}

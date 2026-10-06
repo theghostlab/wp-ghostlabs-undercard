@@ -1,0 +1,64 @@
+// The upgrade tab's buttons — Cycle Block's, which are the Plugins library's
+// `Button / Primary` and `Button / Secondary`.
+
+// ⚠️ **Busy is `aria-disabled`, never `disabled`, and never `opacity`.** A
+// disabled control leaves the tab order, and faded white on purple measured
+// 2.75:1 — legal only while the control is exposed as inactive, which
+// `aria-disabled` does not do. A lighter solid keeps the label at 4.7:1.
+
+.ghostlabs-u-button {
+	display: inline-flex;
+	flex-shrink: 0;
+	align-items: center;
+	justify-content: center;
+	gap: var(--ghostlabs-u-space-1);
+	padding: 0.625rem var(--ghostlabs-u-space-5);
+	border: 0;
+	border-radius: var(--ghostlabs-u-radius-button);
+	font-size: var(--ghostlabs-u-text-sm);
+	font-weight: 600;
+	line-height: 1.25;
+	text-decoration: none;
+	cursor: pointer;
+	transition: background-color 150ms, color 150ms;
+
+	&:focus-visible {
+		outline: 0.125rem solid var(--ghostlabs-u-primary-400);
+		outline-offset: 0.125rem;
+	}
+}
+
+.ghostlabs-u-button--primary {
+	background: var(--ghostlabs-u-primary-500);
+	color: var(--ghostlabs-u-surface);
+
+	&:is(:hover, :focus) {
+		background: var(--ghostlabs-u-primary-400);
+		color: var(--ghostlabs-u-surface);
+	}
+
+	// `cursor: wait`, not `not-allowed`: nothing is disallowed, something is
+	// running. Not the hover tone either — that one means "about to click".
+	&[aria-disabled="true"],
+	&[aria-disabled="true"]:is(:hover, :focus) {
+		background: var(--ghostlabs-u-primary-300);
+		cursor: wait;
+	}
+}
+
+.ghostlabs-u-button--secondary {
+	padding: var(--ghostlabs-u-space-2) var(--ghostlabs-u-space-5);
+	border: 0.125rem solid var(--ghostlabs-u-primary-400);
+	border-radius: var(--ghostlabs-u-radius-pill);
+	background: transparent;
+	color: var(--ghostlabs-u-primary-500);
+
+	&:hover {
+		background: oklch(from var(--ghostlabs-u-primary-25) l c h / 40%);
+	}
+}
+
+.ghostlabs-u-button--large {
+	padding: var(--ghostlabs-u-space-3) var(--ghostlabs-u-space-6);
+	font-size: var(--ghostlabs-u-text-base);
+}

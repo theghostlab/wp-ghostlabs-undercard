@@ -1,0 +1,32 @@
+{
+  "name": "undercard-free",
+  "version": "0.0.1",
+  "description": "GhostLabs Undercard plugin — free edition",
+  "license": "GPL-2.0-or-later",
+  "author": "GhostLabs",
+  "type": "commonjs",
+  "scripts": {
+    "build": "wp-scripts build --config webpack.config.cjs && node -e \"require('fs').writeFileSync('build/.compiled','')\"",
+    "start": "wp-scripts start --config webpack.config.cjs",
+    "test": "pnpm run test:unit && pnpm run test:e2e",
+    "test:e2e": "WP_BASE_URL=http://localhost:8933 wp-scripts test-playwright",
+    "test:e2e:debug": "WP_BASE_URL=http://localhost:8933 wp-scripts test-playwright --headed --debug",
+    "test:e2e:ui": "WP_BASE_URL=http://localhost:8933 wp-scripts test-playwright --ui",
+    "test:unit": "vendor/bin/phpunit",
+    "wp-env:start": "wp-env start",
+    "wp-env:stop": "wp-env stop"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.12.1",
+    "@babel/parser": "^7.29.8",
+    "@playwright/test": "^1.52.0",
+    "@wordpress/e2e-test-utils-playwright": "1.52.0",
+    "@wordpress/env": "^11.12.0",
+    "@wordpress/icons": "^15.3.0",
+    "@wordpress/scripts": "^34.0.0",
+    "@wordpress/server-side-render": "^6.28.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "sass": "^1.80.0"
+  }
+}

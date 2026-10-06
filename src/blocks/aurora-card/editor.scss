@@ -1,0 +1,13 @@
+@use "@styles/base/editor-avatar";
+@use "@styles/base/editor-links";
+
+.wp-block-ghostlabs-undercard-aurora {
+	> div {
+		display: block;
+		inline-size: 100%;
+	}
+
+	.components-placeholder {
+		min-block-size: 0;
+	}
+}

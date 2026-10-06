@@ -1,0 +1,102 @@
+// The brand hero — Cycle Block's `.gl-hero`.
+
+// The gradient is a fill on the band itself, not part of any art: the wave is
+// the line texture only. Both images ship inside the plugin (guideline 7).
+
+.ghostlabs-u-hero {
+	position: relative;
+	overflow: hidden;
+	min-block-size: var(--ghostlabs-u-hero-min);
+	// The band overlaps the table below it by the sweep's foot, as the design
+	// draws it. A plain negative margin is fine in CSS; it is only the Penpot
+	// mock that could not express it.
+	margin-block: var(--ghostlabs-u-space-10) calc(var(--ghostlabs-u-space-3) * -1);
+	background-image: linear-gradient(180deg, var(--ghostlabs-u-primary-700) 0%, var(--ghostlabs-u-primary-400) 100%);
+	text-align: center;
+}
+
+.ghostlabs-u-hero__texture,
+.ghostlabs-u-hero__sweep {
+	position: absolute;
+	inset: 0;
+}
+
+.ghostlabs-u-hero__texture {
+	background-image: url(./images/wave-bg.svg);
+	background-position: center 42%;
+	background-size: cover;
+}
+
+// Full-bleed rather than a bottom strip: the sweep paints at its own ratio
+// anchored to the foot, and its transparent upper half is what lets the
+// gradient read through.
+
+// ⚠️ Its last band is painted in wp-admin's ground, #F0F0F1 — Cycle Block's
+// copy is #F3F4F6, its own app's ground. If this screen's background ever
+// changes, the asset has to change with it.
+.ghostlabs-u-hero__sweep {
+	background-image: url(./images/separator-gray.svg);
+	background-position: bottom center;
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+}
+
+.ghostlabs-u-hero__copy {
+	position: relative;
+	padding: var(--ghostlabs-u-space-10) var(--ghostlabs-u-space-10) var(--ghostlabs-u-space-14);
+}
+
+// ⚠️ #E2D8F3, not the mock's #BFA8DD: the mock's color measures 3.04:1 against
+// the gradient's lower stop. axe cannot see this — it reads declared colors,
+// not the painted band behind them — so `accessibility-admin.spec.ts` samples
+// the pixels behind every line of the copy, at five widths.
+.ghostlabs-u-upgrade .ghostlabs-u-hero__eyebrow {
+	font-size: var(--ghostlabs-u-text-2xs);
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--ghostlabs-u-primary-25);
+}
+
+.ghostlabs-u-upgrade .ghostlabs-u-hero__headline {
+	margin: 0.625rem 0 0;
+	font-size: var(--ghostlabs-u-text-hero);
+	font-weight: 700;
+	line-height: 1.25;
+	color: var(--ghostlabs-u-surface);
+}
+
+.ghostlabs-u-upgrade .ghostlabs-u-hero__sub {
+	max-inline-size: 45rem;
+	margin: var(--ghostlabs-u-space-3) auto 0;
+	font-size: var(--ghostlabs-u-text-base);
+	line-height: 1.625;
+	color: var(--ghostlabs-u-primary-25);
+}
+
+// White pill, purple ring. A dark ring loses against the gradient (2.4:1) and a
+// light one against the pill; the outer white ring puts white on the gradient
+// (6.5:1), which is what makes the focus state visible.
+.ghostlabs-u-hero__pill {
+	display: inline-block;
+	margin-block-start: var(--ghostlabs-u-space-6);
+	padding: 0.625rem var(--ghostlabs-u-space-12);
+	border: 0.125rem solid var(--ghostlabs-u-primary-400);
+	border-radius: var(--ghostlabs-u-radius-pill);
+	background: var(--ghostlabs-u-surface);
+	box-shadow: var(--ghostlabs-u-shadow-pill);
+	font-size: var(--ghostlabs-u-text-xl);
+	font-weight: 600;
+	text-decoration: none;
+	color: var(--ghostlabs-u-primary-500);
+	transition: color 150ms;
+
+	&:is(:hover, :focus) {
+		color: var(--ghostlabs-u-primary-400);
+	}
+
+	&:focus-visible {
+		outline: 0.25rem solid var(--ghostlabs-u-surface);
+		outline-offset: 0.125rem;
+	}
+}

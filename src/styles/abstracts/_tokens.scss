@@ -1,0 +1,15 @@
+@mixin bases($map) {
+	@each $name, $value in $map {
+		--ghostlabs-u-#{$name}: #{$value};
+	}
+}
+
+@mixin ladder() {
+	--ghostlabs-u-accent-80: oklch(from var(--ghostlabs-u-accent) l c h / 0.8);
+	--ghostlabs-u-accent-55: oklch(from var(--ghostlabs-u-accent) l c h / 0.55);
+	--ghostlabs-u-accent-50: oklch(from var(--ghostlabs-u-accent) l c h / 0.5);
+	--ghostlabs-u-accent-35: oklch(from var(--ghostlabs-u-accent) l c h / 0.35);
+	--ghostlabs-u-accent-22: oklch(from var(--ghostlabs-u-accent) l c h / 0.22);
+
+	--ghostlabs-u-rule: oklch(from var(--ghostlabs-u-text) clamp(0, l, 0.92) c h / 0.14);
+}

@@ -1,0 +1,155 @@
+.ghostlabs-u-card {
+	container-type: inline-size;
+	container-name: ghostlabs-u-card;
+
+	inline-size: 100%;
+	max-inline-size: var(--ghostlabs-u-max-width, 100%);
+	position: relative;
+
+	box-sizing: border-box;
+	margin-inline: auto;
+	color: var(--ghostlabs-u-text);
+	background-color: var(--ghostlabs-u-surface);
+	font-family: var(--ghostlabs-u-font-text);
+	font-size: 1rem;
+	line-height: 1.2;
+}
+
+.ghostlabs-u-card .ghostlabs-u-card__inner {
+	min-block-size: calc(100cqi / (var(--ghostlabs-u-ratio)));
+	inline-size: 100%;
+}
+
+.ghostlabs-u-card *,
+.ghostlabs-u-card *::before,
+.ghostlabs-u-card *::after {
+	box-sizing: inherit;
+}
+
+.ghostlabs-u-card :is(h2, h3, h4, h5, h6, p, dl, dt, dd, figure, hr) {
+	margin: 0;
+	padding: 0;
+	font-size: inherit;
+	font-weight: inherit;
+	font-style: inherit;
+	line-height: inherit;
+	letter-spacing: inherit;
+	color: inherit;
+	text-transform: none;
+}
+
+.ghostlabs-u-card a {
+	text-decoration: none;
+}
+
+.ghostlabs-u-card :is(
+	.ghostlabs-u-card__link,
+	.ghostlabs-u-card__site
+) {
+	position: relative;
+
+	&::before {
+		content: "";
+		position: absolute;
+		inset-block: -0.5rem;
+		inset-inline: 0;
+		z-index: 0;
+	}
+}
+
+.ghostlabs-u-card .ghostlabs-u-card__value-link {
+	color: inherit;
+	padding-block: 0.4rem;
+	margin-block: -0.4rem;
+	text-decoration-color: color-mix(in oklch, currentColor 40%, transparent);
+	text-underline-offset: 0.25em;
+
+	&:is(:hover, :focus-visible) {
+		text-decoration-line: underline;
+	}
+}
+
+.ghostlabs-u-card img {
+	display: block;
+	max-inline-size: 100%;
+	block-size: auto;
+}
+
+.ghostlabs-u-card .ghostlabs-u-card__name,
+.ghostlabs-u-card .ghostlabs-u-card__title,
+.ghostlabs-u-card .ghostlabs-u-card__role {
+	text-wrap: balance;
+	overflow-wrap: anywhere;
+}
+
+.ghostlabs-u-card .ghostlabs-u-card__bio {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: var(--ghostlabs-u-bio-lines, 3);
+	line-clamp: var(--ghostlabs-u-bio-lines, 3);
+	overflow: hidden;
+	line-height: 1.5;
+}
+
+.ghostlabs-u-card .ghostlabs-u-card__contact {
+	display: flex;
+	align-items: center;
+	gap: 1.7em;
+	margin-inline-start: auto;
+}
+
+@mixin diamond($size: 0.375rem) {
+	content: "";
+	inline-size: $size;
+	flex: none;
+	aspect-ratio: 1;
+	rotate: 45deg;
+	background-color: var(--ghostlabs-u-accent);
+}
+
+.ghostlabs-u-card .ghostlabs-u-card__contact::before {
+	@include diamond();
+}
+
+.ghostlabs-u-card .screen-reader-text {
+	position: absolute;
+	inline-size: 1px;
+	block-size: 1px;
+	margin: -1px;
+	padding: 0;
+	border: 0;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+
+.ghostlabs-u-byline {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5em;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.ghostlabs-u-byline__credit {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
+}
+
+.ghostlabs-u-byline__role {
+	margin: 0;
+	font-size: 0.75rem;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	opacity: 0.65;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	:is(.ghostlabs-u-card, .ghostlabs-u-profile),
+	:is(.ghostlabs-u-card, .ghostlabs-u-profile) * {
+		transition-duration: 0.01ms !important;
+		animation-duration: 0.01ms !important;
+	}
+}

@@ -1,0 +1,12 @@
+# A reviewer runs `pnpm install` in this repository to check that the published
+# sources produce the published bundles. What that installs is not part of the
+# distribution and must never be committed here.
+node_modules/
+
+# `pnpm run build` ends by writing this stamp; the published tree never carries it.
+build/.compiled
+
+# Composer's runtime autoloader IS published — the plugin autoloads through it —
+# so vendor/ is deliberately NOT ignored.
+
+.DS_Store

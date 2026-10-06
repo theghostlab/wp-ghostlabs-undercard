@@ -1,0 +1,20 @@
+@use "sass:math";
+
+$uc-root-font-size: 16 !default;
+$uc-size-floor: 0.75 !default;
+$uc-size-ceiling: 1.25 !default;
+
+@function size($px, $container) {
+	$rem: math.div($px, $uc-root-font-size);
+	$cqi: math.div($px * 100, $container);
+
+	@return clamp(
+		#{$rem * $uc-size-floor}rem,
+		#{$cqi}cqi,
+		#{$rem * $uc-size-ceiling}rem
+	);
+}
+
+@function space($px, $font-px) {
+	@return #{math.div($px, $font-px)}em;
+}

@@ -1,0 +1,80 @@
+@use "@styles/abstracts/tokens" as tokens;
+
+$dark: (
+	"surface": oklch(16.6% 0.0262 269.4),
+	"raised": oklch(20.6% 0.041 269.9),
+	"cyan": oklch(84.2% 0.1286 214.8),
+	"violet": oklch(66.2% 0.1877 284.9),
+	"text": oklch(100% 0 0),
+	"muted": oklch(70.5% 0.0397 271.8),
+	"on-accent": oklch(16.6% 0.0262 269.4),
+	"cast": oklch(0% 0 0),
+);
+
+$light: (
+	"surface": oklch(96.5% 0.0114 252.1),
+	"raised": oklch(100% 0 0),
+	"cyan": oklch(52.5% 0.1379 227.4),
+	"violet": oklch(55.6% 0.2122 283.6),
+	"text": oklch(22.2% 0.0406 268.3),
+	"muted": oklch(52.5% 0.0448 267.5),
+	"on-accent": oklch(100% 0 0),
+	"cast": oklch(26.6% 0.0543 267.8),
+);
+
+@mixin glass($panel, $edge, $veil, $veil-edge, $rule, $blob-1, $blob-2, $blob-3, $cast) {
+	--ghostlabs-u-glass: #{$panel};
+	--ghostlabs-u-glass-edge: #{$edge};
+	--ghostlabs-u-veil: #{$veil};
+	--ghostlabs-u-veil-edge: #{$veil-edge};
+	--ghostlabs-u-rule: #{$rule};
+	--ghostlabs-u-blob-1: #{$blob-1};
+	--ghostlabs-u-blob-2: #{$blob-2};
+	--ghostlabs-u-blob-3: #{$blob-3};
+	--ghostlabs-u-cast: #{$cast};
+}
+
+@mixin dark-glass() {
+	@include glass(
+		oklch(100% 0 0 / 0.06),
+		oklch(100% 0 0 / 0.16),
+		oklch(100% 0 0 / 0.04),
+		oklch(100% 0 0 / 0.28),
+		oklch(from var(--ghostlabs-u-text) l c h / 0.1),
+		oklch(from var(--ghostlabs-u-cyan) l c h / 0.55),
+		oklch(from var(--ghostlabs-u-violet) l c h / 0.5),
+		oklch(from var(--ghostlabs-u-violet) l c h / 0.35),
+		oklch(from var(--ghostlabs-u-cast) l c h / 0.5)
+	);
+}
+
+@mixin light-glass() {
+	@include glass(
+		oklch(100% 0 0 / 0.6),
+		oklch(100% 0 0 / 0.9),
+		oklch(100% 0 0 / 0.5),
+		oklch(from var(--ghostlabs-u-text) l c h / 0.25),
+		oklch(from var(--ghostlabs-u-text) l c h / 0.12),
+		oklch(from var(--ghostlabs-u-cyan) l c h / 0.28),
+		oklch(from var(--ghostlabs-u-violet) l c h / 0.28),
+		oklch(from var(--ghostlabs-u-violet) l c h / 0.28),
+		oklch(from var(--ghostlabs-u-cast) l c h / 0.18)
+	);
+}
+
+@mixin schemes() {
+	@include tokens.bases($dark);
+	@include dark-glass();
+
+	&:where([data-uc-scheme="light"]) {
+		@include tokens.bases($light);
+		@include light-glass();
+	}
+
+	@media (prefers-color-scheme: light) {
+		&:where([data-uc-scheme="system"]) {
+			@include tokens.bases($light);
+			@include light-glass();
+		}
+	}
+}

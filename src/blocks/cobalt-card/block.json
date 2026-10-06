@@ -1,0 +1,90 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ghostlabs/undercard-cobalt",
+	"title": "Undercard: Cobalt",
+	"category": "widgets",
+	"icon": "format-image",
+	"description": "An author card in the Cobalt family — a duotone portrait with a panel carrying the text.",
+	"keywords": [
+		"author",
+		"profile",
+		"card",
+		"byline",
+		"duotone"
+	],
+	"textdomain": "ghostlabs-undercard",
+	"supports": {
+		"html": false,
+		"align": [
+			"left",
+			"center",
+			"right",
+			"wide"
+		],
+		"spacing": {
+			"margin": true
+		}
+	},
+	"attributes": {
+		"layout": {
+			"type": "string",
+			"default": "vertical",
+			"enum": [
+				"vertical",
+				"horizontal",
+				"row",
+				"chip"
+			]
+		},
+		"variation": {
+			"type": "string",
+			"default": "ii",
+			"enum": [
+				"ii",
+				"v"
+			]
+		},
+		"accent": {
+			"type": "string",
+			"default": ""
+		},
+		"authorId": {
+			"type": "number",
+			"default": 0
+		},
+		"avatar": {
+			"type": "string",
+			"default": "photo",
+			"enum": [
+				"monogram",
+				"photo"
+			]
+		},
+		"focalPoint": {
+			"type": "object",
+			"properties": {
+				"x": {
+					"type": "number"
+				},
+				"y": {
+					"type": "number"
+				}
+			}
+		},
+		"photoScale": {
+			"type": "number",
+			"default": 1
+		},
+		"headingLevel": {
+			"type": "number",
+			"default": 2,
+			"enum": [ 2, 3, 4, 5, 6 ]
+		}
+	},
+	"usesContext": [ "postId" ],
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php",
+	"style": "file:./style-index.css",
+	"editorStyle": "file:./index.css"
+}

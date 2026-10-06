@@ -1,0 +1,8 @@
+// The profile screen's notice box, on its own.
+
+// Split from the upgrade tab's bundle because that one carries the hero art
+// inlined (about 75 KB), and the profile screen needs none of it — only the
+// box.
+
+@use "../upgrade/tokens";
+@use "../upgrade/components/upsell-notice";

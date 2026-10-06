@@ -1,0 +1,60 @@
+@use "@styles/abstracts/tokens" as tokens;
+
+$ember: (
+	"surface": oklch(100% 0 0),
+	"raised": oklch(96.4% 0.0029 264.5),
+	"text": oklch(20.9% 0.0085 264.4),
+	"title": oklch(48.7% 0.0149 255.6),
+	"bio": oklch(42.3% 0.0127 261.8),
+	"muted": oklch(56.8% 0.0135 255.5),
+	"pip": oklch(20.9% 0.0085 264.4),
+	"divider": oklch(94.5% 0.0011 197.1),
+	"outline": oklch(93.6% 0.0046 258.3),
+	"deco": oklch(58.0% 0.1854 37.4),
+);
+
+$onyx: (
+	"surface": oklch(18.1% 0.0052 248.1),
+	"raised": oklch(22.9% 0.009 255.6),
+	"text": oklch(100% 0 0),
+	"title": oklch(74.5% 0.0177 259.4),
+	"bio": oklch(80.2% 0.0131 255.5),
+	"muted": oklch(60.3% 0.0179 254),
+	"pip": oklch(93.6% 0.0046 258.3),
+	"divider": oklch(26.3% 0.0047 248),
+	"outline": oklch(29.9% 0.0107 254),
+	"deco": transparent,
+);
+
+@mixin ember-primary() {
+	--ghostlabs-u-primary: var(--ghostlabs-u-text);
+	--ghostlabs-u-on-primary: oklch(100% 0 0);
+}
+
+@mixin sets() {
+	--ghostlabs-u-accent: oklch(57.0% 0.1966 36.8);
+	--ghostlabs-u-on-accent: oklch(100% 0 0);
+	--ghostlabs-u-on-accent-muted: oklch(98.5% 0.0276 40.2);
+
+	@include tokens.bases($ember);
+
+	@include ember-primary;
+
+	--ghostlabs-u-cast: oklch(22.4% 0.0404 54.3 / 0.16);
+	--ghostlabs-u-cast-soft: oklch(22.4% 0.0404 54.3 / 0.11);
+
+	&:where([data-uc-variation="onyx"]) {
+		@include tokens.bases($onyx);
+
+		--ghostlabs-u-primary: var(--ghostlabs-u-accent);
+		--ghostlabs-u-on-primary: var(--ghostlabs-u-on-accent);
+
+		--ghostlabs-u-cast: oklch(0% 0 0 / 0.4);
+		--ghostlabs-u-cast-soft: oklch(0% 0 0 / 0.32);
+	}
+
+	&:where([data-uc-variation="ember"][data-uc-layout="horizontal"]) {
+		--ghostlabs-u-primary: var(--ghostlabs-u-accent);
+		--ghostlabs-u-on-primary: var(--ghostlabs-u-on-accent);
+	}
+}

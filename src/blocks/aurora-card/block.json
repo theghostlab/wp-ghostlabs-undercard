@@ -1,0 +1,73 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ghostlabs/undercard-aurora",
+	"title": "Undercard: Aurora",
+	"category": "widgets",
+	"icon": "admin-users",
+	"description": "An author card in the Aurora family — frosted glass over blurred color, with a stat strip.",
+	"keywords": [
+		"author",
+		"profile",
+		"card",
+		"byline",
+		"glass"
+	],
+	"textdomain": "ghostlabs-undercard",
+	"supports": {
+		"html": false,
+		"align": [
+			"left",
+			"center",
+			"right",
+			"wide"
+		],
+		"spacing": {
+			"margin": true
+		}
+	},
+	"attributes": {
+		"layout": {
+			"type": "string",
+			"default": "vertical",
+			"enum": [
+				"vertical",
+				"horizontal",
+				"mini",
+				"row",
+				"chip"
+			]
+		},
+		"scheme": {
+			"type": "string",
+			"default": "dark",
+			"enum": [
+				"dark",
+				"light",
+				"system"
+			]
+		},
+		"authorId": {
+			"type": "number",
+			"default": 0
+		},
+		"avatar": {
+			"type": "string",
+			"default": "photo",
+			"enum": [
+				"monogram",
+				"photo"
+			]
+		},
+		"headingLevel": {
+			"type": "number",
+			"default": 2,
+			"enum": [ 2, 3, 4, 5, 6 ]
+		}
+	},
+	"usesContext": [ "postId" ],
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php",
+	"style": "file:./style-index.css",
+	"editorStyle": "file:./index.css"
+}

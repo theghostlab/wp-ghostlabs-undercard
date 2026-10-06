@@ -1,0 +1,20 @@
+// Settings → Undercard, free edition — and the profile screen's notice box.
+
+// Organized as tokens, then components. There is no reset and no element layer:
+// this is a wp-admin screen, and core owns both.
+
+// ⚠️ Only the tokens are layered. The components are deliberately NOT, for the
+// reason the cards' ratified exception records (`undercard-cards` skill):
+// core's admin styles are unlayered, and an unlayered rule beats a layered one
+// before specificity is even consulted. Specificity stays minimal instead —
+// one class, or two where a core rule would otherwise overrule it, and a
+// comment saying so.
+
+@use "tokens";
+@use "components/screen";
+@use "components/settings";
+@use "components/button";
+@use "components/upgrade";
+@use "components/panel";
+@use "components/hero";
+@use "components/compare";
