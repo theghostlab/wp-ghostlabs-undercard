@@ -14,8 +14,6 @@ use GHOSTLABS\UNDERCARD\Render\ComparisonTable;
 use GHOSTLABS\UNDERCARD\Render\HeroBand;
 use GHOSTLABS\UNDERCARD\Render\UpgradePanel;
 use GHOSTLABS\UNDERCARD\Render\UpgradePage;
-use GHOSTLABS\UNDERCARD\RestRoute\UpgradeRoutes;
-use GHOSTLABS\UNDERCARD\Service\Upgrade\UpgradeSupport;
 
 class Settings
 {
@@ -26,18 +24,13 @@ class Settings
 
     private const STYLE_HANDLE = 'ghostlabs-undercard-admin';
 
-    private const SCRIPT_HANDLE = 'ghostlabs-undercard-upgrade';
-
     private const ASSET = 'build/admin/upgrade';
 
-    private readonly Closure $canInstall;
+    private readonly Closure $canUpload;
 
-    private readonly Closure $refusal;
-
-    public function __construct(?Closure $canInstall = null, ?Closure $refusal = null)
+    public function __construct(?Closure $canUpload = null)
     {
-        $this->canInstall = $canInstall ?? static fn (): bool => UpgradeSupport::canInstall();
-        $this->refusal    = $refusal ?? static fn (): string => UpgradeSupport::message();
+        $this->canUpload = $canUpload ?? static fn (): bool => current_user_can('upload_plugins');
     }
 
     public function page(): void
@@ -70,8 +63,6 @@ class Settings
         );
 
         if ($this->currentTab() === self::TAB_UPGRADE) {
-            $this->upgradeScripts($meta);
-
             return;
         }
 
@@ -87,74 +78,12 @@ class Settings
         );
     }
 
-    private function upgradeScripts(AssetMeta $meta): void
-    {
-        if (! ($this->canInstall)()) {
-            return;
-        }
-
-        wp_enqueue_script(
-            self::SCRIPT_HANDLE,
-            GHOSTLABS_UNDERCARD_PLUGIN_URL . self::ASSET . '.js',
-            $meta->dependencies,
-            $meta->version,
-            true
-        );
-
-        $paths = UpgradeRoutes::paths();
-
-        $config = [
-            'upgradePath' => $paths['upgrade'],
-            'claimPath'   => $paths['claim'],
-            'claim'       => $this->claimToken() ?? '',
-            'pluginsUrl'  => admin_url('plugins.php'),
-            'strings'     => [
-                'working'        => sprintf(
-                    /* translators: %s: the paid edition's name. */
-                    __('Verifying your key and installing %s…', 'ghostlabs-undercard'),
-                    TierMatrix::paidEditionName()
-                ),
-                'activating'     => sprintf(
-                    /* translators: %s: the paid edition's name. */
-                    __('Done — activating %s…', 'ghostlabs-undercard'),
-                    TierMatrix::paidEditionName()
-                ),
-                'keyRequired'    => __('Enter the license key from your receipt email.', 'ghostlabs-undercard'),
-                'generic'        => __('The upgrade did not complete. Try again in a moment.', 'ghostlabs-undercard'),
-
-                'network'        => __('This page could not get an answer from your site. Check your connection, then reload the page.', 'ghostlabs-undercard'),
-
-                'alreadySwapped' => __('This plugin is no longer active on this site — taking you to the Plugins screen.', 'ghostlabs-undercard'),
-            ],
-        ];
-
-        wp_add_inline_script(
-            self::SCRIPT_HANDLE,
-            'window.ghostlabsUndercardUpgrade = ' . wp_json_encode($config) . ';',
-            'before'
-        );
-    }
-
     private function assetMeta(): AssetMeta
     {
         return AssetMeta::read(
             GHOSTLABS_UNDERCARD_PLUGIN_PATH . self::ASSET . '.asset.php',
             GHOSTLABS_UNDERCARD_VERSION
         );
-    }
-
-    private function claimToken(): ?string
-    {
-        
-        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- a read-only display decision; the claim route checks its own capability.
-        if (! isset($_GET[UpgradeRoutes::CLAIM_QUERY_ARG]) || ! is_string($_GET[UpgradeRoutes::CLAIM_QUERY_ARG])) {
-            return null;
-        }
-
-        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- as above.
-        $token = sanitize_text_field(wp_unslash($_GET[UpgradeRoutes::CLAIM_QUERY_ARG]));
-
-        return $token === '' ? null : $token;
     }
 
     public function page_render(): void
@@ -186,11 +115,7 @@ class Settings
 
     private function currentTab(): string
     {
-
-        if ($this->claimToken() !== null) {
-            return self::TAB_UPGRADE;
-        }
-
+        
         // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- a read-only tab switch.
         $tab = isset($_GET['tab']) && is_string($_GET['tab']) ? sanitize_key(wp_unslash($_GET['tab'])) : '';
 
@@ -257,10 +182,11 @@ class Settings
 
     private function upgradeTab(): void
     {
-        $inPlace = ($this->canInstall)();
-
         (new UpgradePage(
-            new UpgradePanel($inPlace, $inPlace ? '' : ($this->refusal)(), $this->claimToken()),
+            new UpgradePanel(
+                AccountEndpoints::accountUrl(),
+                ($this->canUpload)() ? admin_url('plugin-install.php?tab=upload') : null
+            ),
             new HeroBand(UpgradeEndpoints::upgradeUrl(UpsellSource::Settings)),
             new ComparisonTable(),
             UpgradeEndpoints::upgradeUrl(UpsellSource::SettingsTable)

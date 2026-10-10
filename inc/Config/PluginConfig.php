@@ -33,6 +33,10 @@ final class PluginConfig
         return sprintf('%s_%s_options', self::$domain, self::$slug);
     }
 
+    static public function upgradePendingTransient(): string {
+        return sprintf('_%s_%s_upgrade_pending', self::$domain, self::$slug);
+    }
+
     static private function getPluginSlug() : string {
 
         [ , $t2 ] = explode( '/', GHOSTLABS_UNDERCARD_PLUGIN_SLUG );

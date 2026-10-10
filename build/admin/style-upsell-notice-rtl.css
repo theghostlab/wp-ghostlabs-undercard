@@ -1,1 +1,80 @@
-@layer undercard.tokens{.ghostlabs-u-screen,.ghostlabs-u-upsell-notice{--ghostlabs-u-ink:oklch(21.01% 0.0318 264.66);--ghostlabs-u-text:oklch(37.29% 0.0306 259.73);--ghostlabs-u-muted:oklch(55.1% 0.0234 264.36);--ghostlabs-u-muted-strong:oklch(44.61% 0.0263 256.8);--ghostlabs-u-border:oklch(92.76% 0.0058 264.53);--ghostlabs-u-rule:oklch(96.7% 0.0029 264.54);--ghostlabs-u-subtle:oklch(98.46% 0.0017 247.84);--ghostlabs-u-surface:oklch(100% 0 0);--ghostlabs-u-label:oklch(27.81% 0.0296 256.85);--ghostlabs-u-rule-strong:oklch(87.17% 0.0093 258.34);--ghostlabs-u-field-border:oklch(55.1% 0.0234 264.36);--ghostlabs-u-accent:oklch(52.96% 0.1212 239.95);--ghostlabs-u-accent-strong:oklch(48.99% 0.1122 240.01);--ghostlabs-u-success:oklch(44.79% 0.1083 151.33);--ghostlabs-u-danger:oklch(50.54% 0.1905 27.52);--ghostlabs-u-wp-ink:oklch(25.19% 0.0115 237.14);--ghostlabs-u-wp-field:oklch(64.91% 0.0082 260.73);--ghostlabs-u-wp-error:oklch(58.01% 0.1967 25.27);--ghostlabs-u-primary-25:oklch(89.84% 0.038 302.45);--ghostlabs-u-primary-300:oklch(57.26% 0.1485 301.91);--ghostlabs-u-primary-400:oklch(50.02% 0.163 300.63);--ghostlabs-u-primary-500:oklch(44.04% 0.1417 300.94);--ghostlabs-u-primary-700:oklch(26.41% 0.0754 301.72);--ghostlabs-u-notice-ground:oklch(97.93% 0.0103 247.93);--ghostlabs-u-notice-ink:oklch(24.31% 0.1017 260.46);--ghostlabs-u-radius-card:0.625rem;--ghostlabs-u-radius-button:0.375rem;--ghostlabs-u-radius-notice:0.5rem;--ghostlabs-u-radius-pill:999rem;--ghostlabs-u-shadow-card:0 0.75rem 2rem oklch(26.41% 0.0754 301.72/8%);--ghostlabs-u-shadow-pill:0 0.25rem 0.375rem oklch(0% 0 0/10%),0 0 0 0.125rem var(--ghostlabs-u-surface);--ghostlabs-u-space-1:0.125rem;--ghostlabs-u-space-2:0.5rem;--ghostlabs-u-space-3:0.75rem;--ghostlabs-u-space-4:1rem;--ghostlabs-u-space-5:1.25rem;--ghostlabs-u-space-6:1.5rem;--ghostlabs-u-space-7:1.75rem;--ghostlabs-u-space-8:2rem;--ghostlabs-u-space-10:2.5rem;--ghostlabs-u-space-12:3rem;--ghostlabs-u-space-14:3.5rem;--ghostlabs-u-text-2xs:0.625rem;--ghostlabs-u-text-xs:0.75rem;--ghostlabs-u-text-sm:0.875rem;--ghostlabs-u-text-base:1rem;--ghostlabs-u-text-lg:1.125rem;--ghostlabs-u-text-xl:1.25rem;--ghostlabs-u-text-title:1.375rem;--ghostlabs-u-text-hero:2.25rem;--ghostlabs-u-wp-wrap-top:0.625rem;--ghostlabs-u-wp-wrap-right:1.25rem;--ghostlabs-u-wp-wrap-left:1.375rem;--ghostlabs-u-content-max:75rem;--ghostlabs-u-settings-max:64rem;--ghostlabs-u-hero-min:17.875rem}}.ghostlabs-u-upsell-notice{background:var(--ghostlabs-u-notice-ground);border:1px solid var(--ghostlabs-u-primary-400);border-radius:var(--ghostlabs-u-radius-notice);color:var(--ghostlabs-u-notice-ink);display:flex;flex-direction:column;gap:var(--ghostlabs-u-space-2);margin-block:var(--ghostlabs-u-space-4) 0;max-inline-size:48rem;padding:var(--ghostlabs-u-space-3)}.ghostlabs-u-upsell-notice p{margin:0}.ghostlabs-u-upsell-notice__claim{font-weight:600}
+@layer undercard.tokens {
+  .ghostlabs-u-screen,
+  .ghostlabs-u-upsell-notice {
+    --ghostlabs-u-ink: oklch(21.01% 0.0318 264.66);
+    --ghostlabs-u-text: oklch(37.29% 0.0306 259.73);
+    --ghostlabs-u-muted: oklch(55.1% 0.0234 264.36);
+    --ghostlabs-u-muted-strong: oklch(44.61% 0.0263 256.8);
+    --ghostlabs-u-border: oklch(92.76% 0.0058 264.53);
+    --ghostlabs-u-rule: oklch(96.7% 0.0029 264.54);
+    --ghostlabs-u-subtle: oklch(98.46% 0.0017 247.84);
+    --ghostlabs-u-surface: oklch(100% 0 0);
+    --ghostlabs-u-label: oklch(27.81% 0.0296 256.85);
+    --ghostlabs-u-rule-strong: oklch(87.17% 0.0093 258.34);
+    --ghostlabs-u-field-border: oklch(55.1% 0.0234 264.36);
+    --ghostlabs-u-accent: oklch(52.96% 0.1212 239.95);
+    --ghostlabs-u-accent-strong: oklch(48.99% 0.1122 240.01);
+    --ghostlabs-u-success: oklch(44.79% 0.1083 151.33);
+    --ghostlabs-u-danger: oklch(50.54% 0.1905 27.52);
+    --ghostlabs-u-wp-ink: oklch(25.19% 0.0115 237.14);
+    --ghostlabs-u-wp-field: oklch(64.91% 0.0082 260.73);
+    --ghostlabs-u-wp-error: oklch(58.01% 0.1967 25.27);
+    --ghostlabs-u-primary-25: oklch(89.84% 0.038 302.45);
+    --ghostlabs-u-primary-300: oklch(57.26% 0.1485 301.91);
+    --ghostlabs-u-primary-400: oklch(50.02% 0.163 300.63);
+    --ghostlabs-u-primary-500: oklch(44.04% 0.1417 300.94);
+    --ghostlabs-u-primary-700: oklch(26.41% 0.0754 301.72);
+    --ghostlabs-u-notice-ground: oklch(97.93% 0.0103 247.93);
+    --ghostlabs-u-notice-ink: oklch(24.31% 0.1017 260.46);
+    --ghostlabs-u-radius-card: 0.625rem;
+    --ghostlabs-u-radius-button: 0.375rem;
+    --ghostlabs-u-radius-notice: 0.5rem;
+    --ghostlabs-u-radius-pill: 999rem;
+    --ghostlabs-u-shadow-card: 0 0.75rem 2rem oklch(26.41% 0.0754 301.72 / 8%);
+    --ghostlabs-u-shadow-pill: 0 0.25rem 0.375rem oklch(0% 0 0 / 10%), 0 0 0 0.125rem var(--ghostlabs-u-surface);
+    --ghostlabs-u-space-1: 0.125rem;
+    --ghostlabs-u-space-2: 0.5rem;
+    --ghostlabs-u-space-3: 0.75rem;
+    --ghostlabs-u-space-4: 1rem;
+    --ghostlabs-u-space-5: 1.25rem;
+    --ghostlabs-u-space-6: 1.5rem;
+    --ghostlabs-u-space-7: 1.75rem;
+    --ghostlabs-u-space-8: 2rem;
+    --ghostlabs-u-space-10: 2.5rem;
+    --ghostlabs-u-space-12: 3rem;
+    --ghostlabs-u-space-14: 3.5rem;
+    --ghostlabs-u-text-2xs: 0.625rem;
+    --ghostlabs-u-text-xs: 0.75rem;
+    --ghostlabs-u-text-sm: 0.875rem;
+    --ghostlabs-u-text-base: 1rem;
+    --ghostlabs-u-text-lg: 1.125rem;
+    --ghostlabs-u-text-xl: 1.25rem;
+    --ghostlabs-u-text-title: 1.375rem;
+    --ghostlabs-u-text-hero: 2.25rem;
+    --ghostlabs-u-wp-wrap-top: 0.625rem;
+    --ghostlabs-u-wp-wrap-right: 1.25rem;
+    --ghostlabs-u-wp-wrap-left: 1.375rem;
+    --ghostlabs-u-content-max: 75rem;
+    --ghostlabs-u-settings-max: 64rem;
+    --ghostlabs-u-hero-min: 17.875rem;
+  }
+}
+.ghostlabs-u-upsell-notice {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ghostlabs-u-space-2);
+  max-inline-size: 48rem;
+  margin-block: var(--ghostlabs-u-space-4) 0;
+  padding: var(--ghostlabs-u-space-3);
+  border: 1px solid var(--ghostlabs-u-primary-400);
+  border-radius: var(--ghostlabs-u-radius-notice);
+  background: var(--ghostlabs-u-notice-ground);
+  color: var(--ghostlabs-u-notice-ink);
+}
+.ghostlabs-u-upsell-notice p {
+  margin: 0;
+}
+
+.ghostlabs-u-upsell-notice__claim {
+  font-weight: 600;
+}

@@ -114,7 +114,7 @@ class SchemaPreviewPanel
 
         printf(
             '<summary style="cursor:pointer;font-weight:600">%s</summary>',
-            esc_html__('What search engines and AI assistants would read', 'ghostlabs-undercard')
+            esc_html__('What this profile would publish', 'ghostlabs-undercard')
         );
 
         printf(

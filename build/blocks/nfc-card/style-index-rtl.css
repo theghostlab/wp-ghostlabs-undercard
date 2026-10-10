@@ -1,2 +1,1135 @@
 @layer undercard.reset, undercard.tokens, undercard.card, undercard.family,
-	undercard.overrides;@font-face{font-display:swap;font-family:Undercard Inter;font-style:normal;font-weight:100 900;src:url(../../fonts/inter-latin-ext.9c8c91dc.woff2) format("woff2");unicode-range:u+0100-02ba,u+02bd-02c5,u+02c7-02cc,u+02ce-02d7,u+02dd-02ff,u+0304,u+0308,u+0329,u+1d00-1dbf,u+1e00-1e9f,u+1ef2-1eff,u+2020,u+20a0-20ab,u+20ad-20c0,u+2113,u+2c60-2c7f,u+a720-a7ff}@font-face{font-display:swap;font-family:Undercard Inter;font-style:normal;font-weight:100 900;src:url(../../fonts/inter-latin.404ca8da.woff2) format("woff2");unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+0304,u+0308,u+0329,u+2000-206f,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd}@font-face{ascent-override:91%;descent-override:22.6%;font-family:Undercard Inter Fallback;line-gap-override:0%;size-adjust:106.5%;src:local("Arial"),local("Helvetica Neue")}.ghostlabs-u-card:where([data-uc-family=nfc]){--ghostlabs-u-font-display:"Undercard Inter","Undercard Inter Fallback",system-ui,sans-serif;--ghostlabs-u-font-text:"Undercard Inter","Undercard Inter Fallback",system-ui,sans-serif}@font-face{font-display:swap;font-family:Undercard Fira Mono;font-style:normal;font-weight:400;src:url(../../fonts/fira-mono-400-latin-ext.0bf520cf.woff2) format("woff2");unicode-range:u+0100-02ba,u+02bd-02c5,u+02c7-02cc,u+02ce-02d7,u+02dd-02ff,u+0304,u+0308,u+0329,u+1d00-1dbf,u+1e00-1e9f,u+1ef2-1eff,u+2020,u+20a0-20ab,u+20ad-20c0,u+2113,u+2c60-2c7f,u+a720-a7ff}@font-face{font-display:swap;font-family:Undercard Fira Mono;font-style:normal;font-weight:400;src:url(../../fonts/fira-mono-400-latin.a98f42c8.woff2) format("woff2");unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+0304,u+0308,u+0329,u+2000-206f,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd}@font-face{ascent-override:93.8%;descent-override:26.6%;font-family:Undercard Fira Mono Fallback;line-gap-override:0%;size-adjust:99.7%;src:local("Menlo-Regular"),local("Consolas"),local("DejaVu Sans Mono"),local("Courier New")}:root{--ghostlabs-u-font-mono:"Undercard Fira Mono","Undercard Fira Mono Fallback",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.ghostlabs-u-card{background-color:var(--ghostlabs-u-surface);box-sizing:border-box;color:var(--ghostlabs-u-text);container-name:ghostlabs-u-card;container-type:inline-size;font-family:var(--ghostlabs-u-font-text);font-size:1rem;inline-size:100%;line-height:1.2;margin-inline:auto;max-inline-size:var(--ghostlabs-u-max-width,100%);position:relative}.ghostlabs-u-card .ghostlabs-u-card__inner{inline-size:100%;min-block-size:calc(100cqi/(var(--ghostlabs-u-ratio)))}.ghostlabs-u-card *,.ghostlabs-u-card :after,.ghostlabs-u-card :before{box-sizing:inherit}.ghostlabs-u-card :is(h2,h3,h4,h5,h6,p,dl,dt,dd,figure,hr){color:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;margin:0;padding:0;text-transform:none}.ghostlabs-u-card a{text-decoration:none}.ghostlabs-u-card :is(.ghostlabs-u-card__link,.ghostlabs-u-card__site){position:relative}.ghostlabs-u-card :is(.ghostlabs-u-card__link,.ghostlabs-u-card__site):before{content:"";inset-block:-.5rem;inset-inline:0;position:absolute;z-index:0}.ghostlabs-u-card .ghostlabs-u-card__value-link{color:inherit;margin-block:-.4rem;padding-block:.4rem;text-decoration-color:color-mix(in oklch,currentColor 40%,transparent);text-underline-offset:.25em}.ghostlabs-u-card .ghostlabs-u-card__value-link:is(:hover,:focus-visible){text-decoration-line:underline}.ghostlabs-u-card img{block-size:auto;display:block;max-inline-size:100%}.ghostlabs-u-card .ghostlabs-u-card__name,.ghostlabs-u-card .ghostlabs-u-card__role,.ghostlabs-u-card .ghostlabs-u-card__title{overflow-wrap:anywhere;text-wrap:balance}.ghostlabs-u-card .ghostlabs-u-card__bio{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:var(--ghostlabs-u-bio-lines,3);line-clamp:var(--ghostlabs-u-bio-lines,3);line-height:1.5;overflow:hidden}.ghostlabs-u-card .ghostlabs-u-card__contact{align-items:center;display:flex;gap:1.7em;margin-inline-start:auto}.ghostlabs-u-card .ghostlabs-u-card__contact:before{aspect-ratio:1;background-color:var(--ghostlabs-u-accent);content:"";flex:none;inline-size:.375rem;rotate:45deg}.ghostlabs-u-card .screen-reader-text{block-size:1px;border:0;clip-path:inset(50%);inline-size:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;white-space:nowrap}.ghostlabs-u-byline{display:flex;flex-direction:column;gap:1.5em;list-style:none;margin:0;padding:0}.ghostlabs-u-byline__credit{display:flex;flex-direction:column;gap:.5em}.ghostlabs-u-byline__role{font-size:.75rem;letter-spacing:.08em;margin:0;opacity:.65;text-transform:uppercase}@media(prefers-reduced-motion:reduce){:is(.ghostlabs-u-card,.ghostlabs-u-profile),:is(.ghostlabs-u-card,.ghostlabs-u-profile) *{animation-duration:.01ms!important;transition-duration:.01ms!important}}@layer undercard.tokens{.ghostlabs-u-card[data-uc-family=nfc]{--ghostlabs-u-accent:oklch(57.0% 0.1966 36.8);--ghostlabs-u-on-accent:oklch(100% 0 0);--ghostlabs-u-on-accent-muted:oklch(98.5% 0.0276 40.2);--ghostlabs-u-surface:oklch(100% 0 0deg);--ghostlabs-u-raised:oklch(96.4% 0.0029 264.5deg);--ghostlabs-u-text:oklch(20.9% 0.0085 264.4deg);--ghostlabs-u-title:oklch(48.7% 0.0149 255.6deg);--ghostlabs-u-bio:oklch(42.3% 0.0127 261.8deg);--ghostlabs-u-muted:oklch(56.8% 0.0135 255.5deg);--ghostlabs-u-pip:oklch(20.9% 0.0085 264.4deg);--ghostlabs-u-divider:oklch(94.5% 0.0011 197.1deg);--ghostlabs-u-outline:oklch(93.6% 0.0046 258.3deg);--ghostlabs-u-deco:oklch(58% 0.1854 37.4deg);--ghostlabs-u-primary:var(--ghostlabs-u-text);--ghostlabs-u-on-primary:oklch(100% 0 0);--ghostlabs-u-cast:oklch(22.4% 0.0404 54.3/0.16);--ghostlabs-u-cast-soft:oklch(22.4% 0.0404 54.3/0.11)}.ghostlabs-u-card[data-uc-family=nfc]:where([data-uc-variation=onyx]){--ghostlabs-u-surface:oklch(18.1% 0.0052 248.1deg);--ghostlabs-u-raised:oklch(22.9% 0.009 255.6deg);--ghostlabs-u-text:oklch(100% 0 0deg);--ghostlabs-u-title:oklch(74.5% 0.0177 259.4deg);--ghostlabs-u-bio:oklch(80.2% 0.0131 255.5deg);--ghostlabs-u-muted:oklch(60.3% 0.0179 254deg);--ghostlabs-u-pip:oklch(93.6% 0.0046 258.3deg);--ghostlabs-u-divider:oklch(26.3% 0.0047 248deg);--ghostlabs-u-outline:oklch(29.9% 0.0107 254deg);--ghostlabs-u-deco:transparent;--ghostlabs-u-primary:var(--ghostlabs-u-accent);--ghostlabs-u-on-primary:var(--ghostlabs-u-on-accent);--ghostlabs-u-cast:oklch(0% 0 0/0.4);--ghostlabs-u-cast-soft:oklch(0% 0 0/0.32)}.ghostlabs-u-card[data-uc-family=nfc]:where([data-uc-variation=ember][data-uc-layout=horizontal]){--ghostlabs-u-primary:var(--ghostlabs-u-accent);--ghostlabs-u-on-primary:var(--ghostlabs-u-on-accent)}}.ghostlabs-u-card[data-uc-family=nfc]{--ghostlabs-u-max-width:24.375rem;border-radius:1.25rem;box-shadow:0 1rem 2.5rem var(--ghostlabs-u-cast);font-weight:400;overflow:hidden;text-align:start}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__inner{display:flex;flex-direction:column}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__header{background-color:var(--ghostlabs-u-accent);display:flex;overflow:hidden;position:relative}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__photo{background-color:var(--ghostlabs-u-raised);display:grid;overflow:hidden;position:relative}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__initials{background-color:var(--ghostlabs-u-raised);block-size:100%;color:var(--ghostlabs-u-text);display:grid;font-size:clamp(2.0625rem,11.2820512821cqi,3.4375rem);inline-size:100%;place-items:center}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__photo-image{--ghostlabs-u-plane:max(100%,calc(100%*var(--ghostlabs-u-photo-scale, 1)));background-color:var(--ghostlabs-u-raised);block-size:var(--ghostlabs-u-plane);inline-size:var(--ghostlabs-u-plane);inset-block-start:calc((100% - var(--ghostlabs-u-plane))*var(--ghostlabs-u-focal-y, .5));inset-inline-start:calc((100% - var(--ghostlabs-u-plane))*var(--ghostlabs-u-focal-x, .5));max-inline-size:none;object-fit:cover;object-position:var(--ghostlabs-u-focal,50% 50%);position:absolute}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__initials--icon{padding:26%}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__names,.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__qr{position:relative;z-index:1}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__names{display:flex;flex-direction:column;min-inline-size:0}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__name{color:var(--ghostlabs-u-text);line-height:1.2;text-wrap:balance}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__title{color:var(--ghostlabs-u-title)}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__body{display:flex;flex:1;flex-direction:column;padding:1.5rem}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__actions{display:flex;gap:.75rem}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__action{border:1px solid transparent;border-radius:999px;display:grid;line-height:1.2;min-inline-size:0;overflow-wrap:break-word;padding-inline:.75rem;place-items:center;text-align:center}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__action--save{background-color:var(--ghostlabs-u-primary);color:var(--ghostlabs-u-on-primary)}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__action--share{background-color:var(--ghostlabs-u-raised);border-color:var(--ghostlabs-u-outline);color:var(--ghostlabs-u-text)}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__action:is(:hover,:focus-visible){filter:brightness(1.08)}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__qr{background-color:var(--ghostlabs-u-raised);border-radius:.625rem;color:var(--ghostlabs-u-text);display:grid;flex:none;place-items:center}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__action svg{block-size:auto;inline-size:55%}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__qr>svg{block-size:auto;grid-area:1/1;inline-size:55%}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__qr-dismiss,.ghostlabs-u-card[data-uc-family=nfc][data-uc-qr=open] .ghostlabs-u-card__qr-mark{display:none}.ghostlabs-u-card[data-uc-family=nfc][data-uc-qr=open] .ghostlabs-u-card__qr-dismiss{display:block}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__qr:focus:not(:focus-visible){outline:none}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__qr:focus-visible{outline:2px solid currentColor;outline-offset:2px}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__qr-panel{position:absolute;z-index:2}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__qr-panel .ghostlabs-u-card__qr-frame{inline-size:100%}::view-transition-new(ghostlabs-u-qr),::view-transition-old(ghostlabs-u-qr){block-size:100%;object-fit:cover}::view-transition-new(ghostlabs-u-qr-panel){animation:ghostlabs-u-qr-bloom .24s cubic-bezier(.2,0,0,1) both;transform-origin:0% 0}::view-transition-old(ghostlabs-u-qr-panel){animation:ghostlabs-u-qr-bloom .24s cubic-bezier(.4,0,1,1) reverse both;transform-origin:0% 0}@keyframes ghostlabs-u-qr-bloom{0%{opacity:0;scale:.25}}@media(prefers-reduced-motion:reduce){::view-transition-group(ghostlabs-u-qr),::view-transition-group(ghostlabs-u-qr-actions),::view-transition-group(ghostlabs-u-qr-names),::view-transition-group(ghostlabs-u-qr-panel),::view-transition-group(ghostlabs-u-qr-photo),::view-transition-group(root),::view-transition-new(ghostlabs-u-qr),::view-transition-new(ghostlabs-u-qr-panel),::view-transition-new(root),::view-transition-old(ghostlabs-u-qr),::view-transition-old(ghostlabs-u-qr-panel),::view-transition-old(root){animation:none}}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__qr-dialog{background-color:var(--ghostlabs-u-surface);border:0;border-radius:1.25rem;color:var(--ghostlabs-u-text);inline-size:fit-content;max-inline-size:90vw;padding:1.5rem;text-align:center}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__qr-dialog::backdrop{background-color:oklch(0 0 0/.6)}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__qr-frame{border-radius:.75rem;inline-size:min(15rem,70vw);margin-inline:auto;overflow:hidden;--ghostlabs-u-qr-quiet:#fff;--ghostlabs-u-qr-ink:#000}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__qr-code{block-size:auto;display:block;inline-size:100%}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__qr-caption{color:var(--ghostlabs-u-title);font-size:.875rem;margin-block-start:1rem}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__qr-close{background-color:var(--ghostlabs-u-raised);border:1px solid var(--ghostlabs-u-outline);border-radius:999px;color:var(--ghostlabs-u-text);cursor:pointer;font:inherit;font-size:.875rem;margin-block-start:1rem;padding:.625rem 1.25rem}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__bio-label,.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__social-label{color:var(--ghostlabs-u-muted);letter-spacing:.2em;margin-block-start:1.75rem;text-transform:uppercase}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__bio{display:-webkit-box;-webkit-box-orient:vertical;color:var(--ghostlabs-u-bio);-webkit-line-clamp:3;line-clamp:3;line-height:1.5;margin-block-start:.5rem;overflow:hidden}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__social{display:flex;gap:.75rem;list-style:none;margin:.5rem 0 0;padding:0}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__pip{aspect-ratio:1;background-color:var(--ghostlabs-u-raised);border-radius:50%;color:var(--ghostlabs-u-pip);display:grid;place-items:center}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__pip:is(:hover,:focus-visible){background-color:var(--ghostlabs-u-outline)}.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__link{color:var(--ghostlabs-u-muted);font-family:var(--ghostlabs-u-font-mono);overflow-wrap:anywhere}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=vertical] .ghostlabs-u-card__header{block-size:clamp(15rem,82.0512820513cqi,25rem);flex:none}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=vertical] .ghostlabs-u-card__name{font-size:clamp(1.40625rem,7.6923076923cqi,2.34375rem)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=vertical] .ghostlabs-u-card__title{font-size:clamp(.5859375rem,3.2051282051cqi,.9765625rem);margin-block-start:.8125rem}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=vertical] .ghostlabs-u-card__actions{gap:.75rem}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=vertical] .ghostlabs-u-card__action{block-size:clamp(2.4375rem,13.3333333333cqi,4.0625rem)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=vertical] .ghostlabs-u-card__action--save{flex:222;font-size:clamp(.65625rem,3.5897435897cqi,1.09375rem)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=vertical] .ghostlabs-u-card__action--share{flex:108;font-size:clamp(.609375rem,3.3333333333cqi,1.015625rem)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=vertical] .ghostlabs-u-card__bio-label,.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=vertical] .ghostlabs-u-card__social-label{font-size:clamp(.46875rem,2.5641025641cqi,.78125rem)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=vertical] .ghostlabs-u-card__bio{font-size:clamp(.609375rem,3.3333333333cqi,1.015625rem)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=vertical] .ghostlabs-u-card__social-label{border-block-start:1px solid var(--ghostlabs-u-divider);margin-block-start:1.125rem;padding-block-start:1rem}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=vertical] .ghostlabs-u-card__pip{font-size:clamp(.609375rem,3.3333333333cqi,1.015625rem);inline-size:clamp(1.96875rem,10.7692307692cqi,3.28125rem)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=vertical] .ghostlabs-u-card__link{font-size:clamp(.4921875rem,2.6923076923cqi,.8203125rem);margin-block-start:auto;padding-block-start:1rem;text-align:center}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=vertical] .ghostlabs-u-card__header{align-items:center;gap:1.125rem;padding:0 1.5rem}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=vertical] .ghostlabs-u-card__photo{aspect-ratio:150/190;border-radius:1rem;flex:none;inline-size:clamp(7.03125rem,38.4615384615cqi,11.71875rem)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=vertical] .ghostlabs-u-card__name{color:var(--ghostlabs-u-on-accent)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=vertical] .ghostlabs-u-card__title{color:var(--ghostlabs-u-on-accent-muted)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=vertical] .ghostlabs-u-card__header:after{aspect-ratio:1;background-color:var(--ghostlabs-u-deco);border-radius:50%;content:"";inline-size:76.9%;inset-block-start:-34.4%;inset-inline-start:61.5%;position:absolute}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=vertical] .ghostlabs-u-card__header{background-color:var(--ghostlabs-u-surface);flex-direction:column;justify-content:flex-end;padding:0 1.5rem 1.3125rem}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=vertical] .ghostlabs-u-card__photo{inset:0;position:absolute}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=vertical] .ghostlabs-u-card__photo:after{background-image:linear-gradient(oklch(from var(--ghostlabs-u-surface) l c h/0),var(--ghostlabs-u-surface));content:"";inset:43.75% 0 0;position:absolute}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=vertical] .ghostlabs-u-card__name{font-size:clamp(1.3125rem,7.1794871795cqi,2.1875rem)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=vertical] .ghostlabs-u-card__qr{aspect-ratio:1;background-color:oklch(0 0 0/.4);color:var(--ghostlabs-u-on-accent);inline-size:clamp(1.875rem,10.2564102564cqi,3.125rem);inset-block-start:clamp(1.125rem,6.1538461538cqi,1.875rem);inset-inline-end:clamp(1.125rem,6.1538461538cqi,1.875rem);position:absolute}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=vertical] .ghostlabs-u-card__qr-panel{aspect-ratio:191/200;background-color:#fff;border-radius:.75rem;inline-size:48.9743589744%;inset-block-start:clamp(1.40625rem,7.6923076923cqi,2.34375rem);inset-inline-start:50%;padding:clamp(.8671875rem,4.7435897436cqi,1.4453125rem) clamp(.65625rem,3.5897435897cqi,1.09375rem);translate:-50% 0}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=vertical][data-uc-qr=open] .ghostlabs-u-card__header{align-items:flex-end;flex-direction:row;gap:clamp(.609375rem,3.3333333333cqi,1.015625rem);justify-content:flex-start;padding-block-end:0}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=vertical][data-uc-qr=open] .ghostlabs-u-card__photo{aspect-ratio:1;border-radius:50%;flex:none;inline-size:clamp(3.609375rem,19.7435897436cqi,6.015625rem);position:relative}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=vertical][data-uc-qr=open] .ghostlabs-u-card__photo:after{opacity:0}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=vertical][data-uc-qr=open] .ghostlabs-u-card__names{margin-block-end:clamp(.46875rem,2.5641025641cqi,.78125rem)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=vertical][data-uc-qr=open] .ghostlabs-u-card__name{font-size:clamp(1.03125rem,5.641025641cqi,1.71875rem)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=vertical][data-uc-qr-active] .ghostlabs-u-card__photo{view-transition-name:ghostlabs-u-qr-photo}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=vertical][data-uc-qr-active] .ghostlabs-u-card__names{view-transition-name:ghostlabs-u-qr-names}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=vertical][data-uc-qr-active] .ghostlabs-u-card__qr-panel{view-transition-name:ghostlabs-u-qr-panel}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal]{--ghostlabs-u-max-width:40rem;box-shadow:0 .875rem 2.25rem var(--ghostlabs-u-cast)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__header{--ghostlabs-u-header-rows:15;display:grid;flex:none;grid-template-columns:repeat(16,1fr);grid-template-rows:repeat(var(--ghostlabs-u-header-rows),1fr);max-height:210px;padding-inline:2.5em}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__initials{font-size:clamp(1.3125rem,4.375cqi,2.1875rem)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__photo{aspect-ratio:1;border:clamp(.234375rem,.78125cqi,.390625rem) solid var(--ghostlabs-u-surface);border-radius:50%;grid-column:1/3;grid-row:8/15;inline-size:clamp(4.5rem,15cqi,7.5rem);z-index:1}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__names{grid-column:3/-1;grid-row:12/-1;margin:0;margin-inline-start:1em;top:0}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__name{color:var(--ghostlabs-u-text);font-size:clamp(1.03125rem,3.4375cqi,1.71875rem)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__title{font-size:clamp(.5859375rem,1.953125cqi,.9765625rem);margin-block-start:.4375rem}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal][data-uc-variation=ember] .ghostlabs-u-card__qr{aspect-ratio:1;background-color:transparent;color:var(--ghostlabs-u-on-accent);grid-column:15/16;grid-row:4/6}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__actions{grid-column:13/-1;grid-row:12/-1;justify-self:end;z-index:100}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__action{block-size:clamp(1.5rem,4.5625cqi,3.28125rem);font-size:clamp(.609375rem,1.83125cqi,1.015625rem);inline-size:clamp(6.375rem,19.25cqi,10.625rem)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__body{align-content:start;column-gap:3.125rem;display:grid;grid-template-columns:310fr 200fr;padding:1.5rem 2.5rem 2.5rem}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__bio-label{font-size:clamp(.46875rem,1.5625cqi,.78125rem);grid-column:1;margin-block-start:0}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__bio{align-self:start;font-size:clamp(.5859375rem,1.953125cqi,.9765625rem);grid-column:1;grid-row:2/span 2}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__social-label{font-size:clamp(.46875rem,1.5625cqi,.78125rem);grid-column:2;grid-row:1;margin-block-start:0}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__social{gap:.625rem;grid-column:2;grid-row:2}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__pip{font-size:clamp(.515625rem,1.71875cqi,.859375rem);inline-size:clamp(1.78125rem,5.9375cqi,2.96875rem)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__link{font-size:clamp(.4453125rem,1.484375cqi,.7421875rem);grid-column:2;grid-row:3;margin-block-start:1.5rem}@container ghostlabs-u-card (width < 36.25rem){.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__header{--ghostlabs-u-header-rows:13}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__photo{grid-row:7/15}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__actions,.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__names{grid-row:11/-1}}@container ghostlabs-u-card (width < 29.625rem){.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__header{--ghostlabs-u-header-rows:4}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__photo{grid-row:2/5;top:-.75em;width:78px}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__names{grid-column:1/-1;grid-row:6/-1;margin-block-start:1em;margin-inline-start:0}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__actions{align-self:center;grid-column:12/-1;grid-row:6/-1;justify-self:end}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal][data-uc-variation=ember] .ghostlabs-u-card__qr{grid-column:15/-1;grid-row:2/6;width:48px}}@container ghostlabs-u-card (width < 23.625rem){.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__header{--ghostlabs-u-header-rows:8}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__photo{top:0;width:68px}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__names{grid-row:6/-1;margin-block-start:0}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__names p{text-wrap:balance}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__actions{grid-column:1/3;grid-row:8/-1;justify-self:start}}@container ghostlabs-u-card (width < 20.875rem){.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__header{--ghostlabs-u-header-rows:9}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__actions{align-self:center;grid-row:8/-1}}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=horizontal] .ghostlabs-u-card__header{background-color:transparent;background:radial-gradient(circle 140px at 86% 31%,var(--ghostlabs-u-deco) calc(100% - 1px),transparent 100%) no-repeat,linear-gradient(var(--ghostlabs-u-accent),var(--ghostlabs-u-accent));background-repeat:no-repeat;background-size:100% clamp(6.5625rem,21.875cqi,10.9375rem)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=horizontal] .ghostlabs-u-card__qr>svg{inline-size:100%}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=horizontal] .ghostlabs-u-card__qr-panel{aspect-ratio:1;inline-size:clamp(6.5625rem,21.875cqi,10.9375rem);inset-block-start:0;inset-inline-end:clamp(.7734375rem,2.578125cqi,1.2890625rem);pointer-events:none}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=horizontal] .ghostlabs-u-card__qr-panel .ghostlabs-u-card__qr-frame{border-radius:0;--ghostlabs-u-qr-quiet:transparent;--ghostlabs-u-qr-ink:var(--ghostlabs-u-on-accent)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=horizontal][data-uc-qr=open] .ghostlabs-u-card__header:after{clip-path:inset(0)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=horizontal][data-uc-qr=open] .ghostlabs-u-card__qr{inline-size:clamp(6.5625rem,21.875cqi,10.9375rem);inset-block-start:0;inset-inline-end:clamp(.7734375rem,2.578125cqi,1.2890625rem)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=horizontal][data-uc-qr=open] .ghostlabs-u-card__qr>svg{display:none}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=horizontal][data-uc-qr=open] .ghostlabs-u-card__actions{inset-inline-end:clamp(7.875rem,26.25cqi,13.125rem)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=horizontal][data-uc-qr-active]:not([data-uc-qr=open]) .ghostlabs-u-card__qr,.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=horizontal][data-uc-qr-active][data-uc-qr=open] .ghostlabs-u-card__qr-panel{view-transition-name:ghostlabs-u-qr}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=horizontal][data-uc-qr-active] .ghostlabs-u-card__actions{view-transition-name:ghostlabs-u-qr-actions}@container ghostlabs-u-card (width < 32rem){.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=horizontal][data-uc-qr=open] .ghostlabs-u-card__names{max-inline-size:none}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=horizontal][data-uc-qr=open] .ghostlabs-u-card__title{overflow:visible;white-space:normal}}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=horizontal] .ghostlabs-u-card__header{background-color:var(--ghostlabs-u-surface)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=horizontal] .ghostlabs-u-card__header:before{--ghostlabs-u-zoom:max(1,var(--ghostlabs-u-photo-scale,1));--ghostlabs-u-plane:calc(100%*var(--ghostlabs-u-zoom));--ghostlabs-u-fx:var(--ghostlabs-u-focal-x,0.5);--ghostlabs-u-fy:var(--ghostlabs-u-focal-y,0.5);background-color:var(--ghostlabs-u-raised);background-image:var(--ghostlabs-u-photo,none);background-position:var(--ghostlabs-u-focal,center top);background-size:cover;block-size:calc(clamp(6.5625rem, 21.875cqi, 10.9375rem)*var(--ghostlabs-u-zoom));clip-path:inset(calc(clamp(6.5625rem, 21.875cqi, 10.9375rem)*(var(--ghostlabs-u-zoom) - 1)*var(--ghostlabs-u-fy)) calc(100cqi*(var(--ghostlabs-u-zoom) - 1)*(1 - var(--ghostlabs-u-fx))) calc(clamp(6.5625rem, 21.875cqi, 10.9375rem)*(var(--ghostlabs-u-zoom) - 1)*(1 - var(--ghostlabs-u-fy))) calc(100cqi*(var(--ghostlabs-u-zoom) - 1)*var(--ghostlabs-u-fx)));content:"";inline-size:var(--ghostlabs-u-plane);inset-block-start:calc(clamp(6.5625rem, 21.875cqi, 10.9375rem)*(1 - var(--ghostlabs-u-zoom))*var(--ghostlabs-u-fy));inset-inline-start:calc((100% - var(--ghostlabs-u-plane))*var(--ghostlabs-u-fx));position:absolute}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=horizontal] .ghostlabs-u-card__header:after{background-image:linear-gradient(oklch(from var(--ghostlabs-u-surface) l c h/0),oklch(from var(--ghostlabs-u-surface) l c h/.9));block-size:clamp(4.6875rem,15.625cqi,7.8125rem);content:"";inset-block-start:clamp(1.875rem,6.25cqi,3.125rem);inset-inline:0;position:absolute}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=horizontal] .ghostlabs-u-card__photo{border-color:var(--ghostlabs-u-surface)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=horizontal] .ghostlabs-u-card__photo[data-uc-avatar=initials]:not(.ghostlabs-u-avatar-upload){outline:1px dashed color-mix(in oklab,var(--ghostlabs-u-text) 50%,transparent);outline-offset:3px}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row]{--ghostlabs-u-max-width:30rem;border-radius:1rem;box-shadow:0 .375rem 1rem var(--ghostlabs-u-cast-soft)}@container ghostlabs-u-card (width < 24rem){.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__inner{align-items:center;flex-direction:row;gap:.75rem;min-block-size:calc(100cqi/(var(--ghostlabs-u-ratio-narrow)));padding-inline:.75rem}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__header{align-items:center;background:none;flex:1;gap:.75rem;min-inline-size:0;overflow:visible}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__initials{font-size:clamp(.5625rem,5cqi,.9375rem)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__photo{aspect-ratio:1;border:clamp(.09375rem,.8333333333cqi,.15625rem) solid var(--ghostlabs-u-accent);border-radius:50%;flex:none;inline-size:clamp(1.875rem,16.6666666667cqi,3.125rem)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__name{font-size:clamp(.609375rem,5.4166666667cqi,1.015625rem)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__link{font-size:clamp(.375rem,3.3333333333cqi,.625rem);margin-block-start:.375rem}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__actions{flex:none}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__action{block-size:clamp(1.6875rem,15cqi,2.8125rem);border-radius:50%;inline-size:clamp(1.6875rem,15cqi,2.8125rem);padding-inline:0}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__qr,.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__qr-panel,.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__title{display:none}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__action{border-radius:clamp(.84375rem,7.5cqi,1.40625rem);font-size:clamp(.515625rem,4.5833333333cqi,.859375rem);inline-size:auto;padding-inline:clamp(.46875rem,4.1666666667cqi,.78125rem)}}@container ghostlabs-u-card (width >= 24rem){.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__inner{align-items:center;flex-direction:row;gap:1rem;padding-inline:1.25rem}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__header{align-items:center;background:none;flex:1;gap:1rem;min-inline-size:0;overflow:visible}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__initials{font-size:clamp(.75rem,3.3333333333cqi,1.25rem)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__photo{aspect-ratio:1;border:clamp(.09375rem,.4166666667cqi,.15625rem) solid var(--ghostlabs-u-accent);border-radius:50%;flex:none;inline-size:clamp(2.625rem,11.6666666667cqi,4.375rem)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__name{font-size:clamp(.703125rem,3.125cqi,1.171875rem)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__title{font-size:clamp(.46875rem,2.0833333333cqi,.78125rem);margin-block-start:.5rem}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__actions{align-items:center;flex:none;gap:1rem;position:relative}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__qr{aspect-ratio:1;inline-size:clamp(1.875rem,8.3333333333cqi,3.125rem)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__action{block-size:clamp(1.875rem,8.3333333333cqi,3.125rem);font-size:clamp(.5390625rem,2.3958333333cqi,.8984375rem);inline-size:clamp(5.4375rem,24.1666666667cqi,9.0625rem)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__qr-panel{aspect-ratio:1;inline-size:var(--ghostlabs-u-code);inset-block-start:50%;inset-inline-start:0;pointer-events:none;translate:0 -50%}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__qr-panel .ghostlabs-u-card__qr-frame{border-radius:0;--ghostlabs-u-qr-quiet:transparent;--ghostlabs-u-qr-ink:var(--ghostlabs-u-text)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row][data-uc-qr=open] .ghostlabs-u-card__qr{inline-size:var(--ghostlabs-u-code)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row][data-uc-qr=open] .ghostlabs-u-card__qr>svg{display:none}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row][data-uc-qr=open] .ghostlabs-u-card__title{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row][data-uc-qr-active]:not([data-uc-qr=open]) .ghostlabs-u-card__qr,.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row][data-uc-qr-active][data-uc-qr=open] .ghostlabs-u-card__qr-panel{view-transition-name:ghostlabs-u-qr}}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=row] .ghostlabs-u-card__inner{--ghostlabs-u-code:clamp(3.75rem,16.6666666667cqi,6.25rem)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=row] .ghostlabs-u-card__inner{--ghostlabs-u-code:clamp(3.375rem,15cqi,5.625rem)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=chip]{--ghostlabs-u-max-width:15rem;border-radius:.75rem;box-shadow:0 .25rem .75rem var(--ghostlabs-u-cast-soft)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=chip] .ghostlabs-u-card__inner{align-items:center;flex-direction:row;gap:.75rem;padding-inline:.75rem}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=chip] .ghostlabs-u-card__header{align-items:center;background:none;flex:1;gap:.75rem;min-inline-size:0;overflow:visible}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=chip] .ghostlabs-u-card__initials{font-size:clamp(.5625rem,5cqi,.9375rem)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=chip] .ghostlabs-u-card__photo{aspect-ratio:1;border:clamp(.09375rem,.8333333333cqi,.15625rem) solid var(--ghostlabs-u-accent);border-radius:50%;flex:none;inline-size:clamp(1.875rem,16.6666666667cqi,3.125rem)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=chip] .ghostlabs-u-card__name{font-size:clamp(.609375rem,5.4166666667cqi,1.015625rem)}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=chip] .ghostlabs-u-card__link{font-size:clamp(.375rem,3.3333333333cqi,.625rem);margin-block-start:.375rem}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=chip] .ghostlabs-u-card__actions{flex:none}.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=chip] .ghostlabs-u-card__action{block-size:clamp(1.6875rem,15cqi,2.8125rem);border-radius:50%;inline-size:clamp(1.6875rem,15cqi,2.8125rem);padding-inline:0}
+	undercard.overrides;
+@font-face {
+  font-family: "Undercard Inter";
+  src: url(../../fonts/inter-latin-ext.9c8c91dc.woff2) format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Undercard Inter";
+  src: url(../../fonts/inter-latin.404ca8da.woff2) format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Undercard Inter Fallback";
+  src: local("Arial"), local("Helvetica Neue");
+  size-adjust: 106.5%;
+  ascent-override: 91%;
+  descent-override: 22.6%;
+  line-gap-override: 0%;
+}
+.ghostlabs-u-card:where([data-uc-family=nfc]) {
+  --ghostlabs-u-font-display: "Undercard Inter", "Undercard Inter Fallback", system-ui, sans-serif;
+  --ghostlabs-u-font-text: "Undercard Inter", "Undercard Inter Fallback", system-ui, sans-serif;
+}
+
+@font-face {
+  font-family: "Undercard Fira Mono";
+  src: url(../../fonts/fira-mono-400-latin-ext.0bf520cf.woff2) format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Undercard Fira Mono";
+  src: url(../../fonts/fira-mono-400-latin.a98f42c8.woff2) format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Undercard Fira Mono Fallback";
+  src: local("Menlo-Regular"), local("Consolas"), local("DejaVu Sans Mono"), local("Courier New");
+  size-adjust: 99.7%;
+  ascent-override: 93.8%;
+  descent-override: 26.6%;
+  line-gap-override: 0%;
+}
+:root {
+  --ghostlabs-u-font-mono:
+  	"Undercard Fira Mono", "Undercard Fira Mono Fallback", ui-monospace,
+  	SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.ghostlabs-u-card {
+  container-type: inline-size;
+  container-name: ghostlabs-u-card;
+  inline-size: 100%;
+  max-inline-size: var(--ghostlabs-u-max-width, 100%);
+  position: relative;
+  box-sizing: border-box;
+  margin-inline: auto;
+  color: var(--ghostlabs-u-text);
+  background-color: var(--ghostlabs-u-surface);
+  font-family: var(--ghostlabs-u-font-text);
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.ghostlabs-u-card .ghostlabs-u-card__inner {
+  min-block-size: calc(100cqi / (var(--ghostlabs-u-ratio)));
+  inline-size: 100%;
+}
+
+.ghostlabs-u-card *,
+.ghostlabs-u-card *::before,
+.ghostlabs-u-card *::after {
+  box-sizing: inherit;
+}
+
+.ghostlabs-u-card :is(h2, h3, h4, h5, h6, p, dl, dt, dd, figure, hr) {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  text-transform: none;
+}
+
+.ghostlabs-u-card a {
+  text-decoration: none;
+}
+
+.ghostlabs-u-card :is(.ghostlabs-u-card__link,
+.ghostlabs-u-card__site) {
+  position: relative;
+}
+.ghostlabs-u-card :is(.ghostlabs-u-card__link,
+.ghostlabs-u-card__site)::before {
+  content: "";
+  position: absolute;
+  inset-block: -0.5rem;
+  inset-inline: 0;
+  z-index: 0;
+}
+
+.ghostlabs-u-card .ghostlabs-u-card__value-link {
+  color: inherit;
+  padding-block: 0.4rem;
+  margin-block: -0.4rem;
+  text-decoration-color: color-mix(in oklch, currentColor 40%, transparent);
+  text-underline-offset: 0.25em;
+}
+.ghostlabs-u-card .ghostlabs-u-card__value-link:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+}
+
+.ghostlabs-u-card img {
+  display: block;
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+.ghostlabs-u-card .ghostlabs-u-card__name,
+.ghostlabs-u-card .ghostlabs-u-card__title,
+.ghostlabs-u-card .ghostlabs-u-card__role {
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+
+.ghostlabs-u-card .ghostlabs-u-card__bio {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--ghostlabs-u-bio-lines, 3);
+  line-clamp: var(--ghostlabs-u-bio-lines, 3);
+  overflow: hidden;
+  line-height: 1.5;
+}
+
+.ghostlabs-u-card .ghostlabs-u-card__contact {
+  display: flex;
+  align-items: center;
+  gap: 1.7em;
+  margin-inline-start: auto;
+}
+
+.ghostlabs-u-card .ghostlabs-u-card__contact::before {
+  content: "";
+  inline-size: 0.375rem;
+  flex: none;
+  aspect-ratio: 1;
+  rotate: 45deg;
+  background-color: var(--ghostlabs-u-accent);
+}
+
+.ghostlabs-u-card .screen-reader-text {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.ghostlabs-u-byline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ghostlabs-u-byline__credit {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.ghostlabs-u-byline__role {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :is(.ghostlabs-u-card, .ghostlabs-u-profile),
+  :is(.ghostlabs-u-card, .ghostlabs-u-profile) * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+@layer undercard.tokens {
+  .ghostlabs-u-card[data-uc-family=nfc] {
+    --ghostlabs-u-accent: oklch(57.0% 0.1966 36.8);
+    --ghostlabs-u-on-accent: oklch(100% 0 0);
+    --ghostlabs-u-on-accent-muted: oklch(98.5% 0.0276 40.2);
+    --ghostlabs-u-surface: oklch(100% 0 0deg);
+    --ghostlabs-u-raised: oklch(96.4% 0.0029 264.5deg);
+    --ghostlabs-u-text: oklch(20.9% 0.0085 264.4deg);
+    --ghostlabs-u-title: oklch(48.7% 0.0149 255.6deg);
+    --ghostlabs-u-bio: oklch(42.3% 0.0127 261.8deg);
+    --ghostlabs-u-muted: oklch(56.8% 0.0135 255.5deg);
+    --ghostlabs-u-pip: oklch(20.9% 0.0085 264.4deg);
+    --ghostlabs-u-divider: oklch(94.5% 0.0011 197.1deg);
+    --ghostlabs-u-outline: oklch(93.6% 0.0046 258.3deg);
+    --ghostlabs-u-deco: oklch(58% 0.1854 37.4deg);
+    --ghostlabs-u-primary: var(--ghostlabs-u-text);
+    --ghostlabs-u-on-primary: oklch(100% 0 0);
+    --ghostlabs-u-cast: oklch(22.4% 0.0404 54.3 / 0.16);
+    --ghostlabs-u-cast-soft: oklch(22.4% 0.0404 54.3 / 0.11);
+  }
+  .ghostlabs-u-card[data-uc-family=nfc]:where([data-uc-variation=onyx]) {
+    --ghostlabs-u-surface: oklch(18.1% 0.0052 248.1deg);
+    --ghostlabs-u-raised: oklch(22.9% 0.009 255.6deg);
+    --ghostlabs-u-text: oklch(100% 0 0deg);
+    --ghostlabs-u-title: oklch(74.5% 0.0177 259.4deg);
+    --ghostlabs-u-bio: oklch(80.2% 0.0131 255.5deg);
+    --ghostlabs-u-muted: oklch(60.3% 0.0179 254deg);
+    --ghostlabs-u-pip: oklch(93.6% 0.0046 258.3deg);
+    --ghostlabs-u-divider: oklch(26.3% 0.0047 248deg);
+    --ghostlabs-u-outline: oklch(29.9% 0.0107 254deg);
+    --ghostlabs-u-deco: transparent;
+    --ghostlabs-u-primary: var(--ghostlabs-u-accent);
+    --ghostlabs-u-on-primary: var(--ghostlabs-u-on-accent);
+    --ghostlabs-u-cast: oklch(0% 0 0 / 0.4);
+    --ghostlabs-u-cast-soft: oklch(0% 0 0 / 0.32);
+  }
+  .ghostlabs-u-card[data-uc-family=nfc]:where([data-uc-variation=ember][data-uc-layout=horizontal]) {
+    --ghostlabs-u-primary: var(--ghostlabs-u-accent);
+    --ghostlabs-u-on-primary: var(--ghostlabs-u-on-accent);
+  }
+}
+.ghostlabs-u-card[data-uc-family=nfc] {
+  --ghostlabs-u-max-width: 24.375rem;
+  text-align: start;
+  font-weight: 400;
+  border-radius: 1.25rem;
+  box-shadow: 0 1rem 2.5rem var(--ghostlabs-u-cast);
+  overflow: hidden;
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__header {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  background-color: var(--ghostlabs-u-accent);
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__photo {
+  position: relative;
+  display: grid;
+  overflow: hidden;
+  background-color: var(--ghostlabs-u-raised);
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__initials {
+  display: grid;
+  place-items: center;
+  inline-size: 100%;
+  block-size: 100%;
+  background-color: var(--ghostlabs-u-raised);
+  font-size: clamp(2.0625rem, 11.2820512821cqi, 3.4375rem);
+  color: var(--ghostlabs-u-text);
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__photo-image {
+  --ghostlabs-u-plane: max(100%, calc(100% * var(--ghostlabs-u-photo-scale, 1)));
+  position: absolute;
+  inset-block-start: calc((100% - var(--ghostlabs-u-plane)) * var(--ghostlabs-u-focal-y, 0.5));
+  inset-inline-start: calc((100% - var(--ghostlabs-u-plane)) * var(--ghostlabs-u-focal-x, 0.5));
+  inline-size: var(--ghostlabs-u-plane);
+  max-inline-size: none;
+  block-size: var(--ghostlabs-u-plane);
+  background-color: var(--ghostlabs-u-raised);
+  object-fit: cover;
+  object-position: var(--ghostlabs-u-focal, 50% 50%);
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__initials--icon {
+  padding: 26%;
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__names,
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__qr {
+  position: relative;
+  z-index: 1;
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__names {
+  display: flex;
+  flex-direction: column;
+  min-inline-size: 0;
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__name {
+  line-height: 1.2;
+  text-wrap: balance;
+  color: var(--ghostlabs-u-text);
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__title {
+  color: var(--ghostlabs-u-title);
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.5rem;
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__action {
+  display: grid;
+  place-items: center;
+  min-inline-size: 0;
+  padding-inline: 0.75rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  line-height: 1.2;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__action--save {
+  background-color: var(--ghostlabs-u-primary);
+  color: var(--ghostlabs-u-on-primary);
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__action--share {
+  border-color: var(--ghostlabs-u-outline);
+  background-color: var(--ghostlabs-u-raised);
+  color: var(--ghostlabs-u-text);
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__action:is(:hover, :focus-visible) {
+  filter: brightness(1.08);
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__qr {
+  display: grid;
+  place-items: center;
+  flex: none;
+  border-radius: 0.625rem;
+  background-color: var(--ghostlabs-u-raised);
+  color: var(--ghostlabs-u-text);
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__action svg {
+  inline-size: 55%;
+  block-size: auto;
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__qr > svg {
+  grid-area: 1/1;
+  inline-size: 55%;
+  block-size: auto;
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__qr-dismiss,
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-qr=open] .ghostlabs-u-card__qr-mark {
+  display: none;
+}
+
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-qr=open] .ghostlabs-u-card__qr-dismiss {
+  display: block;
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__qr:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__qr:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__qr-panel {
+  position: absolute;
+  z-index: 2;
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__qr-panel .ghostlabs-u-card__qr-frame {
+  inline-size: 100%;
+}
+
+::view-transition-old(ghostlabs-u-qr),
+::view-transition-new(ghostlabs-u-qr) {
+  block-size: 100%;
+  object-fit: cover;
+}
+
+::view-transition-new(ghostlabs-u-qr-panel) {
+  animation: ghostlabs-u-qr-bloom 240ms cubic-bezier(0.2, 0, 0, 1) both;
+  transform-origin: 0% 0;
+}
+
+::view-transition-old(ghostlabs-u-qr-panel) {
+  animation: ghostlabs-u-qr-bloom 240ms cubic-bezier(0.4, 0, 1, 1) both reverse;
+  transform-origin: 0% 0;
+}
+
+@keyframes ghostlabs-u-qr-bloom {
+  from {
+    opacity: 0;
+    scale: 0.25;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(root),
+  ::view-transition-old(root),
+  ::view-transition-new(root),
+  ::view-transition-group(ghostlabs-u-qr),
+  ::view-transition-old(ghostlabs-u-qr),
+  ::view-transition-new(ghostlabs-u-qr),
+  ::view-transition-group(ghostlabs-u-qr-panel),
+  ::view-transition-old(ghostlabs-u-qr-panel),
+  ::view-transition-new(ghostlabs-u-qr-panel),
+  ::view-transition-group(ghostlabs-u-qr-photo),
+  ::view-transition-group(ghostlabs-u-qr-names),
+  ::view-transition-group(ghostlabs-u-qr-actions) {
+    animation: none;
+  }
+}
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__qr-dialog {
+  inline-size: fit-content;
+  max-inline-size: 90vw;
+  padding: 1.5rem;
+  border: 0;
+  border-radius: 1.25rem;
+  background-color: var(--ghostlabs-u-surface);
+  color: var(--ghostlabs-u-text);
+  text-align: center;
+}
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__qr-dialog::backdrop {
+  background-color: oklch(0% 0 0deg / 0.6);
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__qr-frame {
+  inline-size: min(15rem, 70vw);
+  margin-inline: auto;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  --ghostlabs-u-qr-quiet: #fff;
+  --ghostlabs-u-qr-ink: #000;
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__qr-code {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__qr-caption {
+  margin-block-start: 1rem;
+  font-size: 0.875rem;
+  color: var(--ghostlabs-u-title);
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__qr-close {
+  margin-block-start: 1rem;
+  padding: 0.625rem 1.25rem;
+  border: 1px solid var(--ghostlabs-u-outline);
+  border-radius: 999px;
+  background-color: var(--ghostlabs-u-raised);
+  font: inherit;
+  font-size: 0.875rem;
+  color: var(--ghostlabs-u-text);
+  cursor: pointer;
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__bio-label,
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__social-label {
+  margin-block-start: 1.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ghostlabs-u-muted);
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__bio {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+  margin-block-start: 0.5rem;
+  line-height: 1.5;
+  color: var(--ghostlabs-u-bio);
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__social {
+  display: flex;
+  gap: 0.75rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__pip {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: var(--ghostlabs-u-raised);
+  color: var(--ghostlabs-u-pip);
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__pip:is(:hover, :focus-visible) {
+  background-color: var(--ghostlabs-u-outline);
+}
+
+.ghostlabs-u-card[data-uc-family=nfc] .ghostlabs-u-card__link {
+  font-family: var(--ghostlabs-u-font-mono);
+  color: var(--ghostlabs-u-muted);
+  overflow-wrap: anywhere;
+}
+
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=vertical] .ghostlabs-u-card__header {
+  flex: none;
+  block-size: clamp(15rem, 82.0512820513cqi, 25rem);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=vertical] .ghostlabs-u-card__name {
+  font-size: clamp(1.40625rem, 7.6923076923cqi, 2.34375rem);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=vertical] .ghostlabs-u-card__title {
+  margin-block-start: 0.8125rem;
+  font-size: clamp(0.5859375rem, 3.2051282051cqi, 0.9765625rem);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=vertical] .ghostlabs-u-card__actions {
+  gap: 0.75rem;
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=vertical] .ghostlabs-u-card__action {
+  block-size: clamp(2.4375rem, 13.3333333333cqi, 4.0625rem);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=vertical] .ghostlabs-u-card__action--save {
+  flex: 222;
+  font-size: clamp(0.65625rem, 3.5897435897cqi, 1.09375rem);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=vertical] .ghostlabs-u-card__action--share {
+  flex: 108;
+  font-size: clamp(0.609375rem, 3.3333333333cqi, 1.015625rem);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=vertical] .ghostlabs-u-card__bio-label,
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=vertical] .ghostlabs-u-card__social-label {
+  font-size: clamp(0.46875rem, 2.5641025641cqi, 0.78125rem);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=vertical] .ghostlabs-u-card__bio {
+  font-size: clamp(0.609375rem, 3.3333333333cqi, 1.015625rem);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=vertical] .ghostlabs-u-card__social-label {
+  margin-block-start: 1.125rem;
+  padding-block-start: 1rem;
+  border-block-start: 1px solid var(--ghostlabs-u-divider);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=vertical] .ghostlabs-u-card__pip {
+  inline-size: clamp(1.96875rem, 10.7692307692cqi, 3.28125rem);
+  font-size: clamp(0.609375rem, 3.3333333333cqi, 1.015625rem);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=vertical] .ghostlabs-u-card__link {
+  margin-block-start: auto;
+  padding-block-start: 1rem;
+  font-size: clamp(0.4921875rem, 2.6923076923cqi, 0.8203125rem);
+  text-align: center;
+}
+
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=vertical] .ghostlabs-u-card__header {
+  align-items: center;
+  gap: 1.125rem;
+  padding: 0 1.5rem;
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=vertical] .ghostlabs-u-card__photo {
+  flex: none;
+  inline-size: clamp(7.03125rem, 38.4615384615cqi, 11.71875rem);
+  aspect-ratio: 150/190;
+  border-radius: 1rem;
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=vertical] .ghostlabs-u-card__name {
+  color: var(--ghostlabs-u-on-accent);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=vertical] .ghostlabs-u-card__title {
+  color: var(--ghostlabs-u-on-accent-muted);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=vertical] .ghostlabs-u-card__header::after {
+  content: "";
+  position: absolute;
+  inset-block-start: -34.4%;
+  inset-inline-start: 61.5%;
+  inline-size: 76.9%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: var(--ghostlabs-u-deco);
+}
+
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=vertical] .ghostlabs-u-card__header {
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 1.5rem 1.3125rem;
+  background-color: var(--ghostlabs-u-surface);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=vertical] .ghostlabs-u-card__photo {
+  position: absolute;
+  inset: 0;
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=vertical] .ghostlabs-u-card__photo::after {
+  content: "";
+  position: absolute;
+  inset: 43.75% 0 0;
+  background-image: linear-gradient(oklch(from var(--ghostlabs-u-surface) l c h/0), var(--ghostlabs-u-surface));
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=vertical] .ghostlabs-u-card__name {
+  font-size: clamp(1.3125rem, 7.1794871795cqi, 2.1875rem);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=vertical] .ghostlabs-u-card__qr {
+  position: absolute;
+  inset-block-start: clamp(1.125rem, 6.1538461538cqi, 1.875rem);
+  inset-inline-end: clamp(1.125rem, 6.1538461538cqi, 1.875rem);
+  inline-size: clamp(1.875rem, 10.2564102564cqi, 3.125rem);
+  aspect-ratio: 1;
+  background-color: oklch(0% 0 0deg / 0.4);
+  color: var(--ghostlabs-u-on-accent);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=vertical] .ghostlabs-u-card__qr-panel {
+  inset-block-start: clamp(1.40625rem, 7.6923076923cqi, 2.34375rem);
+  inset-inline-start: 50%;
+  translate: -50% 0;
+  inline-size: 48.9743589744%;
+  aspect-ratio: 191/200;
+  padding: clamp(0.8671875rem, 4.7435897436cqi, 1.4453125rem) clamp(0.65625rem, 3.5897435897cqi, 1.09375rem);
+  border-radius: 0.75rem;
+  background-color: #fff;
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=vertical][data-uc-qr=open] .ghostlabs-u-card__header {
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: clamp(0.609375rem, 3.3333333333cqi, 1.015625rem);
+  padding-block-end: 0;
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=vertical][data-uc-qr=open] .ghostlabs-u-card__photo {
+  position: relative;
+  flex: none;
+  inline-size: clamp(3.609375rem, 19.7435897436cqi, 6.015625rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=vertical][data-uc-qr=open] .ghostlabs-u-card__photo::after {
+  opacity: 0;
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=vertical][data-uc-qr=open] .ghostlabs-u-card__names {
+  margin-block-end: clamp(0.46875rem, 2.5641025641cqi, 0.78125rem);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=vertical][data-uc-qr=open] .ghostlabs-u-card__name {
+  font-size: clamp(1.03125rem, 5.641025641cqi, 1.71875rem);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=vertical][data-uc-qr-active] .ghostlabs-u-card__photo {
+  view-transition-name: ghostlabs-u-qr-photo;
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=vertical][data-uc-qr-active] .ghostlabs-u-card__names {
+  view-transition-name: ghostlabs-u-qr-names;
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=vertical][data-uc-qr-active] .ghostlabs-u-card__qr-panel {
+  view-transition-name: ghostlabs-u-qr-panel;
+}
+
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] {
+  --ghostlabs-u-max-width: 40rem;
+  box-shadow: 0 0.875rem 2.25rem var(--ghostlabs-u-cast);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__header {
+  --ghostlabs-u-header-rows: 15;
+  flex: none;
+  padding-inline: 2.5em;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(var(--ghostlabs-u-header-rows), 1fr);
+  max-height: 210px;
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__initials {
+  font-size: clamp(1.3125rem, 4.375cqi, 2.1875rem);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__photo {
+  z-index: 1;
+  inline-size: clamp(4.5rem, 15cqi, 7.5rem);
+  aspect-ratio: 1;
+  border: clamp(0.234375rem, 0.78125cqi, 0.390625rem) solid var(--ghostlabs-u-surface);
+  border-radius: 50%;
+  grid-row: 8/15;
+  grid-column: 1/3;
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__names {
+  margin: 0;
+  grid-row: 12/-1;
+  grid-column: 3/-1;
+  margin-inline-start: 1em;
+  top: 0;
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__name {
+  font-size: clamp(1.03125rem, 3.4375cqi, 1.71875rem);
+  color: var(--ghostlabs-u-text);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__title {
+  margin-block-start: 0.4375rem;
+  font-size: clamp(0.5859375rem, 1.953125cqi, 0.9765625rem);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal][data-uc-variation=ember] .ghostlabs-u-card__qr {
+  aspect-ratio: 1;
+  background-color: transparent;
+  color: var(--ghostlabs-u-on-accent);
+  grid-column: 15/16;
+  grid-row: 4/6;
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__actions {
+  grid-column: 13/-1;
+  grid-row: 12/-1;
+  justify-self: end;
+  z-index: 100;
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__action {
+  inline-size: clamp(6.375rem, 19.25cqi, 10.625rem);
+  block-size: clamp(1.5rem, 4.5625cqi, 3.28125rem);
+  font-size: clamp(0.609375rem, 1.83125cqi, 1.015625rem);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__body {
+  display: grid;
+  grid-template-columns: 310fr 200fr;
+  column-gap: 3.125rem;
+  align-content: start;
+  padding: 1.5rem 2.5rem 2.5rem;
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__bio-label {
+  grid-column: 1;
+  margin-block-start: 0;
+  font-size: clamp(0.46875rem, 1.5625cqi, 0.78125rem);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__bio {
+  grid-column: 1;
+  grid-row: 2/span 2;
+  align-self: start;
+  font-size: clamp(0.5859375rem, 1.953125cqi, 0.9765625rem);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__social-label {
+  grid-column: 2;
+  grid-row: 1;
+  margin-block-start: 0;
+  font-size: clamp(0.46875rem, 1.5625cqi, 0.78125rem);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__social {
+  grid-column: 2;
+  grid-row: 2;
+  gap: 0.625rem;
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__pip {
+  inline-size: clamp(1.78125rem, 5.9375cqi, 2.96875rem);
+  font-size: clamp(0.515625rem, 1.71875cqi, 0.859375rem);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__link {
+  grid-column: 2;
+  grid-row: 3;
+  margin-block-start: 1.5rem;
+  font-size: clamp(0.4453125rem, 1.484375cqi, 0.7421875rem);
+}
+@container ghostlabs-u-card (width < 36.25rem) {
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__header {
+    --ghostlabs-u-header-rows: 13;
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__photo {
+    grid-row: 7/15;
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__names {
+    grid-row: 11/-1;
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__actions {
+    grid-row: 11/-1;
+  }
+}
+@container ghostlabs-u-card (width < 29.625rem) {
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__header {
+    --ghostlabs-u-header-rows: 4;
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__photo {
+    grid-row: 2/5;
+    width: 78px;
+    top: -0.75em;
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__names {
+    grid-column: 1/-1;
+    grid-row: 6/-1;
+    margin-inline-start: 0;
+    margin-block-start: 1em;
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__actions {
+    grid-column: 12/-1;
+    grid-row: 6/-1;
+    justify-self: end;
+    align-self: center;
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal][data-uc-variation=ember] .ghostlabs-u-card__qr {
+    grid-column: 15/-1;
+    grid-row: 2/6;
+    width: 48px;
+  }
+}
+@container ghostlabs-u-card (width < 23.625rem) {
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__header {
+    --ghostlabs-u-header-rows: 8;
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__photo {
+    width: 68px;
+    top: 0;
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__names {
+    grid-row: 6/-1;
+    margin-block-start: 0;
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__names p {
+    text-wrap: balance;
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__actions {
+    grid-column: 1/3;
+    grid-row: 8/-1;
+    justify-self: start;
+  }
+}
+@container ghostlabs-u-card (width < 20.875rem) {
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__header {
+    --ghostlabs-u-header-rows: 9;
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=horizontal] .ghostlabs-u-card__actions {
+    grid-row: 8/-1;
+    align-self: center;
+  }
+}
+
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=horizontal] .ghostlabs-u-card__header {
+  background-color: transparent;
+  background: radial-gradient(circle 140px at 86% 31%, var(--ghostlabs-u-deco) calc(100% - 1px), transparent 100%) no-repeat, linear-gradient(var(--ghostlabs-u-accent), var(--ghostlabs-u-accent));
+  background-repeat: no-repeat;
+  background-size: 100% clamp(6.5625rem, 21.875cqi, 10.9375rem);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=horizontal] .ghostlabs-u-card__qr > svg {
+  inline-size: 100%;
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=horizontal] .ghostlabs-u-card__qr-panel {
+  inset-block-start: 0;
+  inset-inline-end: clamp(0.7734375rem, 2.578125cqi, 1.2890625rem);
+  inline-size: clamp(6.5625rem, 21.875cqi, 10.9375rem);
+  aspect-ratio: 1;
+  pointer-events: none;
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=horizontal] .ghostlabs-u-card__qr-panel .ghostlabs-u-card__qr-frame {
+  border-radius: 0;
+  --ghostlabs-u-qr-quiet: transparent;
+  --ghostlabs-u-qr-ink: var(--ghostlabs-u-on-accent);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=horizontal][data-uc-qr=open] .ghostlabs-u-card__header::after {
+  clip-path: inset(0);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=horizontal][data-uc-qr=open] .ghostlabs-u-card__qr {
+  inset-block-start: 0;
+  inset-inline-end: clamp(0.7734375rem, 2.578125cqi, 1.2890625rem);
+  inline-size: clamp(6.5625rem, 21.875cqi, 10.9375rem);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=horizontal][data-uc-qr=open] .ghostlabs-u-card__qr > svg {
+  display: none;
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=horizontal][data-uc-qr=open] .ghostlabs-u-card__actions {
+  inset-inline-end: clamp(7.875rem, 26.25cqi, 13.125rem);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=horizontal][data-uc-qr-active]:not([data-uc-qr=open]) .ghostlabs-u-card__qr, .ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=horizontal][data-uc-qr-active][data-uc-qr=open] .ghostlabs-u-card__qr-panel {
+  view-transition-name: ghostlabs-u-qr;
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=horizontal][data-uc-qr-active] .ghostlabs-u-card__actions {
+  view-transition-name: ghostlabs-u-qr-actions;
+}
+@container ghostlabs-u-card (width < 32rem) {
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=horizontal][data-uc-qr=open] .ghostlabs-u-card__names {
+    max-inline-size: none;
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=horizontal][data-uc-qr=open] .ghostlabs-u-card__title {
+    white-space: normal;
+    overflow: visible;
+  }
+}
+
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=horizontal] .ghostlabs-u-card__header {
+  background-color: var(--ghostlabs-u-surface);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=horizontal] .ghostlabs-u-card__header::before {
+  --ghostlabs-u-zoom: max(1, var(--ghostlabs-u-photo-scale, 1));
+  --ghostlabs-u-plane: calc(100% * var(--ghostlabs-u-zoom));
+  --ghostlabs-u-fx: var(--ghostlabs-u-focal-x, 0.5);
+  --ghostlabs-u-fy: var(--ghostlabs-u-focal-y, 0.5);
+  content: "";
+  position: absolute;
+  inset-block-start: calc(clamp(6.5625rem, 21.875cqi, 10.9375rem) * (1 - var(--ghostlabs-u-zoom)) * var(--ghostlabs-u-fy));
+  inset-inline-start: calc((100% - var(--ghostlabs-u-plane)) * var(--ghostlabs-u-fx));
+  inline-size: var(--ghostlabs-u-plane);
+  block-size: calc(clamp(6.5625rem, 21.875cqi, 10.9375rem) * var(--ghostlabs-u-zoom));
+  clip-path: inset(calc(clamp(6.5625rem, 21.875cqi, 10.9375rem) * (var(--ghostlabs-u-zoom) - 1) * var(--ghostlabs-u-fy)) calc(100cqi * (var(--ghostlabs-u-zoom) - 1) * (1 - var(--ghostlabs-u-fx))) calc(clamp(6.5625rem, 21.875cqi, 10.9375rem) * (var(--ghostlabs-u-zoom) - 1) * (1 - var(--ghostlabs-u-fy))) calc(100cqi * (var(--ghostlabs-u-zoom) - 1) * var(--ghostlabs-u-fx)));
+  background-color: var(--ghostlabs-u-raised);
+  background-image: var(--ghostlabs-u-photo, none);
+  background-position: var(--ghostlabs-u-focal, center top);
+  background-size: cover;
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=horizontal] .ghostlabs-u-card__header::after {
+  content: "";
+  position: absolute;
+  inset-block-start: clamp(1.875rem, 6.25cqi, 3.125rem);
+  inset-inline: 0;
+  block-size: clamp(4.6875rem, 15.625cqi, 7.8125rem);
+  background-image: linear-gradient(oklch(from var(--ghostlabs-u-surface) l c h/0), oklch(from var(--ghostlabs-u-surface) l c h/0.9));
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=horizontal] .ghostlabs-u-card__photo {
+  border-color: var(--ghostlabs-u-surface);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=horizontal] .ghostlabs-u-card__photo[data-uc-avatar=initials]:not(.ghostlabs-u-avatar-upload) {
+  outline: 1px dashed color-mix(in oklab, var(--ghostlabs-u-text) 50%, transparent);
+  outline-offset: 3px;
+}
+
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] {
+  --ghostlabs-u-max-width: 30rem;
+  border-radius: 1rem;
+  box-shadow: 0 0.375rem 1rem var(--ghostlabs-u-cast-soft);
+}
+@container ghostlabs-u-card (width < 24rem) {
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__inner {
+    min-block-size: calc(100cqi / (var(--ghostlabs-u-ratio-narrow)));
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__inner {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+    padding-inline: 0.75rem;
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__header {
+    flex: 1;
+    align-items: center;
+    gap: 0.75rem;
+    min-inline-size: 0;
+    overflow: visible;
+    background: none;
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__initials {
+    font-size: clamp(0.5625rem, 5cqi, 0.9375rem);
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__photo {
+    flex: none;
+    inline-size: clamp(1.875rem, 16.6666666667cqi, 3.125rem);
+    aspect-ratio: 1;
+    border: clamp(0.09375rem, 0.8333333333cqi, 0.15625rem) solid var(--ghostlabs-u-accent);
+    border-radius: 50%;
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__name {
+    font-size: clamp(0.609375rem, 5.4166666667cqi, 1.015625rem);
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__link {
+    margin-block-start: 0.375rem;
+    font-size: clamp(0.375rem, 3.3333333333cqi, 0.625rem);
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__actions {
+    flex: none;
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__action {
+    inline-size: clamp(1.6875rem, 15cqi, 2.8125rem);
+    block-size: clamp(1.6875rem, 15cqi, 2.8125rem);
+    padding-inline: 0;
+    border-radius: 50%;
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__title,
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__qr,
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__qr-panel {
+    display: none;
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__action {
+    inline-size: auto;
+    padding-inline: clamp(0.46875rem, 4.1666666667cqi, 0.78125rem);
+    border-radius: clamp(0.84375rem, 7.5cqi, 1.40625rem);
+    font-size: clamp(0.515625rem, 4.5833333333cqi, 0.859375rem);
+  }
+}
+@container ghostlabs-u-card (width >= 24rem) {
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__inner {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    padding-inline: 1.25rem;
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__header {
+    flex: 1;
+    align-items: center;
+    gap: 1rem;
+    min-inline-size: 0;
+    overflow: visible;
+    background: none;
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__initials {
+    font-size: clamp(0.75rem, 3.3333333333cqi, 1.25rem);
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__photo {
+    flex: none;
+    inline-size: clamp(2.625rem, 11.6666666667cqi, 4.375rem);
+    aspect-ratio: 1;
+    border: clamp(0.09375rem, 0.4166666667cqi, 0.15625rem) solid var(--ghostlabs-u-accent);
+    border-radius: 50%;
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__name {
+    font-size: clamp(0.703125rem, 3.125cqi, 1.171875rem);
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__title {
+    margin-block-start: 0.5rem;
+    font-size: clamp(0.46875rem, 2.0833333333cqi, 0.78125rem);
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__actions {
+    flex: none;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__qr {
+    inline-size: clamp(1.875rem, 8.3333333333cqi, 3.125rem);
+    aspect-ratio: 1;
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__action {
+    inline-size: clamp(5.4375rem, 24.1666666667cqi, 9.0625rem);
+    block-size: clamp(1.875rem, 8.3333333333cqi, 3.125rem);
+    font-size: clamp(0.5390625rem, 2.3958333333cqi, 0.8984375rem);
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__qr-panel {
+    inset-block-start: 50%;
+    inset-inline-start: 0;
+    translate: 0 -50%;
+    inline-size: var(--ghostlabs-u-code);
+    aspect-ratio: 1;
+    pointer-events: none;
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row] .ghostlabs-u-card__qr-panel .ghostlabs-u-card__qr-frame {
+    border-radius: 0;
+    --ghostlabs-u-qr-quiet: transparent;
+    --ghostlabs-u-qr-ink: var(--ghostlabs-u-text);
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row][data-uc-qr=open] .ghostlabs-u-card__qr {
+    inline-size: var(--ghostlabs-u-code);
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row][data-uc-qr=open] .ghostlabs-u-card__qr > svg {
+    display: none;
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row][data-uc-qr=open] .ghostlabs-u-card__title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row][data-uc-qr-active]:not([data-uc-qr=open]) .ghostlabs-u-card__qr, .ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=row][data-uc-qr-active][data-uc-qr=open] .ghostlabs-u-card__qr-panel {
+    view-transition-name: ghostlabs-u-qr;
+  }
+}
+
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=ember][data-uc-layout=row] .ghostlabs-u-card__inner {
+  --ghostlabs-u-code: clamp(3.75rem, 16.6666666667cqi, 6.25rem);
+}
+
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-variation=onyx][data-uc-layout=row] .ghostlabs-u-card__inner {
+  --ghostlabs-u-code: clamp(3.375rem, 15cqi, 5.625rem);
+}
+
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=chip] {
+  --ghostlabs-u-max-width: 15rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.25rem 0.75rem var(--ghostlabs-u-cast-soft);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=chip] .ghostlabs-u-card__inner {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
+  padding-inline: 0.75rem;
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=chip] .ghostlabs-u-card__header {
+  flex: 1;
+  align-items: center;
+  gap: 0.75rem;
+  min-inline-size: 0;
+  overflow: visible;
+  background: none;
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=chip] .ghostlabs-u-card__initials {
+  font-size: clamp(0.5625rem, 5cqi, 0.9375rem);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=chip] .ghostlabs-u-card__photo {
+  flex: none;
+  inline-size: clamp(1.875rem, 16.6666666667cqi, 3.125rem);
+  aspect-ratio: 1;
+  border: clamp(0.09375rem, 0.8333333333cqi, 0.15625rem) solid var(--ghostlabs-u-accent);
+  border-radius: 50%;
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=chip] .ghostlabs-u-card__name {
+  font-size: clamp(0.609375rem, 5.4166666667cqi, 1.015625rem);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=chip] .ghostlabs-u-card__link {
+  margin-block-start: 0.375rem;
+  font-size: clamp(0.375rem, 3.3333333333cqi, 0.625rem);
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=chip] .ghostlabs-u-card__actions {
+  flex: none;
+}
+.ghostlabs-u-card[data-uc-family=nfc][data-uc-layout=chip] .ghostlabs-u-card__action {
+  inline-size: clamp(1.6875rem, 15cqi, 2.8125rem);
+  block-size: clamp(1.6875rem, 15cqi, 2.8125rem);
+  padding-inline: 0;
+  border-radius: 50%;
+}

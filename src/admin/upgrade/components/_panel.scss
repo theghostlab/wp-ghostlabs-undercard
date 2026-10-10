@@ -1,13 +1,26 @@
-// The in-place upgrade panel — Cycle Block's `UpgradePanel`.
+// "Already own …?" — the way to the paid edition for somebody who has bought it.
 
 // A single row until opened: the pitch below gets the weight, this gets a
-// sentence and a button.
+// sentence and a button-shaped summary.
+//
+// 🔴 A native `<details>`, with no script. Since 2026-10-08 the panel explains
+// the download, upload and activate steps and does nothing itself. WordPress.org
+// refused the in-place upgrade it used to run. See `Render\UpgradePanel`.
 
-.ghostlabs-u-inplace__row {
+.ghostlabs-u-inplace__summary {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	gap: var(--ghostlabs-u-space-6);
+	cursor: pointer;
+	// The disclosure triangle. The button-shaped label already says it opens.
+	list-style: none;
+
+	&:focus-visible {
+		outline: 2px solid var(--ghostlabs-u-accent);
+		outline-offset: var(--ghostlabs-u-space-2);
+		border-radius: var(--ghostlabs-u-radius-button);
+	}
 }
 
 .ghostlabs-u-upgrade .ghostlabs-u-inplace__heading {
@@ -18,70 +31,25 @@
 	color: var(--ghostlabs-u-ink);
 }
 
-// ⚠️ Two classes on the panel's paragraphs: the column's own
-// `.ghostlabs-u-upgrade p { margin: 0 }` is (0,1,1) and silently beats a
-// single class — the margin applied and lost, and the status line sat flush
-// under the button.
-.ghostlabs-u-upgrade .ghostlabs-u-inplace__sub {
-	margin-block-start: var(--ghostlabs-u-space-1);
-}
-
-.ghostlabs-u-inplace__claim {
-	margin-block-start: var(--ghostlabs-u-space-5);
-}
-
 .ghostlabs-u-inplace__region {
 	margin-block-start: var(--ghostlabs-u-space-6);
 }
 
-.ghostlabs-u-inplace__form {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	gap: var(--ghostlabs-u-space-6);
-}
-
-.ghostlabs-u-inplace__field {
-	display: flex;
-	flex-direction: column;
-	gap: var(--ghostlabs-u-space-2);
-	inline-size: min(100%, 30rem);
-}
-
-.ghostlabs-u-inplace__label {
-	font-weight: 600;
-	color: var(--ghostlabs-u-ink);
-}
-
-// Two classes: core's `input[type="text"]` is (0,1,1).
-.ghostlabs-u-inplace .ghostlabs-u-inplace__input {
-	inline-size: 100%;
-	min-block-size: 2.5rem;
-	padding-inline: var(--ghostlabs-u-space-3);
-	border: 1px solid var(--ghostlabs-u-wp-field);
-	border-radius: 0.25rem;
-	font-size: var(--ghostlabs-u-text-sm);
-
-	&[readonly] {
-		background: var(--ghostlabs-u-subtle);
-		color: var(--ghostlabs-u-muted);
-	}
-
-	&[aria-invalid="true"] {
-		border-color: var(--ghostlabs-u-wp-error);
-	}
-}
-
-.ghostlabs-u-inplace__notice {
-	color: var(--ghostlabs-u-wp-error);
-}
-
-// The live region. Present and empty from first paint — see `UpgradePanel`.
-.ghostlabs-u-upgrade .ghostlabs-u-inplace__status {
-	margin-block-start: var(--ghostlabs-u-space-4);
+// ⚠️ Two classes on the panel's paragraph: the column's own
+// `.ghostlabs-u-upgrade p { margin: 0 }` is (0,1,1) and silently beats a
+// single class.
+.ghostlabs-u-upgrade .ghostlabs-u-inplace__sub {
+	margin: 0;
 	color: var(--ghostlabs-u-text);
+}
 
-	&:empty {
-		margin-block-start: 0;
-	}
+// Two classes: core's `ol` margin in wp-admin is (0,0,1) but `.wrap ol` reaches
+// further, and the steps have to sit on the panel's own rhythm.
+.ghostlabs-u-upgrade .ghostlabs-u-inplace__steps {
+	display: grid;
+	gap: var(--ghostlabs-u-space-3);
+	margin-block: var(--ghostlabs-u-space-4) 0;
+	margin-inline: var(--ghostlabs-u-space-6) 0;
+	padding: 0;
+	color: var(--ghostlabs-u-text);
 }

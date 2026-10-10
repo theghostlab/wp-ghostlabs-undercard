@@ -7,7 +7,7 @@ This is the source of **Undercard**, the free WordPress plugin submitted to Word
 Author profile cards as native blocks — guest authors, co-authors, roles and bylines. Four designs,
 up to five layouts, light and dark.
 
-Requires **WordPress 6.4+** and **PHP 8.1+**. Licensed **GPL-2.0-or-later**.
+Requires **WordPress 6.6+** and **PHP 8.1+**. Licensed **GPL-2.0-or-later**.
 
 ---
 
@@ -43,9 +43,13 @@ A clean install and a rebuild reproduce the shipped bundles byte for byte:
 
 ```sh
 pnpm install --frozen-lockfile
-pnpm run build
+GHOSTLABS_MINIFY=0 pnpm run build
 git diff --exit-code build/
 ```
+
+`GHOSTLABS_MINIFY=0` builds readable, unminified assets, which are what this repository and the
+plugin submitted to WordPress.org carry. Without it the same sources build minified, and that
+reproduces the assets released versions of the plugin ship, byte for byte too.
 
 That is checked before anything is published here — an unverified claim would be worse than no
 claim, because this is exactly what a reviewer checks.

@@ -93,8 +93,53 @@ if ( copyPlugin ) {
 	);
 }
 
+const READABLE = process.env.GHOSTLABS_MINIFY === '0';
+
+function readableLoader( entry ) {
+	const loader = typeof entry === 'string' ? entry : entry.loader || '';
+	const options = ( typeof entry === 'object' && entry.options ) || {};
+
+	if ( loader.includes( 'postcss-loader' ) && options.postcssOptions ) {
+		const plugins = ( options.postcssOptions.plugins || [] ).filter(
+			( plugin ) => ! ( plugin && plugin.constructor && plugin.constructor.name === 'Processor' )
+		);
+
+		return {
+			...entry,
+			options: { ...options, postcssOptions: { ...options.postcssOptions, plugins } },
+		};
+	}
+
+	if ( loader.includes( 'sass-loader' ) ) {
+		return {
+			...entry,
+			options: { ...options, sassOptions: { ...options.sassOptions, style: 'expanded' } },
+		};
+	}
+
+	return entry;
+}
+
+function readableRules( rules ) {
+	return rules.map( ( rule ) => {
+		if ( rule.type === 'asset/inline' ) {
+			return {
+				...rule,
+				type: 'asset/resource',
+				generator: { filename: 'images/[name].[hash:8][ext]' },
+			};
+		}
+
+		return Array.isArray( rule.use ) ? { ...rule, use: rule.use.map( readableLoader ) } : rule;
+	} );
+}
+
 module.exports = {
 	...defaultConfig,
+	...( READABLE && {
+		optimization: { ...defaultConfig.optimization, minimize: false },
+		module: { ...defaultConfig.module, rules: readableRules( defaultConfig.module.rules ) },
+	} ),
 	resolve: {
 		...defaultConfig.resolve,
 

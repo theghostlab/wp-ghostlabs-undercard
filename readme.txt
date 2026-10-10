@@ -1,14 +1,14 @@
 === GhostLabs Undercard ===
 Contributors: ghostlabs
 Tags: author box, guest author, co-authors, multiple authors, author schema
-Requires at least: 6.4
+Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Author profile cards as native blocks — guest authors, co-authors, roles and bylines. Four designs, up to five layouts, light and dark.
+Four designed author card blocks you place anywhere. Credit guest authors and co-authors, with roles, and no user account needed.
 
 == Description ==
 
@@ -59,8 +59,8 @@ file at all, and any author can opt out entirely.
 Everything above is free and stays free. Pro adds the machine-readable half:
 
 * **JSON-LD structured data** — a connected `@graph` emitting a `Person` node per author and an
-  `Article` node that references them by `@id`, so a search engine or an AI assistant can
-  attribute the work to a credentialed person rather than to a name.
+  `Article` node that references them by `@id`, so the article points to each credited person's
+  full `Person` node, with the credentials they filled in, rather than carrying only a name.
 * **Credentials as structured data** — `jobTitle`, `worksFor`, `alumniOf` and `knowsAbout`. The
   fields are free to fill in and free to display; publishing them to a machine is what Pro adds.
 * **Yoast and Rank Math integration** — enriching the graph those plugins already emit, rather
@@ -73,7 +73,7 @@ would emit and marks the four properties an upgrade unlocks.
 
 == External services ==
 
-This plugin uses one external service, and only for registered users.
+This plugin contacts one external service, and not when you install or activate it.
 
 **Gravatar (Automattic).** When a card needs an avatar and the author has not uploaded a photo,
 the plugin asks Gravatar whether one exists for that account before falling back to initials.
@@ -93,8 +93,23 @@ uploads a photo is never looked up at all.
 
 Gravatar terms: https://automattic.com/terms/ — privacy: https://automattic.com/privacy/
 
-No other network request is made. Fonts are bundled with the plugin and served from your own
-site; nothing is loaded from a CDN.
+**Links to GhostLabs — not a service.** The plugin links to two GhostLabs sites from wp-admin and
+the block editor. It never contacts either one: nothing is requested from them in the background,
+and the plugin sends them nothing.
+
+* **https://theghostlab.io** — Undercard Pro's product page (`/undercard`) and this plugin's
+  documentation (`/docs/undercard`). A link to the product page names the screen it was clicked
+  on (for example `?from=settings`), and carries nothing else.
+* **https://enter.theghostlab.io/account** — your GhostLabs account, where Undercard Pro is
+  downloaded after you buy it. It is linked from **Settings → Undercard → Undercard Pro**, under
+  **Have a license?**, and opens in a new tab.
+
+Following either link is an ordinary visit to that site in your browser.
+
+GhostLabs terms: https://theghostlab.io/terms-of-service — privacy: https://theghostlab.io/privacy-policy
+
+Nothing else is requested from anywhere. Fonts are bundled with the plugin and served from your
+own site; nothing is loaded from a CDN.
 
 == Installation ==
 
@@ -130,8 +145,36 @@ it is what Undercard Pro adds.
 
 = Can I restyle the cards? =
 
-Yes. Card rules use a single class, no IDs and no `!important`, and the color tokens are CSS
-custom properties in a `@layer` your own rules beat.
+Yes. Colors come from CSS custom properties on each card — `--ghostlabs-u-surface`,
+`--ghostlabs-u-text`, `--ghostlabs-u-muted` and each design's accents — declared in a cascade
+layer, so a rule of yours outside any layer overrides them. Set them on the cards themselves:
+`.ghostlabs-u-card[data-uc-family="meridian"] { --ghostlabs-u-surface: #fdfaf3; }`
+
+Every card carries its design in `data-uc-family` (`meridian`, `cobalt`, `aurora` or `nfc`) and
+its layout in `data-uc-layout`, so a rule can reach one design or one layout. A few values are set
+again for particular layouts — Cobalt's row and chip set `--ghostlabs-u-surface` from
+`--ghostlabs-u-panel`, for example — so where an override does not take, match the card's own
+selector and load your stylesheet after the plugin's. Two colors are not yours to override from a
+stylesheet: Cobalt's accent is set on each block, from its color control, and NFC Profile's QR
+code sets its own colors on the code itself.
+
+No card rule uses an ID. The only `!important` declarations shorten animations and transitions
+to an instant for visitors whose system asks for reduced motion, and they are meant to win.
+
+= How do I upgrade to Undercard Pro? =
+
+Undercard Pro is a separate plugin. Once you have bought it:
+
+1. Download it from your GhostLabs account. **Settings → Undercard → Undercard Pro** links there
+   under **Have a license?**
+2. Upload it under **Plugins → Add New Plugin → Upload Plugin**.
+3. Activate it, then enter the license key from your receipt email in its settings.
+
+When Undercard Pro starts, it deactivates this plugin. Every setting, byline, guest and profile
+field stays exactly as it is, because both plugins read the same data. This plugin is left
+installed but inactive, and you can delete it whenever you like.
+
+On a multisite network, a network administrator uploads the plugin.
 
 = Does it work with a block theme? =
 
@@ -154,15 +197,17 @@ are built from — is published at:
 
 https://github.com/theghostlab/wp-ghostlabs-undercard
 
-The repository builds the shipped assets from those sources reproducibly: `pnpm install && pnpm
-run build` produces the committed `build/` directory byte for byte.
+The repository's committed `build/` directory is the readable build, and `pnpm install
+--frozen-lockfile && GHOSTLABS_MINIFY=0 pnpm run build` reproduces it byte for byte. Released
+versions of the plugin ship the same sources built minified, which `pnpm install
+--frozen-lockfile && pnpm run build` reproduces byte for byte.
 
 == Changelog ==
 
-= 1.0.0 =
+= 1.0.1 =
 * Initial release.
 
 == Upgrade Notice ==
 
-= 1.0.0 =
+= 1.0.1 =
 First release. Four designed author card blocks you place anywhere, with guest authors, co-authors and roles included.

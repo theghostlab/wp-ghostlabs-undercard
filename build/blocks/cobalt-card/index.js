@@ -1,2 +1,777 @@
-(()=>{"use strict";var e={299(e,t,r){const a=window.wp.blocks,o=window.wp.blockEditor,n=window.wp.components,s=window.wp.serverSideRender;var l=r.n(s);const i=window.wp.element,c=window.wp.i18n,d=window.wp.data,u=window.wp.coreData,h=window.wp.apiFetch;var p=r.n(h);const g=window.ReactJSXRuntime;function b({value:e,onChange:t}){return(0,g.jsx)(n.SelectControl,{label:(0,c.__)("Name heading level","ghostlabs-undercard"),value:String(e??2),help:(0,c.__)("Match the page around the card. A card inside a post usually sits at 2, below the post title; one nested under a section heading may need a lower level.","ghostlabs-undercard"),options:[2,3,4,5,6].map(e=>({label:(0,c.sprintf)(/* translators: %d: a heading level, 2 to 6. */ /* translators: %d: a heading level, 2 to 6. */
-(0,c.__)("Heading %d","ghostlabs-undercard"),e),value:String(e)})),onChange:e=>t(Number(e)),__nextHasNoMarginBottom:!0})}const v="#0F1B2D",_="#F9F7F2",f=(0,g.jsxs)("g",{transform:"rotate(14 16.107 11.85)",children:[(0,g.jsx)("rect",{x:"10.945",y:"4.01",width:"10.325",height:"15.68",rx:"1.737",fill:"#E8501F"}),(0,g.jsx)("rect",{x:"14.37",y:"7.85",width:"5.404",height:"1.6",rx:"0.8",fill:v}),(0,g.jsx)("rect",{x:"14.37",y:"11.05",width:"3.908",height:"1.6",rx:"0.8",fill:v}),(0,g.jsx)("rect",{x:"14.37",y:"14.25",width:"4.921",height:"1.6",rx:"0.8",fill:v})]}),x=(e=>(0,g.jsxs)("svg",{width:"24",height:"24",viewBox:"0 0 24 24",fill:"none",xmlns:"http://www.w3.org/2000/svg","aria-hidden":"true",focusable:"false",children:[f,(0,g.jsxs)("g",{transform:"rotate(-6 6.941 12.67)",children:[(0,g.jsx)("rect",{x:"1.778",y:"4.83",width:"10.325",height:"15.68",rx:"1.737",fill:v}),e]})]}))((0,g.jsxs)(g.Fragment,{children:[(0,g.jsx)("rect",{x:"3.49",y:"6.4",width:"6.9",height:"6.2",rx:"1",fill:_}),(0,g.jsx)("circle",{cx:"6.941",cy:"8.9",r:"1.45",fill:v}),(0,g.jsx)("path",{d:"M 4.55 12.6 V 12.48 A 2.39 2.39 0 0 1 9.33 12.48 V 12.6 Z",fill:v}),(0,g.jsx)("rect",{x:"3.49",y:"14.2",width:"6.9",height:"1.9",rx:"0.95",fill:_}),(0,g.jsx)("rect",{x:"3.49",y:"17.4",width:"4.6",height:"1.6",rx:"0.8",fill:_})]})),w=JSON.parse('{"UU":"ghostlabs/undercard-cobalt"}'),m={ii:[{label:(0,c.__)("Column","ghostlabs-undercard"),value:"vertical"},{label:(0,c.__)("Photo Split","ghostlabs-undercard"),value:"horizontal"}],v:[{label:(0,c.__)("Bottom Panel","ghostlabs-undercard"),value:"vertical"},{label:(0,c.__)("Photo Backdrop","ghostlabs-undercard"),value:"horizontal"}]};function y(e,t){return"v"===e&&"horizontal"===t?560/900:1}const j=[{label:(0,c.__)("Row","ghostlabs-undercard"),value:"row"},{label:(0,c.__)("Chip","ghostlabs-undercard"),value:"chip"}];(0,a.registerBlockType)(w.UU,{icon:x,edit({attributes:e,setAttributes:t,context:r}){const a=(0,i.useRef)(),s=(0,o.useBlockProps)({ref:a}),h=(v=e.authorId,(0,d.useSelect)(e=>{if(v)return v;const t=e("core/editor");return t?t.getEditedPostAttribute("author"):0},[v]));var v;const _=function({authorId:e,containerRef:t}){const[r,a]=(0,i.useState)(0),n=(0,i.useRef)(null),s=(0,i.useRef)(null),l=(0,d.useSelect)(t=>!!e&&!0===t(u.store).canUser("update","users",e),[e]),h=(0,i.useCallback)(async t=>{e&&(await p()({path:`/wp/v2/users/${e}`,method:"POST",data:{meta:{undercard_avatar_id:t}}}),a(e=>e+1))},[e]);(0,i.useEffect)(()=>{const e=t.current;if(!e||!l)return;const r=()=>{const t=e.querySelector("[data-uc-avatar]");t&&!t.dataset.ucUploadReady&&(t.dataset.ucUploadReady="1",t.classList.add("ghostlabs-u-avatar-upload"),t.setAttribute("role","button"),t.setAttribute("tabindex","0"),t.setAttribute("aria-label",(0,c.__)("Upload a profile photo","ghostlabs-undercard")),t.removeAttribute("aria-hidden"))};r();const a=new MutationObserver(r);return a.observe(e,{childList:!0,subtree:!0}),()=>a.disconnect()},[l,t,r]),(0,i.useEffect)(()=>{const e=t.current;if(!e||!l)return;const r=e=>"function"==typeof e.target?.closest?e.target.closest("[data-uc-avatar]"):null,a=e=>{r(e)&&(e.preventDefault(),e.stopPropagation(),n.current?n.current():s.current?.())},o=e=>{"Enter"!==e.key&&" "!==e.key||!r(e)||(e.preventDefault(),n.current?n.current():s.current?.())};return e.addEventListener("click",a,!0),e.addEventListener("keydown",o,!0),()=>{e.removeEventListener("click",a,!0),e.removeEventListener("keydown",o,!0)}},[l,t]);const b=l?(0,g.jsx)(o.MediaUpload,{onSelect:e=>h(e.id),allowedTypes:["image"],title:(0,c.__)("Choose a profile photo","ghostlabs-undercard"),render:({open:e})=>(n.current=e,null)}):null,v=(0,i.useCallback)(()=>{if(n.current)return void n.current();const e=window.wp?.media;if(!e)return;const t=e({title:(0,c.__)("Choose a profile photo","ghostlabs-undercard"),button:{text:(0,c.__)("Use this photo","ghostlabs-undercard")},library:{type:"image"},multiple:!1});t.on("select",()=>{const e=t.state().get("selection").first();e&&h(e.toJSON().id)}),t.open()},[h]);return s.current=v,{canEdit:l,control:b,bust:r,queryArgs:{_uc_avatar:r},open:v,remove:()=>h(0)}}({authorId:h,containerRef:a});var f;f=a,(0,i.useEffect)(()=>{const e=f.current;if(!e)return;const t=()=>{for(const t of e.querySelectorAll("a[href], button"))t.hasAttribute("inert")||t.closest("[data-uc-avatar]")||t.setAttribute("inert","")};t();const r=new MutationObserver(t);return r.observe(e,{childList:!0,subtree:!0}),()=>r.disconnect()},[f]);const x=function(e,t=0){return(0,d.useSelect)(t=>{if(!e)return"";const{getEntityRecord:r}=t(u.store),a=r("root","user",e),o=Number(a?.meta?.undercard_avatar_id??0);if(!o)return"";const n=r("postType","attachment",o);return n?.source_url??""},[e,t])}(h,_.bust),C="v"===e.variation?"v":"ii";return(0,g.jsxs)(g.Fragment,{children:[(0,g.jsxs)(o.InspectorControls,{children:[(0,g.jsxs)(n.PanelBody,{title:(0,c.__)("Card","ghostlabs-undercard"),children:[(0,g.jsx)(n.SelectControl,{label:(0,c.__)("Variation","ghostlabs-undercard"),value:C,help:(0,c.__)("Variations are separate designs, not light and dark. Both can appear on the same page.","ghostlabs-undercard"),options:[{label:(0,c.__)("Cobalt II — ink panel","ghostlabs-undercard"),value:"ii"},{label:(0,c.__)("Cobalt V — ivory panel","ghostlabs-undercard"),value:"v"}],onChange:e=>t({variation:e}),__nextHasNoMarginBottom:!0}),(0,g.jsx)(n.SelectControl,{label:(0,c.__)("Layout","ghostlabs-undercard"),value:e.layout,options:[...m[C],...j],onChange:e=>t({layout:e}),__nextHasNoMarginBottom:!0}),(0,g.jsx)(n.SelectControl,{label:(0,c.__)("Portrait","ghostlabs-undercard"),value:e.avatar,help:(0,c.__)("The initials are drawn over the portrait either way. Without one they sit on a tinted panel.","ghostlabs-undercard"),options:[{label:(0,c.__)("Tinted panel","ghostlabs-undercard"),value:"monogram"},{label:(0,c.__)("Photograph","ghostlabs-undercard"),value:"photo"}],onChange:e=>t({avatar:e}),__nextHasNoMarginBottom:!0}),(0,g.jsx)(b,{value:e.headingLevel,onChange:e=>t({headingLevel:e})})]}),(0,g.jsx)(o.PanelColorSettings,{title:(0,c.__)("Accent","ghostlabs-undercard"),initialOpen:!1,colorSettings:[{label:(0,c.__)("Accent","ghostlabs-undercard"),value:e.accent,onChange:e=>t({accent:e||""})}],__experimentalIsRenderedInSidebar:!0,children:(0,g.jsx)("p",{children:(0,c.__)("Tints the portrait and sets the role, site and rules. Leave empty for the variation’s own accent.","ghostlabs-undercard")})}),_.canEdit&&(0,g.jsxs)(n.PanelBody,{title:(0,c.__)("Profile photo","ghostlabs-undercard"),initialOpen:!1,children:[(0,g.jsx)("p",{children:(0,c.__)("Saved to the author’s profile, not to this block — every card showing them updates.","ghostlabs-undercard")}),(0,g.jsx)(n.Button,{variant:"secondary",onClick:_.open,children:(0,c.__)("Choose photo","ghostlabs-undercard")})," ",(0,g.jsx)(n.Button,{variant:"tertiary",isDestructive:!0,onClick:_.remove,children:(0,c.__)("Remove","ghostlabs-undercard")}),x&&"photo"===e.avatar&&(0,g.jsxs)("div",{className:"ghostlabs-u-focal-panel",children:[(0,g.jsx)(n.FocalPointPicker,{label:(0,c.__)("Focal point","ghostlabs-undercard"),help:(0,c.__)("Which part of the photo to keep in frame on this card. Applies to this block only.","ghostlabs-undercard"),url:x,value:e.focalPoint??{x:.5,y:.5},onChange:e=>t({focalPoint:e}),__nextHasNoMarginBottom:!0}),(0,g.jsx)(n.RangeControl,{label:(0,c.__)("Scale","ghostlabs-undercard"),help:(0,c.__)("Enlarges the photo past the frame, which is what gives the focal point room to move it. It stops where the photo would no longer cover the card.","ghostlabs-undercard"),value:e.photoScale??1,onChange:e=>t({photoScale:e??1}),min:y(C,e.layout),max:4,step:.05,initialPosition:1,resetFallbackValue:1,allowReset:!0,__nextHasNoMarginBottom:!0,__next40pxDefaultSize:!0}),(e.focalPoint||1!==(e.photoScale??1))&&(0,g.jsx)(n.Button,{variant:"tertiary",onClick:()=>t({focalPoint:void 0,photoScale:1}),children:(0,c.__)("Reset framing","ghostlabs-undercard")})]})]})]}),(0,g.jsxs)("div",{...s,children:[_.control,(0,g.jsx)(l(),{block:w.UU,attributes:e,urlQueryArgs:{..._.queryArgs,...r?.postId?{post_id:r.postId}:{}}})]})]})},save:()=>null})}};const t={};function r(a){const o=t[a];if(void 0!==o)return o.exports;const n=t[a]={exports:{}};return e[a](n,n.exports,r),n.exports}r.m=e,(()=>{const e=[];r.O=(t,a,o,n)=>{if(a){n=n||0;for(var s=e.length;s>0&&e[s-1][2]>n;s--)e[s]=e[s-1];return void(e[s]=[a,o,n])}let l=1/0;for(s=0;s<e.length;s++){let[a,o,n]=e[s],c=!0;for(var i=0;i<a.length;i++)(!1&n||l>=n)&&Object.keys(r.O).every(e=>r.O[e](a[i]))?a.splice(i--,1):(c=!1,n<l&&(l=n));if(c){e.splice(s--,1);const r=o();void 0!==r&&(t=r)}}return t}})(),r.n=e=>{const t=e&&e.__esModule?()=>e.default:()=>e;return r.d(t,{a:t}),t},r.d=(e,t)=>{if(Array.isArray(t))for(var a=0;a<t.length;){var o=t[a++],n=t[a++];r.o(e,o)?0===n&&a++:0===n?Object.defineProperty(e,o,{enumerable:!0,value:t[a++]}):Object.defineProperty(e,o,{enumerable:!0,get:n})}else for(var o in t)r.o(t,o)&&!r.o(e,o)&&Object.defineProperty(e,o,{enumerable:!0,get:t[o]})},r.o=(e,t)=>Object.hasOwn(e,t),(()=>{const e={645:0,25:0};r.O.j=t=>0===e[t];const t=(t,a)=>{let[o,n,s]=a;var l,i,c=0;if(o.some(t=>0!==e[t])){for(l in n)r.o(n,l)&&(r.m[l]=n[l]);if(s)var d=s(r)}for(t&&t(a);c<o.length;c++)i=o[c],r.o(e,i)&&e[i]&&e[i][0](),e[i]=0;return r.O(d)},a=globalThis.webpackChunkundercard_free||=[];a.forEach(t.bind(null,0)),a.push=t.bind(null,a.push.bind(a))})();let a=r.O(void 0,[25],()=>r(299));a=r.O(a)})();
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ 299
+(__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) {
+
+
+;// external ["wp","blocks"]
+const external_wp_blocks_namespaceObject = window["wp"]["blocks"];
+;// external ["wp","blockEditor"]
+const external_wp_blockEditor_namespaceObject = window["wp"]["blockEditor"];
+;// external ["wp","components"]
+const external_wp_components_namespaceObject = window["wp"]["components"];
+;// external ["wp","serverSideRender"]
+const external_wp_serverSideRender_namespaceObject = window["wp"]["serverSideRender"];
+var external_wp_serverSideRender_default = /*#__PURE__*/__webpack_require__.n(external_wp_serverSideRender_namespaceObject);
+;// external ["wp","element"]
+const external_wp_element_namespaceObject = window["wp"]["element"];
+;// external ["wp","i18n"]
+const external_wp_i18n_namespaceObject = window["wp"]["i18n"];
+;// external ["wp","data"]
+const external_wp_data_namespaceObject = window["wp"]["data"];
+;// external ["wp","coreData"]
+const external_wp_coreData_namespaceObject = window["wp"]["coreData"];
+;// external ["wp","apiFetch"]
+const external_wp_apiFetch_namespaceObject = window["wp"]["apiFetch"];
+var external_wp_apiFetch_default = /*#__PURE__*/__webpack_require__.n(external_wp_apiFetch_namespaceObject);
+;// external "ReactJSXRuntime"
+const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
+;// ./src/shared/use-avatar-upload.jsx
+
+
+
+
+
+
+
+function useCardAuthorId(attributeAuthorId) {
+  return (0,external_wp_data_namespaceObject.useSelect)(select => {
+    if (attributeAuthorId) {
+      return attributeAuthorId;
+    }
+    const editor = select('core/editor');
+    return editor ? editor.getEditedPostAttribute('author') : 0;
+  }, [attributeAuthorId]);
+}
+function useAuthorPhotoUrl(authorId, bust = 0) {
+  return (0,external_wp_data_namespaceObject.useSelect)(select => {
+    if (!authorId) {
+      return '';
+    }
+    const {
+      getEntityRecord
+    } = select(external_wp_coreData_namespaceObject.store);
+    const user = getEntityRecord('root', 'user', authorId);
+    const attachmentId = Number(user?.meta?.undercard_avatar_id ?? 0);
+    if (!attachmentId) {
+      return '';
+    }
+    const media = getEntityRecord('postType', 'attachment', attachmentId);
+    return media?.source_url ?? '';
+  }, [authorId, bust]);
+}
+function useAvatarUpload({
+  authorId,
+  containerRef
+}) {
+  const [bust, setBust] = (0,external_wp_element_namespaceObject.useState)(0);
+  const openRef = (0,external_wp_element_namespaceObject.useRef)(null);
+  const fallbackRef = (0,external_wp_element_namespaceObject.useRef)(null);
+  const canEdit = (0,external_wp_data_namespaceObject.useSelect)(select => authorId ? select(external_wp_coreData_namespaceObject.store).canUser('update', 'users', authorId) === true : false, [authorId]);
+  const save = (0,external_wp_element_namespaceObject.useCallback)(async attachmentId => {
+    if (!authorId) {
+      return;
+    }
+    await external_wp_apiFetch_default()({
+      path: `/wp/v2/users/${authorId}`,
+      method: 'POST',
+      data: {
+        meta: {
+          undercard_avatar_id: attachmentId
+        }
+      }
+    });
+    setBust(n => n + 1);
+  }, [authorId]);
+  (0,external_wp_element_namespaceObject.useEffect)(() => {
+    const root = containerRef.current;
+    if (!root || !canEdit) {
+      return undefined;
+    }
+    const decorate = () => {
+      const node = root.querySelector('[data-uc-avatar]');
+      if (!node || node.dataset.ucUploadReady) {
+        return;
+      }
+      node.dataset.ucUploadReady = '1';
+      node.classList.add('ghostlabs-u-avatar-upload');
+      node.setAttribute('role', 'button');
+      node.setAttribute('tabindex', '0');
+      node.setAttribute('aria-label', (0,external_wp_i18n_namespaceObject.__)('Upload a profile photo', 'ghostlabs-undercard'));
+      node.removeAttribute('aria-hidden');
+    };
+    decorate();
+    const observer = new MutationObserver(decorate);
+    observer.observe(root, {
+      childList: true,
+      subtree: true
+    });
+    return () => observer.disconnect();
+  }, [canEdit, containerRef, bust]);
+  (0,external_wp_element_namespaceObject.useEffect)(() => {
+    const root = containerRef.current;
+    if (!root || !canEdit) {
+      return undefined;
+    }
+    const hit = event => typeof event.target?.closest === 'function' ? event.target.closest('[data-uc-avatar]') : null;
+    const onClick = event => {
+      if (!hit(event)) {
+        return;
+      }
+      event.preventDefault();
+      event.stopPropagation();
+      openRef.current ? openRef.current() : fallbackRef.current?.();
+    };
+    const onKeyDown = event => {
+      if (event.key !== 'Enter' && event.key !== ' ' || !hit(event)) {
+        return;
+      }
+      event.preventDefault();
+      openRef.current ? openRef.current() : fallbackRef.current?.();
+    };
+    root.addEventListener('click', onClick, true);
+    root.addEventListener('keydown', onKeyDown, true);
+    return () => {
+      root.removeEventListener('click', onClick, true);
+      root.removeEventListener('keydown', onKeyDown, true);
+    };
+  }, [canEdit, containerRef]);
+  const control = canEdit ? /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_blockEditor_namespaceObject.MediaUpload, {
+    onSelect: media => save(media.id),
+    allowedTypes: ['image'],
+    title: (0,external_wp_i18n_namespaceObject.__)('Choose a profile photo', 'ghostlabs-undercard'),
+    render: ({
+      open
+    }) => {
+      openRef.current = open;
+      return null;
+    }
+  }) : null;
+  const open = (0,external_wp_element_namespaceObject.useCallback)(() => {
+    if (openRef.current) {
+      openRef.current();
+      return;
+    }
+    const media = window.wp?.media;
+    if (!media) {
+      return;
+    }
+    const frame = media({
+      title: (0,external_wp_i18n_namespaceObject.__)('Choose a profile photo', 'ghostlabs-undercard'),
+      button: {
+        text: (0,external_wp_i18n_namespaceObject.__)('Use this photo', 'ghostlabs-undercard')
+      },
+      library: {
+        type: 'image'
+      },
+      multiple: false
+    });
+    frame.on('select', () => {
+      const selected = frame.state().get('selection').first();
+      if (selected) {
+        save(selected.toJSON().id);
+      }
+    });
+    frame.open();
+  }, [save]);
+  fallbackRef.current = open;
+  return {
+    canEdit,
+    control,
+    bust,
+    queryArgs: {
+      _uc_avatar: bust
+    },
+    open,
+    remove: () => save(0)
+  };
+}
+;// ./src/shared/use-inert-links.jsx
+
+const INTERACTIVE = 'a[href], button';
+function useInertLinks(containerRef) {
+  (0,external_wp_element_namespaceObject.useEffect)(() => {
+    const root = containerRef.current;
+    if (!root) {
+      return undefined;
+    }
+    const deaden = () => {
+      for (const node of root.querySelectorAll(INTERACTIVE)) {
+        if (!node.hasAttribute('inert') && !node.closest('[data-uc-avatar]')) {
+          node.setAttribute('inert', '');
+        }
+      }
+    };
+    deaden();
+    const observer = new MutationObserver(deaden);
+    observer.observe(root, {
+      childList: true,
+      subtree: true
+    });
+    return () => observer.disconnect();
+  }, [containerRef]);
+}
+;// ./src/shared/heading-level-control.jsx
+
+
+
+function HeadingLevelControl({
+  value,
+  onChange
+}) {
+  return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.SelectControl, {
+    label: (0,external_wp_i18n_namespaceObject.__)('Name heading level', 'ghostlabs-undercard'),
+    value: String(value ?? 2),
+    help: (0,external_wp_i18n_namespaceObject.__)('Match the page around the card. A card inside a post usually sits at 2, below the post title; one nested under a section heading may need a lower level.', 'ghostlabs-undercard'),
+    options: [2, 3, 4, 5, 6].map(level => ({
+      label: (0,external_wp_i18n_namespaceObject.sprintf)(/* translators: %d: a heading level, 2 to 6. */
+      (0,external_wp_i18n_namespaceObject.__)('Heading %d', 'ghostlabs-undercard'), level),
+      value: String(level)
+    })),
+    onChange: level => onChange(Number(level)),
+    __nextHasNoMarginBottom: true
+  });
+}
+;// ./src/shared/block-icons.jsx
+/* unused harmony import specifier */ var _jsxs;
+/* unused harmony import specifier */ var _Fragment;
+/* unused harmony import specifier */ var _jsx;
+
+const EMBER = '#E8501F';
+const INK = '#0F1B2D';
+const IVORY = '#F9F7F2';
+const backCard = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)("g", {
+  transform: "rotate(14 16.107 11.85)",
+  children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("rect", {
+    x: "10.945",
+    y: "4.01",
+    width: "10.325",
+    height: "15.68",
+    rx: "1.737",
+    fill: EMBER
+  }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("rect", {
+    x: "14.37",
+    y: "7.85",
+    width: "5.404",
+    height: "1.6",
+    rx: "0.8",
+    fill: INK
+  }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("rect", {
+    x: "14.37",
+    y: "11.05",
+    width: "3.908",
+    height: "1.6",
+    rx: "0.8",
+    fill: INK
+  }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("rect", {
+    x: "14.37",
+    y: "14.25",
+    width: "4.921",
+    height: "1.6",
+    rx: "0.8",
+    fill: INK
+  })]
+});
+const markWithFace = face => /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)("svg", {
+  width: "24",
+  height: "24",
+  viewBox: "0 0 24 24",
+  fill: "none",
+  xmlns: "http://www.w3.org/2000/svg",
+  "aria-hidden": "true",
+  focusable: "false",
+  children: [backCard, /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)("g", {
+    transform: "rotate(-6 6.941 12.67)",
+    children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("rect", {
+      x: "1.778",
+      y: "4.83",
+      width: "10.325",
+      height: "15.68",
+      rx: "1.737",
+      fill: INK
+    }), face]
+  })]
+});
+const MeridianIcon = /*#__PURE__*/(/* unused pure expression or super */ null && (markWithFace(/*#__PURE__*/_jsxs(_Fragment, {
+  children: [/*#__PURE__*/_jsx("rect", {
+    x: "3.49",
+    y: "6.9",
+    width: "6.9",
+    height: "2.2",
+    rx: "1.1",
+    fill: IVORY
+  }), /*#__PURE__*/_jsx("rect", {
+    x: "3.49",
+    y: "10.9",
+    width: "6.2",
+    height: "1.6",
+    rx: "0.8",
+    fill: IVORY
+  }), /*#__PURE__*/_jsx("rect", {
+    x: "3.49",
+    y: "14.1",
+    width: "4.4",
+    height: "1.6",
+    rx: "0.8",
+    fill: IVORY
+  }), /*#__PURE__*/_jsx("rect", {
+    x: "3.49",
+    y: "17.3",
+    width: "5.6",
+    height: "1.6",
+    rx: "0.8",
+    fill: IVORY
+  })]
+}))));
+const AuroraIcon = /*#__PURE__*/(/* unused pure expression or super */ null && (markWithFace(/*#__PURE__*/_jsxs(_Fragment, {
+  children: [/*#__PURE__*/_jsx("circle", {
+    cx: "6.941",
+    cy: "9.4",
+    r: "2.34",
+    fill: IVORY
+  }), /*#__PURE__*/_jsx("rect", {
+    x: "3.49",
+    y: "13.2",
+    width: "6.9",
+    height: "1.6",
+    rx: "0.8",
+    fill: IVORY
+  }), /*#__PURE__*/_jsx("rect", {
+    x: "3.49",
+    y: "16.6",
+    width: "1.9",
+    height: "1.6",
+    rx: "0.4",
+    fill: IVORY
+  }), /*#__PURE__*/_jsx("rect", {
+    x: "5.99",
+    y: "16.6",
+    width: "1.9",
+    height: "1.6",
+    rx: "0.4",
+    fill: IVORY
+  }), /*#__PURE__*/_jsx("rect", {
+    x: "8.49",
+    y: "16.6",
+    width: "1.9",
+    height: "1.6",
+    rx: "0.4",
+    fill: IVORY
+  })]
+}))));
+const CobaltIcon = /*#__PURE__*/markWithFace(/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
+  children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("rect", {
+    x: "3.49",
+    y: "6.4",
+    width: "6.9",
+    height: "6.2",
+    rx: "1",
+    fill: IVORY
+  }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("circle", {
+    cx: "6.941",
+    cy: "8.9",
+    r: "1.45",
+    fill: INK
+  }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("path", {
+    d: "M 4.55 12.6 V 12.48 A 2.39 2.39 0 0 1 9.33 12.48 V 12.6 Z",
+    fill: INK
+  }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("rect", {
+    x: "3.49",
+    y: "14.2",
+    width: "6.9",
+    height: "1.9",
+    rx: "0.95",
+    fill: IVORY
+  }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("rect", {
+    x: "3.49",
+    y: "17.4",
+    width: "4.6",
+    height: "1.6",
+    rx: "0.8",
+    fill: IVORY
+  })]
+}));
+const NfcIcon = /*#__PURE__*/(/* unused pure expression or super */ null && (markWithFace(/*#__PURE__*/_jsxs("g", {
+  stroke: IVORY,
+  strokeWidth: "1.4",
+  strokeLinecap: "round",
+  fill: "none",
+  children: [/*#__PURE__*/_jsx("path", {
+    d: "M 4.26 10.974 A 2 2 0 0 1 4.26 14.366"
+  }), /*#__PURE__*/_jsx("path", {
+    d: "M 5.638 8.769 A 4.6 4.6 0 0 1 5.638 16.571"
+  }), /*#__PURE__*/_jsx("path", {
+    d: "M 7.015 6.564 A 7.2 7.2 0 0 1 7.015 18.776"
+  })]
+}))));
+;// ./src/blocks/cobalt-card/block.json
+const block_namespaceObject = /*#__PURE__*/JSON.parse('{"UU":"ghostlabs/undercard-cobalt"}');
+;// ./src/blocks/cobalt-card/index.jsx
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const LAYOUTS = {
+  ii: [{
+    label: (0,external_wp_i18n_namespaceObject.__)('Column', 'ghostlabs-undercard'),
+    value: 'vertical'
+  }, {
+    label: (0,external_wp_i18n_namespaceObject.__)('Photo Split', 'ghostlabs-undercard'),
+    value: 'horizontal'
+  }],
+  v: [{
+    label: (0,external_wp_i18n_namespaceObject.__)('Bottom Panel', 'ghostlabs-undercard'),
+    value: 'vertical'
+  }, {
+    label: (0,external_wp_i18n_namespaceObject.__)('Photo Backdrop', 'ghostlabs-undercard'),
+    value: 'horizontal'
+  }]
+};
+function minScale(variation, layout) {
+  return variation === 'v' && layout === 'horizontal' ? 560 / 900 : 1;
+}
+const COMPACT_LAYOUTS = [{
+  label: (0,external_wp_i18n_namespaceObject.__)('Row', 'ghostlabs-undercard'),
+  value: 'row'
+}, {
+  label: (0,external_wp_i18n_namespaceObject.__)('Chip', 'ghostlabs-undercard'),
+  value: 'chip'
+}];
+(0,external_wp_blocks_namespaceObject.registerBlockType)(block_namespaceObject.UU, {
+  icon: CobaltIcon,
+  edit({
+    attributes,
+    setAttributes,
+    context
+  }) {
+    const ref = (0,external_wp_element_namespaceObject.useRef)();
+    const blockProps = (0,external_wp_blockEditor_namespaceObject.useBlockProps)({
+      ref
+    });
+    const authorId = useCardAuthorId(attributes.authorId);
+    const avatar = useAvatarUpload({
+      authorId,
+      containerRef: ref
+    });
+    useInertLinks(ref);
+    const photoUrl = useAuthorPhotoUrl(authorId, avatar.bust);
+    const variation = attributes.variation === 'v' ? 'v' : 'ii';
+    return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
+      children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_blockEditor_namespaceObject.InspectorControls, {
+        children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_components_namespaceObject.PanelBody, {
+          title: (0,external_wp_i18n_namespaceObject.__)('Card', 'ghostlabs-undercard'),
+          children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.SelectControl, {
+            label: (0,external_wp_i18n_namespaceObject.__)('Variation', 'ghostlabs-undercard'),
+            value: variation,
+            help: (0,external_wp_i18n_namespaceObject.__)('Variations are separate designs, not light and dark. Both can appear on the same page.', 'ghostlabs-undercard'),
+            options: [{
+              label: (0,external_wp_i18n_namespaceObject.__)('Cobalt II — ink panel', 'ghostlabs-undercard'),
+              value: 'ii'
+            }, {
+              label: (0,external_wp_i18n_namespaceObject.__)('Cobalt V — ivory panel', 'ghostlabs-undercard'),
+              value: 'v'
+            }],
+            onChange: next => setAttributes({
+              variation: next
+            }),
+            __nextHasNoMarginBottom: true
+          }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.SelectControl, {
+            label: (0,external_wp_i18n_namespaceObject.__)('Layout', 'ghostlabs-undercard'),
+            value: attributes.layout,
+            options: [...LAYOUTS[variation], ...COMPACT_LAYOUTS],
+            onChange: layout => setAttributes({
+              layout
+            }),
+            __nextHasNoMarginBottom: true
+          }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.SelectControl, {
+            label: (0,external_wp_i18n_namespaceObject.__)('Portrait', 'ghostlabs-undercard'),
+            value: attributes.avatar,
+            help: (0,external_wp_i18n_namespaceObject.__)('The initials are drawn over the portrait either way. Without one they sit on a tinted panel.', 'ghostlabs-undercard'),
+            options: [{
+              label: (0,external_wp_i18n_namespaceObject.__)('Tinted panel', 'ghostlabs-undercard'),
+              value: 'monogram'
+            }, {
+              label: (0,external_wp_i18n_namespaceObject.__)('Photograph', 'ghostlabs-undercard'),
+              value: 'photo'
+            }],
+            onChange: avatar => setAttributes({
+              avatar
+            }),
+            __nextHasNoMarginBottom: true
+          }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(HeadingLevelControl, {
+            value: attributes.headingLevel,
+            onChange: headingLevel => setAttributes({
+              headingLevel
+            })
+          })]
+        }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_blockEditor_namespaceObject.PanelColorSettings, {
+          title: (0,external_wp_i18n_namespaceObject.__)('Accent', 'ghostlabs-undercard'),
+          initialOpen: false,
+          colorSettings: [{
+            label: (0,external_wp_i18n_namespaceObject.__)('Accent', 'ghostlabs-undercard'),
+            value: attributes.accent,
+            onChange: accent => setAttributes({
+              accent: accent || ''
+            })
+          }],
+          __experimentalIsRenderedInSidebar: true,
+          children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("p", {
+            children: (0,external_wp_i18n_namespaceObject.__)('Tints the portrait and sets the role, site and rules. Leave empty for the variation’s own accent.', 'ghostlabs-undercard')
+          })
+        }), avatar.canEdit && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_components_namespaceObject.PanelBody, {
+          title: (0,external_wp_i18n_namespaceObject.__)('Profile photo', 'ghostlabs-undercard'),
+          initialOpen: false,
+          children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("p", {
+            children: (0,external_wp_i18n_namespaceObject.__)('Saved to the author’s profile, not to this block — every card showing them updates.', 'ghostlabs-undercard')
+          }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.Button, {
+            variant: "secondary",
+            onClick: avatar.open,
+            children: (0,external_wp_i18n_namespaceObject.__)('Choose photo', 'ghostlabs-undercard')
+          }), ' ', /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.Button, {
+            variant: "tertiary",
+            isDestructive: true,
+            onClick: avatar.remove,
+            children: (0,external_wp_i18n_namespaceObject.__)('Remove', 'ghostlabs-undercard')
+          }), photoUrl && attributes.avatar === 'photo' && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)("div", {
+            className: "ghostlabs-u-focal-panel",
+            children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.FocalPointPicker, {
+              label: (0,external_wp_i18n_namespaceObject.__)('Focal point', 'ghostlabs-undercard'),
+              help: (0,external_wp_i18n_namespaceObject.__)('Which part of the photo to keep in frame on this card. Applies to this block only.', 'ghostlabs-undercard'),
+              url: photoUrl,
+              value: attributes.focalPoint ?? {
+                x: 0.5,
+                y: 0.5
+              },
+              onChange: focalPoint => setAttributes({
+                focalPoint
+              }),
+              __nextHasNoMarginBottom: true
+            }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.RangeControl, {
+              label: (0,external_wp_i18n_namespaceObject.__)('Scale', 'ghostlabs-undercard'),
+              help: (0,external_wp_i18n_namespaceObject.__)('Enlarges the photo past the frame, which is what gives the focal point room to move it. It stops where the photo would no longer cover the card.', 'ghostlabs-undercard'),
+              value: attributes.photoScale ?? 1,
+              onChange: photoScale => setAttributes({
+                photoScale: photoScale ?? 1
+              }),
+              min: minScale(variation, attributes.layout),
+              max: 4,
+              step: 0.05,
+              initialPosition: 1,
+              resetFallbackValue: 1,
+              allowReset: true,
+              __nextHasNoMarginBottom: true,
+              __next40pxDefaultSize: true
+            }), (attributes.focalPoint || (attributes.photoScale ?? 1) !== 1) && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.Button, {
+              variant: "tertiary",
+              onClick: () => setAttributes({
+                focalPoint: undefined,
+                photoScale: 1
+              }),
+              children: (0,external_wp_i18n_namespaceObject.__)('Reset framing', 'ghostlabs-undercard')
+            })]
+          })]
+        })]
+      }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)("div", {
+        ...blockProps,
+        children: [avatar.control, /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)((external_wp_serverSideRender_default()), {
+          block: block_namespaceObject.UU,
+          attributes: attributes,
+          urlQueryArgs: {
+            ...avatar.queryArgs,
+            ...(context?.postId ? {
+              post_id: context.postId
+            } : {})
+          }
+        })]
+      })]
+    });
+  },
+  save() {
+    return null;
+  }
+});
+
+/***/ }
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	const __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		const cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		const module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		const deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			let notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				let [chunkIds, fn, priority] = deferred[i];
+/******/ 				let fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					const r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			const getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter/value functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			if(Array.isArray(definition)) {
+/******/ 				var i = 0;
+/******/ 				while(i < definition.length) {
+/******/ 					var key = definition[i++];
+/******/ 					var binding = definition[i++];
+/******/ 					if(!__webpack_require__.o(exports, key)) {
+/******/ 						if(binding === 0) {
+/******/ 							Object.defineProperty(exports, key, { enumerable: true, value: definition[i++] });
+/******/ 						} else {
+/******/ 							Object.defineProperty(exports, key, { enumerable: true, get: binding });
+/******/ 						}
+/******/ 					} else if(binding === 0) { i++; }
+/******/ 				}
+/******/ 			} else {
+/******/ 				for(var key in definition) {
+/******/ 					if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 						Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 					}
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.hasOwn(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		const installedChunks = {
+/******/ 			645: 0,
+/******/ 			25: 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		const webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			let [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		const chunkLoadingGlobal = globalThis["webpackChunkundercard_free"] ||= [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	let __webpack_exports__ = __webpack_require__.O(undefined, [25], () => (__webpack_require__(299)))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
+/******/ })()
+;
