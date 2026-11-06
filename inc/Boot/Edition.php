@@ -12,9 +12,7 @@ final class Edition
     
     public static function libraries(): array
     {
-        return [
-            GHOSTLABS_UNDERCARD_PLUGIN_PATH . 'lib/wp-kit/wp-kit.php',
-        ];
+        return [];
     }
 
     public static function kernel(): string

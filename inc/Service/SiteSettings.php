@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace GHOSTLABS\UNDERCARD\Service;
 
-use GhostLabs\WPKit\Contracts\OptionsServiceInterface;
+use GHOSTLABS\UNDERCARD\Contracts\OptionsServiceInterface;
 
 final class SiteSettings
 {

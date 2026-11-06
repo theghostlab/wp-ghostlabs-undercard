@@ -1,8 +1,11 @@
 <?php
 
-namespace GhostLabs\WPKit\RestRoute;
+
+namespace GHOSTLABS\UNDERCARD\RestRoute;
 
 use Attribute;
+
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 #[Attribute]
 class CollectRoute

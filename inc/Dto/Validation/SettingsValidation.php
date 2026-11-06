@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace GHOSTLABS\UNDERCARD\Dto\Validation;
 
-use GhostLabs\WPKit\Contracts\DTOValidationInterface;
+use GHOSTLABS\UNDERCARD\Contracts\DTOValidationInterface;
 
 class SettingsValidation implements DTOValidationInterface
 {

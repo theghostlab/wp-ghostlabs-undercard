@@ -144,6 +144,7 @@ final class GuestAuthors implements GuestAuthorsInterface
                 ctaLabel: self::meta($post->ID, 'undercard_cta_label'),
                 ctaUrl: self::meta($post->ID, 'undercard_cta_url'),
                 socialUrls: self::metaList($post->ID, 'undercard_social'),
+                photoId: (int) get_post_thumbnail_id($post->ID),
             );
         } catch (InvalidArgumentException) {
             

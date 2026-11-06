@@ -32,7 +32,6 @@ equivalent.
 | `src/` | editor, block and admin sources → compiled into `build/` |
 | `build/` | compiled output, as published |
 | `assets/fonts/` | the card typefaces, self-hosted, under the SIL OFL (`OFL.txt`) |
-| `lib/wp-kit/` | the one GhostLabs library the plugin uses, carried as readable GPL-2.0-or-later source |
 | `vendor/` | Composer's autoloader and the plugin's runtime PHP dependencies |
 | `package.json`, `pnpm-lock.yaml`, `pnpm-workspace.yaml`, `webpack.config.cjs` | everything needed to reproduce the compile |
 | `readme.txt`, `index.php` | the WordPress.org listing text and the directory guard |

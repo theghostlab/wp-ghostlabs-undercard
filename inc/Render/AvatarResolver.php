@@ -4,6 +4,7 @@ namespace GHOSTLABS\UNDERCARD\Render;
 
 use GHOSTLABS\UNDERCARD\Entity\Author;
 use GHOSTLABS\UNDERCARD\Enum\AvatarSource;
+use GHOSTLABS\UNDERCARD\Service\AvatarCrop;
 use GHOSTLABS\UNDERCARD\Service\AvatarProbeInterface;
 use GHOSTLABS\UNDERCARD\Service\GravatarProbe;
 
@@ -11,6 +12,7 @@ final class AvatarResolver
 {
     public function __construct(
         private readonly AvatarProbeInterface $probe = new GravatarProbe(),
+        private readonly AvatarCrop $crop = new AvatarCrop(),
     ) {
     }
 
@@ -19,7 +21,10 @@ final class AvatarResolver
         $photo = $author->photoUrl($size);
 
         if ($photo !== '') {
-            return new ResolvedAvatar(AvatarSource::Photo, $photo);
+
+            $cropped = $size === Author::AVATAR_SIZE ? $this->crop->url($author->photoId()) : '';
+
+            return new ResolvedAvatar(AvatarSource::Photo, $cropped !== '' ? $cropped : $photo);
         }
 
         if ($this->probe->exists($author)) {

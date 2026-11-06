@@ -66,13 +66,19 @@ class SchemaPreviewPanel
 
     private function upsell(): void
     {
+        $url = Upsell::urlFor(UpsellSource::ProfilePreview);
+
+        if ($url === '') {
+            return;
+        }
+
         printf(
             '<p class="description">%s</p>',
             wp_kses(
                 sprintf(
 
                     /* translators: 1: the paid edition's name, in <strong>. 2: a comma-separated list of schema property names, each in <code>. */
-                    __('The locked rows are filled in and visible to readers on the card. %1$s also publishes them as structured data: %2$s.', 'ghostlabs-undercard'),
+                    __('%1$s, a separate plugin, publishes this profile as structured data, including %2$s.', 'ghostlabs-undercard'),
                     '<strong>' . esc_html(TierMatrix::paidEditionName()) . '</strong>',
 
                     implode(', ', array_map(
@@ -83,12 +89,6 @@ class SchemaPreviewPanel
                 [ 'strong' => [], 'code' => [] ]
             )
         );
-
-        $url = Upsell::urlFor(UpsellSource::ProfilePreview);
-
-        if ($url === '') {
-            return;
-        }
 
         printf(
             '<div class="ghostlabs-u-upsell-notice"><p class="ghostlabs-u-upsell-notice__claim">%s</p>'
@@ -128,22 +128,16 @@ class SchemaPreviewPanel
         echo '<table class="widefat striped" style="max-width:48rem"><tbody>';
 
         foreach ($rows as $row) {
-            $isLocked = $row['isPro'] && ! $preview->credentialsAreEmitted();
-
             printf(
-                '<tr><th scope="row" style="width:11rem;text-align:start;font-weight:400"><code>%s</code></th><td>%s%s</td></tr>',
+                '<tr><th scope="row" style="width:11rem;text-align:start;font-weight:400"><code>%s</code></th><td>%s</td></tr>',
                 esc_html($row['property']),
-                esc_html($row['value']),
-                $isLocked
-                    ? ' <span class="dashicons dashicons-lock" aria-hidden="true" style="font-size:1em;width:1em;height:1em;vertical-align:text-top"></span>'
-                      . '<em> ' . esc_html(TierMatrix::paidEditionBadge()) . '</em>'
-                    : ''
+                esc_html($row['value'])
             );
         }
 
         echo '</tbody></table>';
 
-        if ($preview->hasUnpublishedCredentials()) {
+        if ($preview->hasCredentials()) {
             $this->upsell();
         }
 

@@ -9,12 +9,15 @@
     "build": "wp-scripts build --config webpack.config.cjs && node -e \"require('fs').writeFileSync('build/.compiled','')\"",
     "start": "wp-scripts start --config webpack.config.cjs",
     "test": "pnpm run test:unit && pnpm run test:e2e",
-    "test:e2e": "WP_BASE_URL=http://localhost:8933 wp-scripts test-playwright",
-    "test:e2e:debug": "WP_BASE_URL=http://localhost:8933 wp-scripts test-playwright --headed --debug",
-    "test:e2e:ui": "WP_BASE_URL=http://localhost:8933 wp-scripts test-playwright --ui",
+    "test:e2e": "bin/e2e-serial.sh",
+    "test:e2e:firefox": "bin/e2e-firefox.sh",
+    "test:e2e:config": "node --test tests/tooling/",
+    "test:e2e:debug": "wp-scripts test-playwright --project=chromium --headed --debug",
+    "test:e2e:ui": "wp-scripts test-playwright --ui",
     "test:unit": "vendor/bin/phpunit",
     "wp-env:start": "wp-env start",
-    "wp-env:stop": "wp-env stop"
+    "wp-env:stop": "wp-env stop",
+    "e2e:down": "wp-env stop"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.12.1",

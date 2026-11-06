@@ -4,7 +4,7 @@ Tags: author box, guest author, co-authors, multiple authors, author schema
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -68,8 +68,8 @@ Everything above is free and stays free. Pro adds the machine-readable half:
 * **Author profile pages** — replacing the theme's author archive with a composed profile.
 
 This plugin shows you exactly what you would publish before you buy anything. Look for
-**Structured data preview** on any user profile screen: it renders the `Person` node your site
-would emit and marks the four properties an upgrade unlocks.
+**Structured data preview** on any user profile screen: it lists, property by property, the
+`Person` node Undercard Pro would publish for that profile.
 
 == External services ==
 
@@ -204,10 +204,17 @@ versions of the plugin ship the same sources built minified, which `pnpm install
 
 == Changelog ==
 
+= 1.0.2 =
+* Fixed: author photos on cards load a 192×192 crop instead of the full uploaded image.
+* Changed: the structured data preview no longer marks any row as unavailable.
+
 = 1.0.1 =
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.0.2 =
+Author photos on cards now load a small 192×192 crop instead of the full uploaded image, so pages with cards are lighter.
 
 = 1.0.1 =
 First release. Four designed author card blocks you place anywhere, with guest authors, co-authors and roles included.

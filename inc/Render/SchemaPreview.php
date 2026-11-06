@@ -4,17 +4,13 @@ declare(strict_types=1);
 
 namespace GHOSTLABS\UNDERCARD\Render;
 
-use GHOSTLABS\UNDERCARD\Config\PluginConfig;
 use GHOSTLABS\UNDERCARD\Config\TierMatrix;
 use GHOSTLABS\UNDERCARD\Entity\Author;
-use GHOSTLABS\UNDERCARD\Entity\SocialProfile;
 
 final class SchemaPreview
 {
-    
     public function __construct(
         private readonly Author $author,
-        private readonly ?bool $credentialsEmitted = null,
     ) {
     }
 
@@ -30,7 +26,6 @@ final class SchemaPreview
             $rows[] = [
                 'property' => $property,
                 'value'    => $value,
-                'isPro'    => in_array($property, TierMatrix::CREDENTIAL_PROPERTIES, true),
             ];
         };
 
@@ -46,10 +41,7 @@ final class SchemaPreview
         $add('alumniOf', $this->author->education());
         $add('knowsAbout', implode(', ', $this->author->expertise()));
 
-        $add('sameAs', implode(', ', array_map(
-            static fn (SocialProfile $profile): string => $profile->url(),
-            $this->author->socialProfiles()
-        )));
+        $add('sameAs', implode(', ', $this->sameAs()));
 
         $add('telephone', $this->author->phone());
         $add('email', $this->author->publicEmail());
@@ -58,14 +50,10 @@ final class SchemaPreview
         return $rows;
     }
 
-    public function hasUnpublishedCredentials(): bool
+    public function hasCredentials(): bool
     {
-        if ($this->credentialsAreEmitted()) {
-            return false;
-        }
-
         foreach ($this->rows() as $row) {
-            if ($row['isPro']) {
+            if (in_array($row['property'], TierMatrix::CREDENTIAL_PROPERTIES, true)) {
                 return true;
             }
         }
@@ -73,9 +61,20 @@ final class SchemaPreview
         return false;
     }
 
-    public function credentialsAreEmitted(): bool
+    private function sameAs(): array
     {
-        return $this->credentialsEmitted ?? PluginConfig::tier() !== 'free';
+        $urls = [];
+        $site = $this->author->url();
+
+        if ($site !== '' && $site !== $this->author->profileUrl()) {
+            $urls[] = $site;
+        }
+
+        foreach ($this->author->socialProfiles() as $profile) {
+            $urls[] = $profile->url();
+        }
+
+        return array_values(array_unique($urls));
     }
 
     private function address(): string

@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit1bfb55b1b882b380743c124d9d52d8c9
+class ComposerStaticInitGhostlabsUndercard
 {
     public static $prefixLengthsPsr4 = array (
         'G' =>
@@ -116,6 +116,11 @@ class ComposerStaticInit1bfb55b1b882b380743c124d9d52d8c9
         'GHOSTLABS\\UNDERCARD\\Config\\ProfileFields' => __DIR__ . '/../..' . '/inc/Config/ProfileFields.php',
         'GHOSTLABS\\UNDERCARD\\Config\\SettingsCopy' => __DIR__ . '/../..' . '/inc/Config/SettingsCopy.php',
         'GHOSTLABS\\UNDERCARD\\Config\\TierMatrix' => __DIR__ . '/../..' . '/inc/Config/TierMatrix.php',
+        'GHOSTLABS\\UNDERCARD\\Contracts\\DTOValidationInterface' => __DIR__ . '/../..' . '/inc/Contracts/DTOValidationInterface.php',
+        'GHOSTLABS\\UNDERCARD\\Contracts\\MutableOptionsServiceInterface' => __DIR__ . '/../..' . '/inc/Contracts/MutableOptionsServiceInterface.php',
+        'GHOSTLABS\\UNDERCARD\\Contracts\\OptionsServiceInterface' => __DIR__ . '/../..' . '/inc/Contracts/OptionsServiceInterface.php',
+        'GHOSTLABS\\UNDERCARD\\Contracts\\PluginIdentityInterface' => __DIR__ . '/../..' . '/inc/Contracts/PluginIdentityInterface.php',
+        'GHOSTLABS\\UNDERCARD\\Contracts\\SaveSettingsHandlerInterface' => __DIR__ . '/../..' . '/inc/Contracts/SaveSettingsHandlerInterface.php',
         'GHOSTLABS\\UNDERCARD\\Dto\\AssetMeta' => __DIR__ . '/../..' . '/inc/Dto/AssetMeta.php',
         'GHOSTLABS\\UNDERCARD\\Dto\\Input\\SettingsDto' => __DIR__ . '/../..' . '/inc/Dto/Input/SettingsDto.php',
         'GHOSTLABS\\UNDERCARD\\Dto\\Validation\\SettingsValidation' => __DIR__ . '/../..' . '/inc/Dto/Validation/SettingsValidation.php',
@@ -138,6 +143,7 @@ class ComposerStaticInit1bfb55b1b882b380743c124d9d52d8c9
         'GHOSTLABS\\UNDERCARD\\Kernel' => __DIR__ . '/../..' . '/inc/Kernel.php',
         'GHOSTLABS\\UNDERCARD\\Provider\\AdminResourcesProvider' => __DIR__ . '/../..' . '/inc/Provider/AdminResourcesProvider.php',
         'GHOSTLABS\\UNDERCARD\\Provider\\AuthorRoutesProvider' => __DIR__ . '/../..' . '/inc/Provider/AuthorRoutesProvider.php',
+        'GHOSTLABS\\UNDERCARD\\Provider\\AvatarCropProvider' => __DIR__ . '/../..' . '/inc/Provider/AvatarCropProvider.php',
         'GHOSTLABS\\UNDERCARD\\Provider\\BlocksProvider' => __DIR__ . '/../..' . '/inc/Provider/BlocksProvider.php',
         'GHOSTLABS\\UNDERCARD\\Provider\\BylineProvider' => __DIR__ . '/../..' . '/inc/Provider/BylineProvider.php',
         'GHOSTLABS\\UNDERCARD\\Provider\\ContactDownloadProvider' => __DIR__ . '/../..' . '/inc/Provider/ContactDownloadProvider.php',
@@ -169,7 +175,9 @@ class ComposerStaticInit1bfb55b1b882b380743c124d9d52d8c9
         'GHOSTLABS\\UNDERCARD\\Render\\UpgradePage' => __DIR__ . '/../..' . '/inc/Render/UpgradePage.php',
         'GHOSTLABS\\UNDERCARD\\Render\\UpgradePanel' => __DIR__ . '/../..' . '/inc/Render/UpgradePanel.php',
         'GHOSTLABS\\UNDERCARD\\Render\\VCard' => __DIR__ . '/../..' . '/inc/Render/VCard.php',
+        'GHOSTLABS\\UNDERCARD\\RestRoute\\AbstractSettingsRoutes' => __DIR__ . '/../..' . '/inc/RestRoute/AbstractSettingsRoutes.php',
         'GHOSTLABS\\UNDERCARD\\RestRoute\\AuthorRoutes' => __DIR__ . '/../..' . '/inc/RestRoute/AuthorRoutes.php',
+        'GHOSTLABS\\UNDERCARD\\RestRoute\\CollectRoute' => __DIR__ . '/../..' . '/inc/RestRoute/CollectRoute.php',
         'GHOSTLABS\\UNDERCARD\\RestRoute\\GuardsGuestBase' => __DIR__ . '/../..' . '/inc/RestRoute/GuardsGuestBase.php',
         'GHOSTLABS\\UNDERCARD\\RestRoute\\RestRouteInterface' => __DIR__ . '/../..' . '/inc/RestRoute/RestRouteInterface.php',
         'GHOSTLABS\\UNDERCARD\\RestRoute\\RouteRunner' => __DIR__ . '/../..' . '/inc/RestRoute/RouteRunner.php',
@@ -178,11 +186,13 @@ class ComposerStaticInit1bfb55b1b882b380743c124d9d52d8c9
         'GHOSTLABS\\UNDERCARD\\Service\\AuthorCandidates' => __DIR__ . '/../..' . '/inc/Service/AuthorCandidates.php',
         'GHOSTLABS\\UNDERCARD\\Service\\AuthorStat' => __DIR__ . '/../..' . '/inc/Service/AuthorStat.php',
         'GHOSTLABS\\UNDERCARD\\Service\\AuthorStats' => __DIR__ . '/../..' . '/inc/Service/AuthorStats.php',
+        'GHOSTLABS\\UNDERCARD\\Service\\AvatarCrop' => __DIR__ . '/../..' . '/inc/Service/AvatarCrop.php',
         'GHOSTLABS\\UNDERCARD\\Service\\AvatarProbeInterface' => __DIR__ . '/../..' . '/inc/Service/AvatarProbeInterface.php',
         'GHOSTLABS\\UNDERCARD\\Service\\BlockFactory' => __DIR__ . '/../..' . '/inc/Service/BlockFactory.php',
         'GHOSTLABS\\UNDERCARD\\Service\\BylineEditor' => __DIR__ . '/../..' . '/inc/Service/BylineEditor.php',
         'GHOSTLABS\\UNDERCARD\\Service\\BylineField' => __DIR__ . '/../..' . '/inc/Service/BylineField.php',
         'GHOSTLABS\\UNDERCARD\\Service\\CoreByline' => __DIR__ . '/../..' . '/inc/Service/CoreByline.php',
+        'GHOSTLABS\\UNDERCARD\\Service\\DTOMapper' => __DIR__ . '/../..' . '/inc/Service/DTOMapper.php',
         'GHOSTLABS\\UNDERCARD\\Service\\Flag' => __DIR__ . '/../..' . '/inc/Service/Flag.php',
         'GHOSTLABS\\UNDERCARD\\Service\\GravatarProbe' => __DIR__ . '/../..' . '/inc/Service/GravatarProbe.php',
         'GHOSTLABS\\UNDERCARD\\Service\\GuestAuthorFields' => __DIR__ . '/../..' . '/inc/Service/GuestAuthorFields.php',
@@ -202,6 +212,7 @@ class ComposerStaticInit1bfb55b1b882b380743c124d9d52d8c9
         'GHOSTLABS\\UNDERCARD\\Service\\SaveBylinePostTypes' => __DIR__ . '/../..' . '/inc/Service/SaveBylinePostTypes.php',
         'GHOSTLABS\\UNDERCARD\\Service\\SaveGuestSlug' => __DIR__ . '/../..' . '/inc/Service/SaveGuestSlug.php',
         'GHOSTLABS\\UNDERCARD\\Service\\SaveSetting' => __DIR__ . '/../..' . '/inc/Service/SaveSetting.php',
+        'GHOSTLABS\\UNDERCARD\\Service\\SaveSettings' => __DIR__ . '/../..' . '/inc/Service/SaveSettings.php',
         'GHOSTLABS\\UNDERCARD\\Service\\SaveVCardEnabled' => __DIR__ . '/../..' . '/inc/Service/SaveVCardEnabled.php',
         'GHOSTLABS\\UNDERCARD\\Service\\SchemaPreviewPanel' => __DIR__ . '/../..' . '/inc/Service/SchemaPreviewPanel.php',
         'GHOSTLABS\\UNDERCARD\\Service\\Settings' => __DIR__ . '/../..' . '/inc/Service/Settings.php',
@@ -211,6 +222,7 @@ class ComposerStaticInit1bfb55b1b882b380743c124d9d52d8c9
         'GHOSTLABS\\UNDERCARD\\Service\\UpsellLinks' => __DIR__ . '/../..' . '/inc/Service/UpsellLinks.php',
         'GHOSTLABS\\UNDERCARD\\Service\\UpsellNoticeStyle' => __DIR__ . '/../..' . '/inc/Service/UpsellNoticeStyle.php',
         'GHOSTLABS\\UNDERCARD\\Service\\UserProfile' => __DIR__ . '/../..' . '/inc/Service/UserProfile.php',
+        'GHOSTLABS\\UNDERCARD\\Service\\Utils' => __DIR__ . '/../..' . '/inc/Service/Utils.php',
         'GHOSTLABS\\UNDERCARD\\Service\\VCardDownload' => __DIR__ . '/../..' . '/inc/Service/VCardDownload.php',
         'GHOSTLABS\\UNDERCARD\\Traits\\Singleton' => __DIR__ . '/../..' . '/inc/Traits/Singleton.php',
     );
@@ -218,9 +230,9 @@ class ComposerStaticInit1bfb55b1b882b380743c124d9d52d8c9
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit1bfb55b1b882b380743c124d9d52d8c9::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit1bfb55b1b882b380743c124d9d52d8c9::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit1bfb55b1b882b380743c124d9d52d8c9::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitGhostlabsUndercard::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitGhostlabsUndercard::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitGhostlabsUndercard::$classMap;
 
         }, null, ClassLoader::class);
     }

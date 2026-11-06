@@ -7,7 +7,7 @@ namespace GHOSTLABS\UNDERCARD\Provider;
 use GHOSTLABS\UNDERCARD\RestRoute\SettingsRoutes;
 use GHOSTLABS\UNDERCARD\Service\Loader;
 use GHOSTLABS\UNDERCARD\Service\Settings;
-use GhostLabs\WPKit\Contracts\PluginIdentityInterface;
+use GHOSTLABS\UNDERCARD\Contracts\PluginIdentityInterface;
 
 final class AdminResourcesProvider implements FeatureProviderInterface
 {

@@ -1,22 +1,26 @@
 <?php
 
-namespace GhostLabs\WPKit\Service;
 
-use GhostLabs\WPKit\Contracts\DTOValidationInterface;
+namespace GHOSTLABS\UNDERCARD\Service;
+
+use GHOSTLABS\UNDERCARD\Contracts\DTOValidationInterface;
 use ReflectionClass;
 use ReflectionException;
 use ReflectionNamedType;
 use ReflectionProperty;
 use ReflectionUnionType;
 
-class DTOMapper {
-    
-    public static function map(array $data, string $dtoClass): object {
-        $dto = new $dtoClass();
-        $reflection = new ReflectionClass($dtoClass);
-        $properties = $reflection->getProperties(ReflectionProperty::IS_PUBLIC);
+if ( ! defined( 'ABSPATH' ) ) exit;
 
-        foreach ($properties as $property) {
+final class DTOMapper
+{
+    
+    public static function map(array $data, string $dtoClass): object
+    {
+        $dto        = new $dtoClass();
+        $reflection = new ReflectionClass($dtoClass);
+
+        foreach ($reflection->getProperties(ReflectionProperty::IS_PUBLIC) as $property) {
             $propertyName = $property->getName();
 
             if (!array_key_exists($propertyName, $data)) {
@@ -24,27 +28,28 @@ class DTOMapper {
             }
 
             $value = $data[$propertyName];
+            $type  = $property->getType();
 
-            $type = $property->getType();
             if ($type !== null) {
                 if ($type instanceof ReflectionNamedType) {
                     $typeName = $type->getName();
                 } elseif ($type instanceof ReflectionUnionType) {
-                    $types = $type->getTypes();
-                    $typeName = $types[0]->getName();
+
+                    $first    = $type->getTypes()[0];
+                    $typeName = $first instanceof ReflectionNamedType ? $first->getName() : (string) $first;
                 } else {
-                    $typeName = (string)$type;
+                    $typeName = (string) $type;
                 }
 
                 switch ($typeName) {
                     case 'int':
-                        $value = (int)$value;
+                        $value = (int) $value;
                         break;
                     case 'float':
-                        $value = (float)$value;
+                        $value = (float) $value;
                         break;
                     case 'bool':
-                        $value = (bool)$value;
+                        $value = (bool) $value;
                         break;
                     case 'array':
                         if (!is_array($value)) {
@@ -52,7 +57,7 @@ class DTOMapper {
                         }
                         break;
                     case 'string':
-                        $value = (string)$value;
+                        $value = (string) $value;
                         break;
                     default:
                         if (enum_exists($typeName)) {
@@ -70,32 +75,12 @@ class DTOMapper {
         return $dto;
     }
 
-    public static function mapNested(array $data, string $dtoClass, array $nestedMappings): object {
-        $dto = self::map($data, $dtoClass);
-
-        foreach ($nestedMappings as $property => $mapping) {
-            if (!isset($data[$property]) || !is_array($data[$property])) {
-                continue;
-            }
-
-            if (is_array($mapping)) {
-                $collection = [];
-                foreach ($data[$property] as $item) {
-                    $collection[] = self::map($item, $mapping[0]);
-                }
-                $dto->$property = $collection;
-            } else {
-                $dto->$property = self::map($data[$property], $mapping);
-            }
-        }
-
-        return $dto;
-    }
-
-    public static function validate(object $dto, DTOValidationInterface|array $rules): array {
+    public static function validate(object $dto, DTOValidationInterface|array $rules): array
+    {
         if ($rules instanceof DTOValidationInterface) {
             $rules = $rules::rules();
         }
+
         $errors = [];
 
         foreach ($rules as $property => $propertyRules) {
@@ -149,9 +134,9 @@ class DTOMapper {
                     case 'nested':
                         if (is_object($value)) {
                             $nestedRules = is_string($ruleValue) ? $ruleValue::rules() : $ruleValue;
-                            $nestedErrors = self::validate($value, $nestedRules);
-                            foreach ($nestedErrors as $nestedProp => $nestedErrs) {
-                                $errors["$property.$nestedProp"] = $nestedErrs;
+
+                            foreach (self::validate($value, $nestedRules) as $nestedProperty => $nestedErrors) {
+                                $errors["$property.$nestedProperty"] = $nestedErrors;
                             }
                         }
                         break;
@@ -162,19 +147,34 @@ class DTOMapper {
         return $errors;
     }
 
-    private static function isValidEnumValue(mixed $value, string|array $constraint): bool {
+    public static function toArray(object $dto): array
+    {
+        $result = [];
+
+        foreach ((new ReflectionClass($dto))->getProperties(ReflectionProperty::IS_PUBLIC) as $property) {
+            $value = $property->getValue($dto);
+
+            if (is_object($value)) {
+                $value = self::toArray($value);
+            }
+
+            $result[$property->getName()] = $value;
+        }
+
+        return $result;
+    }
+
+    private static function isValidEnumValue(mixed $value, string|array $constraint): bool
+    {
         if (is_array($constraint)) {
             return in_array($value, $constraint, true);
         }
 
-        if (!enum_exists($constraint)) {
-            return false;
-        }
-
-        return self::coerceEnum($value, $constraint) !== null;
+        return enum_exists($constraint) && self::coerceEnum($value, $constraint) !== null;
     }
 
-    private static function coerceEnum(mixed $value, string $enumClass): ?\UnitEnum {
+    private static function coerceEnum(mixed $value, string $enumClass): ?\UnitEnum
+    {
         if (!enum_exists($enumClass)) {
             return null;
         }
@@ -196,7 +196,8 @@ class DTOMapper {
         return null;
     }
 
-    private static function allowedEnumValues(string|array $constraint): array {
+    private static function allowedEnumValues(string|array $constraint): array
+    {
         if (is_array($constraint)) {
             return $constraint;
         }
@@ -206,23 +207,8 @@ class DTOMapper {
         }
 
         return array_map(
-            static fn(\UnitEnum $case): string|int => $case instanceof \BackedEnum ? $case->value : $case->name,
+            static fn (\UnitEnum $case): string|int => $case instanceof \BackedEnum ? $case->value : $case->name,
             $constraint::cases()
         );
-    }
-
-    public static function toArray(object $dto): array {
-        $result = [];
-        $reflection = new ReflectionClass($dto);
-
-        foreach ($reflection->getProperties(ReflectionProperty::IS_PUBLIC) as $property) {
-            $value = $property->getValue($dto);
-            if (is_object($value)) {
-                $value = self::toArray($value);
-            }
-            $result[$property->getName()] = $value;
-        }
-
-        return $result;
     }
 }

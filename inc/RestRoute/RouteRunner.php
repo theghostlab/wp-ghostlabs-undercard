@@ -3,7 +3,6 @@
 namespace GHOSTLABS\UNDERCARD\RestRoute;
 
 use Generator;
-use GhostLabs\WPKit\RestRoute\CollectRoute;
 use ReflectionClass;
 use ReflectionException;
 

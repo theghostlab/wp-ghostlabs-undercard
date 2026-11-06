@@ -1,6 +1,10 @@
 <?php
 
-namespace GhostLabs\WPKit\Contracts;
+declare(strict_types=1);
+
+namespace GHOSTLABS\UNDERCARD\Contracts;
+
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 interface SaveSettingsHandlerInterface
 {

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace GHOSTLABS\UNDERCARD\Service;
 
 use GHOSTLABS\UNDERCARD\Config\PluginConfig;
-use GhostLabs\WPKit\Contracts\PluginIdentityInterface;
+use GHOSTLABS\UNDERCARD\Contracts\PluginIdentityInterface;
 
 class PluginIdentity implements PluginIdentityInterface
 {

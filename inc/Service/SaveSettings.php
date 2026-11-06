@@ -1,9 +1,13 @@
 <?php
 
-namespace GhostLabs\WPKit\Service;
+
+namespace GHOSTLABS\UNDERCARD\Service;
 
 use Exception;
+use GHOSTLABS\UNDERCARD\Contracts\SaveSettingsHandlerInterface;
 use Generator;
+
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 class SaveSettings
 {

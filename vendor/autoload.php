@@ -19,4 +19,4 @@ if (PHP_VERSION_ID < 50600) {
 
 require_once __DIR__ . '/composer/autoload_real.php';
 
-return ComposerAutoloaderInit1bfb55b1b882b380743c124d9d52d8c9::getLoader();
+return ComposerAutoloaderInitGhostlabsUndercard::getLoader();

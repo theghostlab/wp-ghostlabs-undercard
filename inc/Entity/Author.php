@@ -114,6 +114,7 @@ final class Author
         string $ctaLabel = '',
         string $ctaUrl = '',
         array $socialUrls = [],
+        int $photoId = 0,
     ): self {
         $slug = trim($slug);
 
@@ -140,7 +141,7 @@ final class Author
             handle: self::buildHandle($handle, ''),
             userId: 0,
 
-            photoId: 0,
+            photoId: max(0, $photoId),
             guestAvatarUrl: trim($avatarUrl),
             phone: $phone,
             publicEmail: $publicEmail,

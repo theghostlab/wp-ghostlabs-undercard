@@ -12,6 +12,7 @@ use GHOSTLABS\UNDERCARD\Provider\FeatureProviderInterface;
 use GHOSTLABS\UNDERCARD\Provider\GuestAuthorsProvider;
 use GHOSTLABS\UNDERCARD\Provider\InstallerProvider;
 use GHOSTLABS\UNDERCARD\Provider\PluginMetaProvider;
+use GHOSTLABS\UNDERCARD\Provider\AvatarCropProvider;
 use GHOSTLABS\UNDERCARD\Provider\ProfileFieldsProvider;
 use GHOSTLABS\UNDERCARD\Provider\SchemaPreviewProvider;
 use GHOSTLABS\UNDERCARD\Provider\SiteSettingsProvider;
@@ -22,7 +23,7 @@ use GHOSTLABS\UNDERCARD\Service\PluginIdentity;
 use GHOSTLABS\UNDERCARD\Service\PostAuthors;
 use GHOSTLABS\UNDERCARD\Service\SiteSettings;
 use GHOSTLABS\UNDERCARD\Traits\Singleton;
-use GhostLabs\WPKit\Contracts\PluginIdentityInterface;
+use GHOSTLABS\UNDERCARD\Contracts\PluginIdentityInterface;
 use wpdb;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
@@ -71,6 +72,7 @@ class Kernel
             new AdminResourcesProvider($this->identity),
             new AuthorRoutesProvider(),
             new ProfileFieldsProvider(),
+            new AvatarCropProvider(),
             new ContactDownloadProvider(),
             new BylineProvider($this->postAuthors),
             new GuestAuthorsProvider(),

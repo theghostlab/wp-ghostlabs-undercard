@@ -1,6 +1,9 @@
 <?php
 
-namespace GhostLabs\WPKit\Service;
+
+namespace GHOSTLABS\UNDERCARD\Service;
+
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 class Utils
 {

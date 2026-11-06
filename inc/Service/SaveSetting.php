@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace GHOSTLABS\UNDERCARD\Service;
 
-use GhostLabs\WPKit\Contracts\SaveSettingsHandlerInterface;
+use GHOSTLABS\UNDERCARD\Contracts\SaveSettingsHandlerInterface;
 
 abstract class SaveSetting implements SaveSettingsHandlerInterface
 {

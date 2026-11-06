@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace GHOSTLABS\UNDERCARD\Service;
 
 use GHOSTLABS\UNDERCARD\Config\PluginConfig;
-use GhostLabs\WPKit\Contracts\MutableOptionsServiceInterface;
+use GHOSTLABS\UNDERCARD\Contracts\MutableOptionsServiceInterface;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 

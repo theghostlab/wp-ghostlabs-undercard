@@ -10,7 +10,6 @@ use GHOSTLABS\UNDERCARD\Service\SaveBylineFollowsCore;
 use GHOSTLABS\UNDERCARD\Service\SaveBylinePostTypes;
 use GHOSTLABS\UNDERCARD\Service\SaveGuestSlug;
 use GHOSTLABS\UNDERCARD\Service\SaveVCardEnabled;
-use GhostLabs\WPKit\RestRoute\AbstractSettingsRoutes;
 
 class SettingsRoutes extends AbstractSettingsRoutes
 {

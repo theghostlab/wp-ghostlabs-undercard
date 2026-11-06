@@ -1,18 +1,21 @@
 <?php
 
-namespace GhostLabs\WPKit\RestRoute;
+
+namespace GHOSTLABS\UNDERCARD\RestRoute;
 
 use Exception;
-use GhostLabs\WPKit\Contracts\PluginIdentityInterface;
-use GhostLabs\WPKit\Contracts\RestRouteInterface;
-use GhostLabs\WPKit\Service\DTOMapper;
-use GhostLabs\WPKit\Service\SaveSettings;
-use GhostLabs\WPKit\Service\Utils;
+use GHOSTLABS\UNDERCARD\Contracts\PluginIdentityInterface;
+use GHOSTLABS\UNDERCARD\Contracts\SaveSettingsHandlerInterface;
+use GHOSTLABS\UNDERCARD\Service\DTOMapper;
+use GHOSTLABS\UNDERCARD\Service\SaveSettings;
+use GHOSTLABS\UNDERCARD\Service\Utils;
 use RuntimeException;
 use WP_Error;
 use WP_HTTP_Response;
 use WP_REST_Request;
 use WP_REST_Response;
+
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 abstract class AbstractSettingsRoutes implements RestRouteInterface
 {
@@ -30,7 +33,13 @@ abstract class AbstractSettingsRoutes implements RestRouteInterface
 
     public function routes(): void
     {
-        register_rest_route($this->config->getRestNamespace(), '/save-settings', [
+        $namespace = $this->config->getRestNamespace();
+
+        if ($namespace === '' || $namespace === '0') {
+            return;
+        }
+
+        register_rest_route($namespace, '/save-settings', [
             [
                 'methods' => 'POST',
                 'callback' => [$this, 'saveSettings'],
