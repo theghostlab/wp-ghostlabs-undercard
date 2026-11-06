@@ -4,7 +4,7 @@ Tags: author box, guest author, co-authors, multiple authors, author schema
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -91,7 +91,7 @@ serves a generated placeholder behind it, so every author would appear to have a
 Turning off **Settings → Discussion → Show Avatars** stops both entirely, and an author who
 uploads a photo is never looked up at all.
 
-Gravatar terms: https://automattic.com/terms/ — privacy: https://automattic.com/privacy/
+Gravatar terms: https://gravatar.com/tos — privacy: https://automattic.com/privacy/
 
 **Links to GhostLabs — not a service.** The plugin links to two GhostLabs sites from wp-admin and
 the block editor. It never contacts either one: nothing is requested from them in the background,
@@ -204,8 +204,11 @@ versions of the plugin ship the same sources built minified, which `pnpm install
 
 == Changelog ==
 
+= 1.0.3 =
+* Fixed: the link to Gravatar's terms of service under External services, which no longer answered.
+
 = 1.0.2 =
-* Fixed: author photos on cards load a 192×192 crop instead of the full uploaded image.
+* Fixed: author photos on cards load a 192×192 crop, wherever WordPress can make one, in place of the larger image they loaded before.
 * Changed: the structured data preview no longer marks any row as unavailable.
 
 = 1.0.1 =
@@ -213,8 +216,11 @@ versions of the plugin ship the same sources built minified, which `pnpm install
 
 == Upgrade Notice ==
 
+= 1.0.3 =
+Author photos on cards now load a small 192×192 crop, wherever WordPress can make one, in place of the larger image they loaded before, so pages with cards are lighter.
+
 = 1.0.2 =
-Author photos on cards now load a small 192×192 crop instead of the full uploaded image, so pages with cards are lighter.
+Author photos on cards now load a small 192×192 crop, wherever WordPress can make one, in place of the larger image they loaded before, so pages with cards are lighter.
 
 = 1.0.1 =
 First release. Four designed author card blocks you place anywhere, with guest authors, co-authors and roles included.
