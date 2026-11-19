@@ -377,7 +377,7 @@ $compact-split: 24rem;
 
 	@include scale($banner);
 
-	@container ghostlabs-u-card (width < 31.25rem) {
+	@container ghostlabs-u-card (width < 32.5rem) {
 		.ghostlabs-u-card__actions {
 			flex-direction: column;
 			gap: 0.5rem;

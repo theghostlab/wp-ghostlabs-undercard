@@ -571,7 +571,7 @@
 .ghostlabs-u-card[data-uc-family=aurora][data-uc-layout=horizontal] .ghostlabs-u-card__link {
   font-size: clamp(0.421875rem, 1.5cqi, 0.703125rem);
 }
-@container ghostlabs-u-card (width < 31.25rem) {
+@container ghostlabs-u-card (width < 32.5rem) {
   .ghostlabs-u-card[data-uc-family=aurora][data-uc-layout=horizontal] .ghostlabs-u-card__actions {
     flex-direction: column;
     gap: 0.5rem;

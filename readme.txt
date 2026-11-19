@@ -1,10 +1,10 @@
-=== GhostLabs Undercard ===
+=== Undercard – Author Box, Guest Authors & Co-Authors ===
 Contributors: ghostlabs
 Tags: author box, guest author, co-authors, multiple authors, author schema
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -204,6 +204,9 @@ versions of the plugin ship the same sources built minified, which `pnpm install
 
 == Changelog ==
 
+= 1.0.4 =
+* Fixed: an Aurora card narrower than 520px (32.5rem) stacks its two buttons, so a long button label no longer breaks mid-word in Firefox.
+
 = 1.0.3 =
 * Fixed: the link to Gravatar's terms of service under External services, which no longer answered.
 
@@ -216,8 +219,11 @@ versions of the plugin ship the same sources built minified, which `pnpm install
 
 == Upgrade Notice ==
 
+= 1.0.4 =
+Aurora cards narrower than 520px now stack their two buttons, so a long button label no longer breaks mid-word in Firefox.
+
 = 1.0.3 =
-Author photos on cards now load a small 192×192 crop, wherever WordPress can make one, in place of the larger image they loaded before, so pages with cards are lighter.
+A readme correction: the link to Gravatar's terms of service under External services, which no longer answered.
 
 = 1.0.2 =
 Author photos on cards now load a small 192×192 crop, wherever WordPress can make one, in place of the larger image they loaded before, so pages with cards are lighter.
