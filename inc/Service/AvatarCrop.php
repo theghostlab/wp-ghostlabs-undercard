@@ -12,6 +12,10 @@ class AvatarCrop
 
     public const SIZE = Author::AVATAR_SIZE;
 
+    private const FAILURE_TTL = DAY_IN_SECONDS;
+
+    private const FAILURE_KEY = 'ghostlabs_undercard_crop_failed_';
+
     public function url(int $attachmentId): string
     {
         if ($attachmentId <= 0) {
@@ -27,7 +31,7 @@ class AvatarCrop
         return $fallback === null ? '' : $this->sizeUrl($attachmentId, $fallback);
     }
 
-    public function ensure(int $attachmentId): bool
+    public function ensure(int $attachmentId, bool $retry = false): bool
     {
         if ($attachmentId <= 0) {
             return false;
@@ -48,10 +52,18 @@ class AvatarCrop
             return false;
         }
 
-        $made = image_make_intermediate_size($file, self::SIZE, self::SIZE, true);
-        if (!is_array($made)) {
+        if (!$retry && get_transient(self::FAILURE_KEY . $attachmentId) !== false) {
             return false;
         }
+
+        $made = image_make_intermediate_size($file, self::SIZE, self::SIZE, true);
+        if (!is_array($made)) {
+            set_transient(self::FAILURE_KEY . $attachmentId, 1, self::FAILURE_TTL);
+
+            return false;
+        }
+
+        delete_transient(self::FAILURE_KEY . $attachmentId);
 
         $sizes[self::SIZE_NAME] = $made;
         $meta['sizes'] = $sizes;

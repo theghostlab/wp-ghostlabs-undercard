@@ -4,7 +4,7 @@ Tags: author box, guest author, co-authors, multiple authors, author schema
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -204,6 +204,9 @@ versions of the plugin ship the same sources built minified, which `pnpm install
 
 == Changelog ==
 
+= 1.0.5 =
+* Fixed: when WordPress cannot make the 192×192 crop of an author photo, Undercard no longer tries again on every page view that shows it. It waits up to a day before trying again, and a newly chosen photo is still tried at once.
+
 = 1.0.4 =
 * Fixed: an Aurora card narrower than 520px (32.5rem) stacks its two buttons, so a long button label no longer breaks mid-word in Firefox.
 
@@ -218,6 +221,9 @@ versions of the plugin ship the same sources built minified, which `pnpm install
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.0.5 =
+When WordPress cannot make the 192×192 crop of an author photo, Undercard now waits up to a day before trying again, instead of trying on every page view that shows it.
 
 = 1.0.4 =
 Aurora cards narrower than 520px now stack their two buttons, so a long button label no longer breaks mid-word in Firefox.

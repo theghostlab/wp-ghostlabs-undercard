@@ -32,14 +32,14 @@ final class AvatarCropProvider implements FeatureProviderInterface
     public function onUserMeta(int $metaId, int $userId, string $key, mixed $value): void
     {
         if ($key === self::USER_PHOTO && (int) $value > 0) {
-            $this->crop->ensure((int) $value);
+            $this->crop->ensure((int) $value, true);
         }
     }
 
     public function onPostMeta(int $metaId, int $postId, string $key, mixed $value): void
     {
         if ($key === self::GUEST_PHOTO && (int) $value > 0 && get_post_type($postId) === GuestAuthors::POST_TYPE) {
-            $this->crop->ensure((int) $value);
+            $this->crop->ensure((int) $value, true);
         }
     }
 }
